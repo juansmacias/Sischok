@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">       
+    <color name="purple_light">#a276eb</color> 
+    <color name="purple_middle">#8658ce</color>
+    <color name="purple_dark">#6a3ab2</color>
+    <color name ="azul_Perfil"> #0072ff</color>
+    <color name ="verde_Ciudad"> #97bc05</color>
+    <color name ="verde_Juego"> #64ad3b</color> 
+    <color name = "rojo_elemento">#bc002c</color>
+    <color name = "amarillo_recordar"> #bdb805</color>
+    <color name="naranja_comuunidad">#ff802e</color>
+    <color name = "gris"> #eeeeee</color>
+    <color name = "blanco"> #ffffff</color>
+    <color name="verde_elementos"> #d5e49b</color>
+</resources>

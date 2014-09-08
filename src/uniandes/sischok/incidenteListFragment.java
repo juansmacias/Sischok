@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import uniandes.sischok.dummy.DummyContent;
+import uniandes.sischok.mundo.DummyContent;
 
 /**
  * A list fragment representing a list of incidentes. This fragment also

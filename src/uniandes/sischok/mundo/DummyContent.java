@@ -1,4 +1,4 @@
-package uniandes.sischok.dummy;
+package uniandes.sischok.mundo;
 
 import java.util.ArrayList;
 import java.util.HashMap;

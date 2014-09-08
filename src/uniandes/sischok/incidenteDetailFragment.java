@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import uniandes.sischok.dummy.DummyContent;
+import uniandes.sischok.mundo.DummyContent;
 
 /**
  * A fragment representing a single incidente detail screen. This fragment is
