@@ -1,5 +1,6 @@
 package uniandes.sischok;
 
+import uniandes.sischok.mundo.CentroEventos;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -49,6 +50,9 @@ public class incidenteListActivity extends FragmentActivity implements
 		}
 
 		// TODO: If exposing deep links into your app, handle intents here.
+		//crea el intent de las notificaciones
+		Intent intent = new Intent(this, CentroEventos.class);
+		startService(intent);
 	}
 
 	/**

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import uniandes.sischok.R;
 import uniandes.sischok.mundo.Section;
-import uniandes.sischok.mundo.SectionItem;
 
 
 public class SlidingMenuFragment extends Fragment implements ExpandableListView.OnChildClickListener
