@@ -3,7 +3,8 @@
     <color name="purple_light">#a276eb</color> 
     <color name="purple_middle">#8658ce</color>
     <color name="purple_dark">#6a3ab2</color>
-    <color name ="azul_Perfil"> #0072ff</color>
+    <color name ="azul_CrearIBarrio"> #b1d4ff</color>
+    <color name = "verde_CrearIFondoObjetos">#d4ffb1</color>
     <color name ="verde_Ciudad"> #97bc05</color>
     <color name ="verde_Juego"> #64ad3b</color> 
     <color name = "rojo_elemento">#bc002c</color>

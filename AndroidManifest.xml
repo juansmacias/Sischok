@@ -30,6 +30,27 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".incidenteListActivity" />
         </activity>
+        <activity
+            android:name="uniandes.sischok.Inicio"
+            android:label="@string/title_activity_inicio" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="uniandes.sischok.CrearIncidenteBarrios"
+            android:label="@string/title_activity_crear_incidente_barrios" >
+        </activity>
+        <activity
+            android:name="uniandes.sischok.CrearIncidenteDescripcion"
+            android:label="@string/title_activity_crear_incidente_descripcion"
+            android:parentActivityName="uniandes.sischok.CrearIncidenteBarrios" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="uniandes.sischok.CrearIncidenteBarrios" />
+        </activity>
     </application>
 
 </manifest>

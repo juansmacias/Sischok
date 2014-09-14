@@ -1,8 +1,11 @@
 package uniandes.sischok;
 
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import uniandes.sischok.R;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.KeyEvent;
 
 /**
  * An activity representing a list of incidentes. This activity has different
@@ -23,11 +26,16 @@ import android.support.v4.app.FragmentActivity;
 public class incidenteListActivity extends FragmentActivity implements
 		incidenteListFragment.Callbacks {
 
+	
+	
 	/**
 	 * Whether or not the activity is in two-pane mode, i.e. running on a tablet
 	 * device.
 	 */
 	private boolean mTwoPane;
+	
+
+	private SlidingMenu slidingMenu;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +55,17 @@ public class incidenteListActivity extends FragmentActivity implements
 					.findFragmentById(R.id.incidente_list))
 					.setActivateOnItemClick(true);
 		}
+		slidingMenu = new SlidingMenu(this);
+		slidingMenu.setMode(SlidingMenu.LEFT);
+		slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+		slidingMenu.setShadowWidthRes(R.dimen.slidingmenu_shadow_width);
+		slidingMenu.setShadowDrawable(R.drawable.slidingmenu_shadow);
+		slidingMenu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
+		slidingMenu.setFadeDegree(0.35f);
+		slidingMenu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
+		slidingMenu.setMenu(R.layout.slidingmenu);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 
-		// TODO: If exposing deep links into your app, handle intents here.
 	}
 
 	/**
@@ -78,4 +95,24 @@ public class incidenteListActivity extends FragmentActivity implements
 			startActivity(detailIntent);
 		}
 	}
+	
+	@Override
+	public void onBackPressed()
+	{
+		if ( slidingMenu.isMenuShowing()) {
+            slidingMenu.toggle();
+        }
+        else {
+            super.onBackPressed();
+        }
+	}
+	
+	@Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ( keyCode == KeyEvent.KEYCODE_MENU ) {
+            this.slidingMenu.toggle();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }
