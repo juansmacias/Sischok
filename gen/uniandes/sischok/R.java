@@ -27,10 +27,6 @@ public final class R {
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
-
-         Customize dimensions originally defined in res/values/dimens.xml (such as
-         screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
-    
          */
         public static final int activity_horizontal_margin=0x7f050000;
         public static final int activity_vertical_margin=0x7f050001;
@@ -38,58 +34,26 @@ public final class R {
         public static final int slidingmenu_shadow_width=0x7f050002;
     }
     public static final class drawable {
-        public static final int antonionarino=0x7f020000;
-        public static final int barriosunidos=0x7f020001;
-        public static final int bosa=0x7f020002;
-        public static final int chapinero=0x7f020003;
-        public static final int ciudadbolivar=0x7f020004;
-        public static final int engativa=0x7f020005;
-        public static final int fontibon=0x7f020006;
-        public static final int ic_launcher=0x7f020007;
-        public static final int icono7=0x7f020008;
-        public static final int kennedy=0x7f020009;
-        public static final int lacandelaria=0x7f02000a;
-        public static final int martires=0x7f02000b;
-        public static final int puentearanda=0x7f02000c;
-        public static final int rafaeluribe=0x7f02000d;
-        public static final int sancristobal=0x7f02000e;
-        public static final int santafe=0x7f02000f;
-        public static final int slidingmenu_foto_perfil=0x7f020010;
-        public static final int slidingmenu_icono=0x7f020011;
-        public static final int slidingmenu_list_selector_background=0x7f020012;
-        public static final int slidingmenu_shadow=0x7f020013;
-        public static final int suba=0x7f020014;
-        public static final int teusaquillo=0x7f020015;
-        public static final int tunjuelito=0x7f020016;
-        public static final int url=0x7f020017;
-        public static final int usaquen=0x7f020018;
-        public static final int usme=0x7f020019;
+        public static final int ic_launcher=0x7f020000;
+        public static final int icono7=0x7f020001;
+        public static final int slidingmenu_foto_perfil=0x7f020002;
+        public static final int slidingmenu_icono=0x7f020003;
+        public static final int slidingmenu_list_selector_background=0x7f020004;
+        public static final int slidingmenu_shadow=0x7f020005;
+        public static final int url=0x7f020006;
     }
     public static final class id {
-        public static final int action_settings=0x7f090012;
-        public static final int button1=0x7f090009;
-        public static final int incidente_detail=0x7f09000c;
-        public static final int incidente_detail_container=0x7f09000a;
-        public static final int incidente_list=0x7f09000b;
-        public static final int lblIngresaDatos=0x7f090001;
-        public static final int linearLayout1=0x7f090002;
-        public static final int listView1=0x7f090000;
-        public static final int slidingmenu=0x7f09000d;
-        public static final int slidingmenu_section_title=0x7f090011;
-        public static final int slidingmenu_sectionitem_icon=0x7f09000f;
-        public static final int slidingmenu_sectionitem_label=0x7f090010;
-        public static final int slidingmenu_view=0x7f09000e;
-        public static final int textView1=0x7f090003;
-        public static final int textView2=0x7f090005;
-        public static final int textView3=0x7f090007;
-        public static final int txtDescripcion=0x7f090006;
-        public static final int txtGravedad=0x7f090008;
-        public static final int txtTitulo=0x7f090004;
+        public static final int incidente_detail=0x7f080002;
+        public static final int incidente_detail_container=0x7f080000;
+        public static final int incidente_list=0x7f080001;
+        public static final int slidingmenu=0x7f080003;
+        public static final int slidingmenu_section_title=0x7f080007;
+        public static final int slidingmenu_sectionitem_icon=0x7f080005;
+        public static final int slidingmenu_sectionitem_label=0x7f080006;
+        public static final int slidingmenu_view=0x7f080004;
     }
     public static final class layout {
-        public static final int activity_crear_incidente_barrios=0x7f030000;
-        public static final int activity_crear_incidente_descripcion=0x7f030001;
-        public static final int activity_incidente_detail=0x7f030002;
+        public static final int activity_incidente_detail=0x7f030000;
         /** 
     Layout alias to replace the single-pane version of the layout with a
     two-pane version on Large screens.
@@ -105,19 +69,13 @@ public final class R {
     http://developer.android.com/training/multiscreen/screensizes.html#TaskUseAliasFilters
     
          */
-        public static final int activity_incidente_list=0x7f030003;
-        public static final int activity_incidente_twopane=0x7f030004;
-        public static final int activity_inicio=0x7f030005;
-        public static final int fragment_incidente_detail=0x7f030006;
-        public static final int slidingmenu=0x7f030007;
-        public static final int slidingmenu_fragment=0x7f030008;
-        public static final int slidingmenu_sectionitem=0x7f030009;
-        public static final int slidingmenu_sectionview=0x7f03000a;
-    }
-    public static final class menu {
-        public static final int crear_incidente_barrios=0x7f080000;
-        public static final int crear_incidente_descripcion=0x7f080001;
-        public static final int inicio=0x7f080002;
+        public static final int activity_incidente_list=0x7f030001;
+        public static final int activity_incidente_twopane=0x7f030002;
+        public static final int fragment_incidente_detail=0x7f030003;
+        public static final int slidingmenu=0x7f030004;
+        public static final int slidingmenu_fragment=0x7f030005;
+        public static final int slidingmenu_sectionitem=0x7f030006;
+        public static final int slidingmenu_sectionview=0x7f030007;
     }
     public static final class string {
         public static final int action_settings=0x7f060003;
