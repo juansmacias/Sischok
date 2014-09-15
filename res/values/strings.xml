@@ -3,5 +3,16 @@
 
     <string name="app_name">Sischok</string>
     <string name="title_incidente_detail">incidente Detail</string>
+    <string name="title_activity_inicio">Inicio</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_crear_incidente_barrios">Seleccionar Barrio</string>
+    <string name="lblSeleccionarBarrio">Selecciona la Localidad del indicente:</string>
+    <string name="title_activity_crear_incidente_descripcion">Crear Incidente</string>
+    <string name="lblCrearIncidentesTitulo">Titulo para el incidente:</string>
+    <string name="lblCrearIncidenteDescripcion">Ingresa datos adicionales:</string>
+    <string name="lblCrearIncidenteIngresodescripcion">Ingresa una descripcion para el incidente:</string>
+    <string name="lblCrearIncidenteGravedad">Selecciona el nivel de gravedad (1 al 5):</string>
+    <string name="btnCrearIncidente"> Crear Incidente</string>
 
 </resources>
