@@ -7,23 +7,19 @@
     <uses-sdk
         android:minSdkVersion="16"
         android:targetSdkVersion="16" />
-        
-	<uses-permission android:name="android.permission.READ_CALENDAR" />
-	
+
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <service android:name="uniandes.sischok.mundo.CentroEventos" />
+
         <activity
             android:name="uniandes.sischok.incidenteListActivity"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="uniandes.sischok.incidenteDetailActivity"
@@ -32,6 +28,37 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".incidenteListActivity" />
+        </activity>
+        <activity
+            android:name="uniandes.sischok.Inicio"
+            android:label="@string/title_activity_inicio" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="uniandes.sischok.CrearIncidenteBarrios"
+            android:label="@string/title_activity_crear_incidente_barrios" >
+        </activity>
+        <activity
+            android:name="uniandes.sischok.CrearIncidenteDescripcion"
+            android:label="@string/title_activity_crear_incidente_descripcion"
+            android:parentActivityName="uniandes.sischok.CrearIncidenteBarrios" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="uniandes.sischok.CrearIncidenteBarrios" />
+        </activity>
+        <activity
+            android:name="uniandes.sischok.Bienvenidaawsdgcfhv"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_bienvenida"
+            android:theme="@style/FullscreenTheme" >
+        </activity>
+        <activity
+            android:name="uniandes.sischok.Bienvenida"
+            android:label="@string/title_activity_bienvenida" >
         </activity>
     </application>
 

@@ -14,5 +14,36 @@
     <string name="lblCrearIncidenteIngresodescripcion">Ingresa una descripcion para el incidente:</string>
     <string name="lblCrearIncidenteGravedad">Selecciona el nivel de gravedad (1 al 5):</string>
     <string name="btnCrearIncidente"> Crear Incidente</string>
+    <string name="lblLocalidad1">Antonio Nariño</string>
+    <string name="lblLocalidad2">Barrios Unidos</string>
+    <string name="lblLocalidad3">Bosa</string>
+    <string name="lblLocalidad4">Chapinero</string>
+    <string name="lblLocalidad5">Ciudad Bolivar</string>
+    <string name="lblLocalidad6">Engativa</string>
+    <string name="lblLocalidad7">Fontibon</string>
+    <string name="lblLocalidad8">Kennedy</string>
+    <string name="lblLocalidad9">La Candelaria</string>
+    <string name="lblLocalidad10">Martires</string>
+    <string name="lblLocalidad11">Puente Aranda</string>
+    <string name="lblLocalidad12">Rafael Uribe</string>
+    <string name="lblLocalidad13">San Cristobal</string>
+    <string name="lblLocalidad14">Santa fe</string>
+    <string name="lblLocalidad15">Suba</string>
+    <string name="lblLocalidad16">Teusaquillo</string>
+    <string name="lblLocalidad17">Tunjuelito</string>
+    <string name="lblLocalidad18">Usaquen</string>
+    <string name="lblLocalidad19">Usme</string>
+    <string name="lblNuevosIncidentes">Nuevo Incidentes:</string>
+    <string name="lblbntCrearIncidente">Crear Incidente</string>
+    <string name="lblbtnConsultaIncidente">Consulta incidente Por Zonas</string>
+    <string name="lblbtnIncidentesPorAmigos">Incidentes reportados por amigos</string>
+    <string name="lblbtnAjustes">Ajustes</string>
+    <string name="title_activity_bienvenida">Bienvenido a Sischok</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="lblTextoBienvenida">Bienvenidos a Sischok Sistema de prevension de accidentes. Antes de comenzar a usar el sistema les solicitamos un nombre que estara destinado a firmar los incidentes creados y la edad sea la apropiada para el uso del sistema</string>
+    <string name="lblBienvenidaNombre">¿Cual es su nombre?"</string>
+    <string name="lblBienvenidaEdad">¿Que Edad tiene?</string>
+    <string name="lblbtnIniciarApp">Entrar a Sischok</string>
 
 </resources>

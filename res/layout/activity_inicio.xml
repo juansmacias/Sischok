@@ -8,9 +8,54 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Inicio" >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:background="@color/amarillo_inicio"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="23dp"
+            android:text="@string/lblNuevosIncidentes"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ListView
+            android:id="@+id/lstNuevosIncidentes"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" >
+        </ListView>
+
+        <Button
+            android:id="@+id/btnCrearIncidente"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginBottom="0dp"
+            android:paddingBottom="0dp"
+            android:text="@string/lblbntCrearIncidente" />
+
+        <Button
+            android:id="@+id/btnConsultaIncidentes"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="@string/lblbtnConsultaIncidente" />
+
+        <Button
+            android:id="@+id/btnIncidentesPorAmigos"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="@string/lblbtnIncidentesPorAmigos"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/btnAjustes"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="@string/lblbtnAjustes" />
+
+    </LinearLayout>
 
 </RelativeLayout>

@@ -10,6 +10,7 @@ public class CrearIncidenteBarrios extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_crear_incidente_barrios);
+		
 	}
 
 	@Override

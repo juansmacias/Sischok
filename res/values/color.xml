@@ -4,7 +4,7 @@
     <color name="purple_middle">#8658ce</color>
     <color name="purple_dark">#6a3ab2</color>
     <color name ="azul_CrearIBarrio"> #b1d4ff</color>
-    <color name = "verde_CrearIFondoObjetos">#d4ffb1</color>
+    <color name = "naranja_CrearIFondoObjetos">#ffdcb1</color>
     <color name ="verde_Ciudad"> #97bc05</color>
     <color name ="verde_Juego"> #64ad3b</color> 
     <color name = "rojo_elemento">#bc002c</color>
@@ -13,4 +13,6 @@
     <color name = "gris"> #eeeeee</color>
     <color name = "blanco"> #ffffff</color>
     <color name="verde_elementos"> #d5e49b</color>
+    <color name="rosado_botonCrearIncidente">#ffb5b1</color>
+    <color name="amarillo_inicio">#ffffbf</color>
 </resources>
