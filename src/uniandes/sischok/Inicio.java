@@ -20,12 +20,6 @@ import de.greenrobot.dao.query.QueryBuilder;
 import uniandes.sischok.mundo.DaoMaster.DevOpenHelper;
 import java.util.Calendar;
 
-import java.util.Calendar;
-
-import java.util.Calendar;
-
-import java.util.Calendar;
-
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
