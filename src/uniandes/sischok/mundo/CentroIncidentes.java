@@ -22,25 +22,25 @@ public class CentroIncidentes {
 	
 	//-------------------Constructor-----------------------------
 	
-	public CentroIncidentes(Context contexto)
+	public CentroIncidentes()
 	{
 		incidentesLocales = new ArrayList<Incidente>();
 	}
 	
 	//-------------------Metodos---------------------------------
 	
-	public static CentroIncidentes darInstancia(Context contexto)
+	public static CentroIncidentes darInstancia()
 	{
 		if(instancia==null)
 		{
-			instancia = new CentroIncidentes(contexto);
+			instancia = new CentroIncidentes();
 		}
 		return instancia;
 	}
 	
 	public Boolean registarIncidentes (String strTitulo,String strDescripcion, String strUsuario, int intZona,int intGravedad)
 	{
-		incidentesLocales.add(new Incidente(strTitulo, strDescripcion, strUsuario, intZona, intGravedad));		
+//		incidentesLocales.add(new Incidente(strTitulo, strDescripcion, strUsuario, intZona, intGravedad ));		
 		return true;
 	}
 	
@@ -62,7 +62,7 @@ public class CentroIncidentes {
 			int zonaAcual = Integer.parseInt(jObjZonas.getString("Zona"+i));
 			Incidente incidenteActual= darIncidentesPorZona(zonaAcual);
 			JSONObject jIncidenteActaul = new JSONObject();
-			jIncidenteActaul.put("titulo", incidenteActual.darTitulo());
+			jIncidenteActaul.put("titulo", incidenteActual.getTitulo());
 			arrIncidentes.put(jIncidenteActaul);
 		}
 		} catch (JSONException e) {

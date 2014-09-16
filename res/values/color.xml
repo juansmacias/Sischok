@@ -15,4 +15,6 @@
     <color name="verde_elementos"> #d5e49b</color>
     <color name="rosado_botonCrearIncidente">#ffb5b1</color>
     <color name="amarillo_inicio">#ffffbf</color>
+    <color name="morado_Fondonicio">#bfbfff</color>
+    <color name="rojo_inicioBototes">#ffbfbf</color>
 </resources>

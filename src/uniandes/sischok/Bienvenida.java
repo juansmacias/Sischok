@@ -46,7 +46,7 @@ public class Bienvenida extends Activity {
 							Bienvenida.this).create();
 
 		    alertDialog.setTitle("Error");
-		    alertDialog.setMessage("No cumple los requerimientos basicos");
+		    alertDialog.setMessage("No cumple los requisitos basicos.");
 
 		    alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 		            public void onClick(DialogInterface dialog, int which) {
@@ -61,7 +61,7 @@ public class Bienvenida extends Activity {
 						Bienvenida.this).create();
 
 	    alertDialog.setTitle("Error");
-	    alertDialog.setMessage("No cumple los requerimientos basicos");
+	    alertDialog.setMessage("No cumple los requisitos basicos.");
 
 	    alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 	            public void onClick(DialogInterface dialog, int which) {

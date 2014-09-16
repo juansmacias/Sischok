@@ -88,7 +88,8 @@ public class CentroEventos extends IntentService
         stopSelf();
 	}
 	
-	   @Override
+	   @SuppressWarnings("static-access")
+	@Override
 	    public void onDestroy() 
 	   {
 	        // I want to restart this service again in one hour

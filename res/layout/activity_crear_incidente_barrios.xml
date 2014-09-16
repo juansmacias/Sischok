@@ -38,10 +38,10 @@
                     android:id="@+id/btnLocalidad1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/lblLocalidad1"
-                    android:src="@drawable/antonionarino" />
-
-                <TextView
+                    android:contentDescription="@string/codLocalidad1"
+                    android:src="@drawable/antonionarino" 
+                    android:onClick="pasarADescripcion"/>
+               <TextView
                     android:id="@+id/TextView10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
                     android:id="@+id/btnLocalidad2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/lblLocalidad2"
+                    android:contentDescription="@string/codLocalidad2"
                     android:src="@drawable/barriosunidos" />
 
                 <TextView
@@ -76,7 +76,7 @@
                     android:id="@+id/btnLocalidad3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/lblLocalidad3"
+                    android:contentDescription="@string/codLocalidad3"
                     android:src="@drawable/bosa" />
 
                 <TextView
@@ -95,7 +95,7 @@
                     android:id="@+id/btnLocalidad4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/lblLocalidad4"
+                    android:contentDescription="@string/codLocalidad4"
                     android:src="@drawable/chapinero" />
 
                 <TextView
@@ -114,7 +114,7 @@
                     android:id="@+id/btnLocalidad5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/lblLocalidad5"
+                    android:contentDescription="@string/codLocalidad5"
                     android:src="@drawable/ciudadbolivar" />
 
                 <TextView
@@ -133,7 +133,7 @@
                     android:id="@+id/btnLocalidad6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/lblLocalidad6"
+                    android:contentDescription="@string/codLocalidad6"
                     android:src="@drawable/engativa" />
 
                 <TextView
@@ -152,7 +152,7 @@
                     android:id="@+id/btnLocalidad7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/lblLocalidad7"
+                    android:contentDescription="@string/codLocalidad7"
                     android:src="@drawable/fontibon" />
 
                 <TextView
@@ -171,7 +171,7 @@
                     android:id="@+id/btnLocalidad8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/lblLocalidad8"
+                    android:contentDescription="@string/codLocalidad8"
                     android:src="@drawable/kennedy" />
 
                 <TextView
@@ -190,7 +190,7 @@
                     android:id="@+id/btnLocalidad9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/lblLocalidad9"
+                    android:contentDescription="@string/codLocalidad9"
                     android:src="@drawable/lacandelaria" />
 
                 <TextView
@@ -209,7 +209,7 @@
                     android:id="@+id/btnLocalidad10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/lblLocalidad10"
+                    android:contentDescription="@string/codLocalidad10"
                     android:src="@drawable/martires" />
 
                 <TextView
@@ -228,7 +228,7 @@
                     android:id="@+id/btnLocalidad11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/lblLocalidad11"
+                    android:contentDescription="@string/codLocalidad11"
                     android:src="@drawable/puentearanda" />
 
                 <TextView
@@ -247,7 +247,7 @@
                     android:id="@+id/btnLocalidad12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/lblLocalidad12"
+                    android:contentDescription="@string/codLocalidad12"
                     android:src="@drawable/rafaeluribe" />
 
                 <TextView
@@ -266,7 +266,7 @@
                     android:id="@+id/btnLocalidad13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/lblLocalidad13"
+                    android:contentDescription="@string/codLocalidad13"
                     android:src="@drawable/sancristobal" />
 
                 <TextView
@@ -285,7 +285,7 @@
                     android:id="@+id/btnLocalidad14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/lblLocalidad14"
+                    android:contentDescription="@string/codLocalidad14"
                     android:src="@drawable/santafe" />
 
                 <TextView
@@ -304,7 +304,7 @@
                     android:id="@+id/btnLocalidad15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/lblLocalidad15"
+                    android:contentDescription="@string/codLocalidad15"
                     android:src="@drawable/suba" />
 
                 <TextView
@@ -323,7 +323,7 @@
                     android:id="@+id/btnLocalidad16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/lblLocalidad16"
+                    android:contentDescription="@string/codLocalidad16"
                     android:src="@drawable/teusaquillo" />
 
                 <TextView
@@ -342,7 +342,7 @@
                     android:id="@+id/btnLocalidad17"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/lblLocalidad17"
+                    android:contentDescription="@string/codLocalidad17"
                     android:src="@drawable/tunjuelito" />
 
                 <TextView
@@ -361,7 +361,7 @@
                     android:id="@+id/btnLocalidad18"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/lblLocalidad18"
+                    android:contentDescription="@string/codLocalidad18"
                     android:src="@drawable/usaquen" />
 
                 <TextView
@@ -380,7 +380,7 @@
                     android:id="@+id/btnLocalidad19"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/lblLocalidad19"
+                    android:contentDescription="@string/codLocalidad19"
                     android:src="@drawable/usme" />
 
                 <TextView

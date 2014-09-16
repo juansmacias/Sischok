@@ -33,6 +33,25 @@
     <string name="lblLocalidad17">Tunjuelito</string>
     <string name="lblLocalidad18">Usaquen</string>
     <string name="lblLocalidad19">Usme</string>
+    <string name="codLocalidad1">0</string>
+    <string name="codLocalidad2">1</string>
+    <string name="codLocalidad3">2</string>
+    <string name="codLocalidad4">3</string>
+    <string name="codLocalidad5">4</string>
+    <string name="codLocalidad6">5</string>
+    <string name="codLocalidad7">6</string>
+    <string name="codLocalidad8">7</string>
+    <string name="codLocalidad9">8</string>
+    <string name="codLocalidad10">9</string>
+    <string name="codLocalidad11">10</string>
+    <string name="codLocalidad12">11</string>
+    <string name="codLocalidad13">12</string>
+    <string name="codLocalidad14">13</string>
+    <string name="codLocalidad15">14</string>
+    <string name="codLocalidad16">15</string>
+    <string name="codLocalidad17">16</string>
+    <string name="codLocalidad18">17</string>
+    <string name="codLocalidad19">18</string>
     <string name="lblNuevosIncidentes">Nuevo Incidentes:</string>
     <string name="lblbntCrearIncidente">Crear Incidente</string>
     <string name="lblbtnConsultaIncidente">Consulta incidente Por Zonas</string>
@@ -45,5 +64,14 @@
     <string name="lblBienvenidaNombre">¿Cual es su nombre?"</string>
     <string name="lblBienvenidaEdad">¿Que Edad tiene?</string>
     <string name="lblbtnIniciarApp">Entrar a Sischok</string>
+    <string name="title_activity_detalle_incidente">Incidente</string>
+    <string name="lblDetalleIncDescripcion">Descripcion de Incidente</string>
+    <string name="lblDetalleIncZona">Zona en la que fue reportado el Incidente</string>
+    <string name="lblDetalleIncGravedad">Nivel de Gravedad:</string>
+    <string name="lblDetalleIncUsuario">"Creador de Incidente: "</string>
+    <string name="lblDetalleIncFechaCreacion">Fecha de creacion:</string>
+    <string name="title_activity_consultar_incidentes">Consultar Incidentes</string>
+    <string name="lblConsultarIncSeleccionarLocalidad">Seleccionar la Localidad:</string>
+    <string name="lblDetalleIncConsultar">Consultar Incidentes</string>
 
 </resources>

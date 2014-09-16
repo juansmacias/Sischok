@@ -73,6 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="26dp"
             android:background="@color/rosado_botonCrearIncidente"
+            android:onClick="crearIncidente"
             android:text="@string/btnCrearIncidente" />
 
     </LinearLayout>

@@ -60,6 +60,14 @@
             android:name="uniandes.sischok.Bienvenida"
             android:label="@string/title_activity_bienvenida" >
         </activity>
+        <activity
+            android:name="uniandes.sischok.DetalleIncidente"
+            android:label="@string/title_activity_detalle_incidente" >
+        </activity>
+        <activity
+            android:name="uniandes.sischok.ConsultarIncidentes"
+            android:label="@string/title_activity_consultar_incidentes" >
+        </activity>
     </application>
 
 </manifest>
