@@ -14,6 +14,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.net.Uri.Builder;
 import android.provider.CalendarContract;
 import android.provider.CalendarContract.Calendars;
 import android.provider.CalendarContract.Events;
@@ -88,6 +89,7 @@ public class CentroEventos extends IntentService
 //               NO .addAction(R.drawable.icon, "And more", pIntent).build();
 //            		Notification n = builder.build();A
             	notificationManager.notify(0, n);
+
             	//easy way
             	Toast.makeText(getApplicationContext(), 
                         "Revisar Sichock: "+CalTitle[i], Toast.LENGTH_LONG).show();
