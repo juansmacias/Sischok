@@ -1,16 +1,11 @@
 package uniandes.sischok;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import android.content.res.Resources;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -29,13 +24,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.content.res.AssetFileDescriptor;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.view.ViewGroup;
 import uniandes.sischok.R;
 import uniandes.sischok.mundo.CentroEventos;
 import uniandes.sischok.mundo.DaoMaster;
@@ -68,12 +64,8 @@ public class Inicio extends Activity {
 		DaoMaster daoMaster = new DaoMaster(db);
 		DaoSession daoSession = daoMaster.newSession();
 		IncidenteDao indicenteDao = daoSession.getIncidenteDao();
-		if (sharedpreferences.contains(prefPrimeraVez))
-	      {
-			
-	      }
-		else
-		{			
+		if (!sharedpreferences.contains(prefPrimeraVez))
+	      {			
 			//File archivoIncidentesBasicos = new File();
 			try {
 				String jsonIncidentes = "";
@@ -103,21 +95,31 @@ public class Inicio extends Activity {
 		QueryBuilder qb = indicenteDao.queryBuilder();
 		qb.limit(5);
 		qb.orderDesc(Properties.FechaCreacion);
-		List ultimosIncidentes = qb.list();
-		ArrayList<String> arryTitulosI = new ArrayList<String>();
-		for (int i = 0; i < ultimosIncidentes.size(); i++) {
-			Incidente incidenteActual = (Incidente)ultimosIncidentes.get(i);
-			arryTitulosI.add(incidenteActual.getTitulo());
-		}
+		final List ultimosIncidentes = qb.list();
 		ListView listIn = (ListView) findViewById(R.id.lstNuevosIncidentes);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, arryTitulosI);
+		ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_2,ultimosIncidentes)
+			{
+			 @Override
+			  public View getView(int position, View convertView, ViewGroup parent) {
+			    View view = super.getView(position, convertView, parent);
+			    TextView text1 = (TextView) view.findViewById(android.R.id.text1);
+			    TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+			    Incidente indicente = (Incidente) ultimosIncidentes.get(position);
+			    text1.setText(indicente.getTitulo());
+			    text2.setText(indicente.getUsuarioCreacion());
+			    return view;
+			  }
+			};
 		listIn.setAdapter(adapter);
 		listIn.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 		      @Override
 		      public void onItemClick(AdapterView<?> parent, final View view,
 		          int position, long id) {
-		       
+		    	  Intent intentD = new Intent(Inicio.this, DetalleIncidente.class);
+		    	  intentD.putExtra("titulo", ((TextView)view.findViewById(android.R.id.text1)).getText());
+		    	  intentD.putExtra("Usuario", ((TextView)view.findViewById(android.R.id.text2)).getText());
+		    	  startActivity(intentD);
 		      }
 
 		    });
@@ -168,7 +170,8 @@ public class Inicio extends Activity {
 	}
 	public void consultarIncidente (View view)
 	{
-		
+		Intent intetConsultar = new Intent(this, ConsultarIncidentes.class);
+		startActivity(intetConsultar);
 	}
 	public void consultarIncidentePorAmigos (View view)
 	{
