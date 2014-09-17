@@ -6,7 +6,7 @@
       "gravedad": "2",
       "zona": "4",
       "descripcion": "En la circunvalar con 72",
-      "titulo": "Cruse Peligroso"
+      "titulo": "Cruce Peligroso"
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -14,7 +14,7 @@
       "gravedad": "4",
       "zona": "1",
       "descripcion": "Por la Iglesia ",
-      "titulo": "Cruse Peligroso"
+      "titulo": "Cruce Peligroso"
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -22,7 +22,7 @@
       "gravedad": "2",
       "zona": "2",
       "descripcion": "Por la Iglesia Santo Tomas",
-      "titulo": "Intercecion Peligrosa"
+      "titulo": "	 Peligrosa"
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -38,7 +38,7 @@
       "gravedad": "1",
       "zona": "5",
       "descripcion": "Por la Iglesia San Juan",
-      "titulo": "Cruse Peligroso"
+      "titulo": "Cruce Peligroso"
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -46,7 +46,7 @@
       "gravedad": "5",
       "zona": "6",
       "descripcion": "Por la el Colegio Distrital Colombo",
-      "titulo": "Cruse Peligroso"
+      "titulo": "Cruce Peligroso"
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -54,7 +54,7 @@
       "gravedad": "2",
       "zona": "7",
       "descripcion": "Por la Iglesia.",
-      "titulo": "Cruse Peligroso"
+      "titulo": "Cruce Peligroso"
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -86,7 +86,7 @@
       "gravedad": "2",
       "zona": "11",
       "descripcion": "Por la Colegio Bellos Pinos",
-      "titulo": "Cruse Peligroso"
+      "titulo": "Cruce Peligroso"
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -94,7 +94,7 @@
       "gravedad": "4",
       "zona": "12",
       "descripcion": "Por la Colegio Pedros",
-      "titulo": "Cruse Peligroso"
+      "titulo": "Cruce Peligroso"
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -118,7 +118,7 @@
       "gravedad": "2",
       "zona": "15",
       "descripcion": "Por el Colegio Distrital",
-      "titulo": "Cruse Peligroso"
+      "titulo": "Cruce Peligroso"
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -126,7 +126,7 @@
       "gravedad": "5",
       "zona": "16",
       "descripcion": "Por el Colegio Distrital",
-      "titulo": "Cruse Peligroso"
+      "titulo": "Cruce Peligroso"
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -142,7 +142,7 @@
       "gravedad": "3",
       "zona": "18",
       "descripcion": "Por el Colegio Distrital",
-      "titulo": "Cruse Peligroso"
+      "titulo": "Cruce Peligroso"
     },
     {
       "usuarioCreacion": "Administrador Sischok",

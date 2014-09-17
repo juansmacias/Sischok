@@ -2,47 +2,44 @@ package uniandes.sischok;
 
 import java.util.List;
 
-import de.greenrobot.dao.query.QueryBuilder;
+import uniandes.sischok.mundo.CentroIncidentes;
 import uniandes.sischok.mundo.DaoMaster;
+import uniandes.sischok.mundo.DaoMaster.DevOpenHelper;
 import uniandes.sischok.mundo.DaoSession;
 import uniandes.sischok.mundo.Incidente;
 import uniandes.sischok.mundo.IncidenteDao;
-import uniandes.sischok.mundo.DaoMaster.DevOpenHelper;
-import android.os.Bundle;
+import uniandes.sischok.mundo.IncidenteDao.Properties;
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.view.Menu;
 import android.widget.EditText;
-import uniandes.sischok.mundo.IncidenteDao.Properties;
+import de.greenrobot.dao.query.QueryBuilder;
 
 public class DetalleIncidente extends Activity {
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_detalle_incidente);
-		String usuarioInc =getIntent().getStringExtra("Usuario");	
+		String usuarioInc = getIntent().getStringExtra("Usuario");	
 		setTitle(getIntent().getStringExtra("titulo"));
-		SharedPreferences sharedpreferences = getSharedPreferences(Inicio.nombrePreferencias, Context.MODE_PRIVATE);
-		DevOpenHelper helperNuevo = new DaoMaster.DevOpenHelper(this, Inicio.nomdb, null);
+		DevOpenHelper helperNuevo = new DaoMaster.DevOpenHelper(this, CentroIncidentes.nomdb, null);
 		SQLiteDatabase db = helperNuevo.getWritableDatabase();
 		DaoMaster daoMaster = new DaoMaster(db);
 		DaoSession daoSession = daoMaster.newSession();
 		IncidenteDao indicenteDao = daoSession.getIncidenteDao();
 		QueryBuilder qb = indicenteDao.queryBuilder();
-		qb.where(Properties.UsuarioCreacion.eq(usuarioInc),
-		qb.and(Properties.Titulo.eq(getTitle()),null));		
+		qb.and(Properties.UsuarioCreacion.eq(usuarioInc),Properties.Titulo.eq(getTitle()));		
 		List listaInc = qb.list();
 		Incidente inc = (Incidente) listaInc.get(0);
 		EditText txtdesc = (EditText) findViewById(R.id.txtDetalleIncDescripcion);
 		txtdesc.setText(inc.getDescripcion());
 		EditText txtZona = (EditText) findViewById(R.id.txtDetalleIncZona);
-		txtZona.setText(inc.getZona());
+		txtZona.setText(inc.getZona()+"");
 		EditText txtGravedad = (EditText) findViewById(R.id.txtDetalleIncGravedad);
-		txtGravedad.setText(inc.getGravedad());
+		txtGravedad.setText(inc.getGravedad()+"");
 		EditText txtCreador = (EditText) findViewById(R.id.txtDetalleIncUsuario);
 		txtCreador.setText(inc.getUsuarioCreacion());
 		EditText txtfecha = (EditText) findViewById(R.id.txtDetalleIncFechaCreacion);

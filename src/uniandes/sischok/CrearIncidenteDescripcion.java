@@ -72,11 +72,11 @@ public class CrearIncidenteDescripcion extends Activity {
 		String titulo = ((EditText) findViewById(R.id.txtTitulo)).getText().toString();
 		String descripcion = ((EditText) findViewById(R.id.txtDescripcion)).getText().toString();
 		int gravedad = Integer.parseInt(((EditText) findViewById(R.id.txtGravedad)).getText().toString());
-	    SharedPreferences sharedpreferences = getSharedPreferences(Inicio.nombrePreferencias, Context.MODE_PRIVATE);
+	    SharedPreferences sharedpreferences = getSharedPreferences(CentroIncidentes.nombrePreferencias, Context.MODE_PRIVATE);
 	    if(!titulo.equals("")&&!descripcion.equals("")&&(gravedad<=5||gravedad>0))
 	    	{
-				Incidente indicienteNuevo = new Incidente(null, titulo, descripcion, getIntent().getIntExtra("zona",0), gravedad, new Date(), sharedpreferences.getString(Inicio.prefNombre, "Administrador Sischok"));
-				DevOpenHelper helperNuevo = new DaoMaster.DevOpenHelper(this, Inicio.nomdb, null);
+				Incidente indicienteNuevo = new Incidente(null, titulo, descripcion, getIntent().getIntExtra("zona",0), gravedad, new Date(), sharedpreferences.getString(CentroIncidentes.prefNombre, "Administrador Sischok"));
+				DevOpenHelper helperNuevo = new DaoMaster.DevOpenHelper(this, CentroIncidentes.nomdb, null);
 				SQLiteDatabase db = helperNuevo.getWritableDatabase();
 				DaoMaster daoMaster = new DaoMaster(db);
 				DaoSession daoSession = daoMaster.newSession();
