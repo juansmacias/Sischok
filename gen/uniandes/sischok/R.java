@@ -128,6 +128,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int dummy_button=0x7f0a0006;
         public static final int fullscreen_content=0x7f0a0000;
         public static final int lblIngresaDatos=0x7f0a001c;
+        public static final int lblTituloIncListview=0x7f0a0001;
+        public static final int lblUsuarioIncListview=0x7f0a0002;
         public static final int linearLayout1=0x7f0a0042;
         public static final int lstNuevosIncidentes=0x7f0a004f;
         public static final int radLocalidad1=0x7f0a0008;
@@ -150,8 +152,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int radLocalidad8=0x7f0a000f;
         public static final int radLocalidad9=0x7f0a0010;
         public static final int scrollView1=0x7f0a0007;
-        public static final int textView1=0x7f0a0001;
-        public static final int textView2=0x7f0a0002;
         public static final int textView3=0x7f0a0045;
         public static final int textView4=0x7f0a004b;
         public static final int textView5=0x7f0a004d;
@@ -173,6 +173,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int activity_crear_incidente_descripcion=0x7f030003;
         public static final int activity_detalle_incidente=0x7f030004;
         public static final int activity_inicio=0x7f030005;
+        public static final int incidentelistview=0x7f030006;
     }
     public static final class menu {
         public static final int bienvenida=0x7f090000;

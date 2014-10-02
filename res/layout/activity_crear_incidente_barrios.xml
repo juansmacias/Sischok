@@ -58,7 +58,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/codLocalidad2"
-                    android:src="@drawable/barriosunidos" />
+                    android:src="@drawable/barriosunidos" 
+                    android:onClick="pasarADescripcion"/>
 
                 <TextView
                     android:id="@+id/TextView09"
@@ -77,7 +78,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/codLocalidad3"
-                    android:src="@drawable/bosa" />
+                    android:src="@drawable/bosa" 
+                    android:onClick="pasarADescripcion"/>
 
                 <TextView
                     android:id="@+id/TextView08"
@@ -96,7 +98,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/codLocalidad4"
-                    android:src="@drawable/chapinero" />
+                    android:src="@drawable/chapinero" 
+                    android:onClick="pasarADescripcion"/>
 
                 <TextView
                     android:id="@+id/TextView07"
@@ -115,7 +118,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/codLocalidad5"
-                    android:src="@drawable/ciudadbolivar" />
+                    android:src="@drawable/ciudadbolivar" 
+                    android:onClick="pasarADescripcion"/>
 
                 <TextView
                     android:id="@+id/TextView06"
@@ -134,7 +138,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/codLocalidad6"
-                    android:src="@drawable/engativa" />
+                    android:src="@drawable/engativa" 
+                    android:onClick="pasarADescripcion"/>
 
                 <TextView
                     android:id="@+id/TextView05"
@@ -153,7 +158,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/codLocalidad7"
-                    android:src="@drawable/fontibon" />
+                    android:src="@drawable/fontibon" 
+                    android:onClick="pasarADescripcion"/>
 
                 <TextView
                     android:id="@+id/TextView04"
@@ -172,7 +178,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/codLocalidad8"
-                    android:src="@drawable/kennedy" />
+                    android:src="@drawable/kennedy" 
+                    android:onClick="pasarADescripcion"/>
 
                 <TextView
                     android:id="@+id/TextView03"
@@ -191,7 +198,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/codLocalidad9"
-                    android:src="@drawable/lacandelaria" />
+                    android:src="@drawable/lacandelaria" 
+                    android:onClick="pasarADescripcion"/>
 
                 <TextView
                     android:id="@+id/TextView02"
@@ -210,7 +218,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/codLocalidad10"
-                    android:src="@drawable/martires" />
+                    android:src="@drawable/martires" 
+                    android:onClick="pasarADescripcion"/>
 
                 <TextView
                     android:id="@+id/TextView01"
@@ -229,7 +238,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/codLocalidad11"
-                    android:src="@drawable/puentearanda" />
+                    android:src="@drawable/puentearanda" 
+                    android:onClick="pasarADescripcion"/>
 
                 <TextView
                     android:id="@+id/TextView11"
@@ -248,7 +258,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/codLocalidad12"
-                    android:src="@drawable/rafaeluribe" />
+                    android:src="@drawable/rafaeluribe" 
+                    android:onClick="pasarADescripcion"/>
 
                 <TextView
                     android:id="@+id/TextView19"
@@ -267,7 +278,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/codLocalidad13"
-                    android:src="@drawable/sancristobal" />
+                    android:src="@drawable/sancristobal" 
+                    android:onClick="pasarADescripcion"/>
 
                 <TextView
                     android:id="@+id/TextView18"
@@ -286,7 +298,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/codLocalidad14"
-                    android:src="@drawable/santafe" />
+                    android:src="@drawable/santafe" 
+                    android:onClick="pasarADescripcion"/>
 
                 <TextView
                     android:id="@+id/TextView17"
@@ -305,7 +318,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/codLocalidad15"
-                    android:src="@drawable/suba" />
+                    android:src="@drawable/suba" 
+                    android:onClick="pasarADescripcion"/>
 
                 <TextView
                     android:id="@+id/TextView16"
@@ -324,7 +338,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/codLocalidad16"
-                    android:src="@drawable/teusaquillo" />
+                    android:src="@drawable/teusaquillo" 
+                    android:onClick="pasarADescripcion"/>
 
                 <TextView
                     android:id="@+id/TextView15"
@@ -343,7 +358,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/codLocalidad17"
-                    android:src="@drawable/tunjuelito" />
+                    android:src="@drawable/tunjuelito" 
+                    android:onClick="pasarADescripcion"/>
 
                 <TextView
                     android:id="@+id/TextView14"
@@ -362,7 +378,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/codLocalidad18"
-                    android:src="@drawable/usaquen" />
+                    android:src="@drawable/usaquen"
+                    android:onClick="pasarADescripcion" />
 
                 <TextView
                     android:id="@+id/TextView12"
@@ -381,7 +398,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/codLocalidad19"
-                    android:src="@drawable/usme" />
+                    android:src="@drawable/usme"
+                    android:onClick="pasarADescripcion" />
 
                 <TextView
                     android:id="@+id/TextView13"

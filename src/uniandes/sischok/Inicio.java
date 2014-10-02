@@ -11,12 +11,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.database.MatrixCursor;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import uniandes.sischok.R;
 import uniandes.sischok.mundo.CentroEventos;
@@ -28,9 +26,8 @@ import uniandes.sischok.mundo.Incidente;
 public class Inicio extends Activity {
 	
 	 private SharedPreferences sharedpreferences;
-	 private SimpleCursorAdapter mAdapter;
-	
-	@SuppressWarnings({ "rawtypes", "deprecation" })
+	 private IncidentesListAdapter mAdapter;
+
 	@SuppressLint("SimpleDateFormat")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,27 +42,26 @@ public class Inicio extends Activity {
 			Intent intentBienvenida = new Intent(this, Bienvenida.class);
 			startActivityForResult(intentBienvenida,1);
 		}
-		List ultimosIncidentes = centroI.darUltimos5Incidentes();
-		String[] columns = new String[] { "_id","titulo", "id"};
-		MatrixCursor matrixCursor= new MatrixCursor(columns);
-		startManagingCursor(matrixCursor);
-		for (int i = 0; i < ultimosIncidentes.size(); i++ ) {
-			Incidente inc = (Incidente) ultimosIncidentes.get(i);
-			matrixCursor.addRow(new Object[] { i,inc.getTitulo(), inc.getUsuarioCreacion()});
-		}
-		int[] toViews = {android.R.id.edit, android.R.id.text1,android.R.id.text2};
-		mAdapter = new SimpleCursorAdapter (this,android.R.layout.simple_list_item_2, matrixCursor,columns, toViews, 0);
+		List<Incidente> ultimosIncidentes = centroI.darUltimos5Incidentes();
+//		String[] columns = new String[] { "_id","titulo", "id"};
+//		MatrixCursor matrixCursor= new MatrixCursor(columns);
+//		startManagingCursor(matrixCursor);
+//		for (int i = 0; i < ultimosIncidentes.size(); i++ ) {
+//			Incidente inc = (Incidente) ultimosIncidentes.get(i);
+//			matrixCursor.addRow(new Object[] { i,inc.getTitulo(), inc.getUsuarioCreacion()});
+//		}
+//		int[] toViews = {android.R.id.edit, android.R.id.text1,android.R.id.text2};
+//		mAdapter = new SimpleCursorAdapter (this,android.R.layout.simple_list_item_2, matrixCursor,columns, toViews, 0);
+		mAdapter = new IncidentesListAdapter(this,R.layout.incidentelistview,ultimosIncidentes);
 		ListView lstUltimo = (ListView) findViewById(R.id.lstNuevosIncidentes);
 		lstUltimo.setAdapter(mAdapter);
-		mAdapter.swapCursor(matrixCursor);
 		lstUltimo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 		      @Override
 		      public void onItemClick(AdapterView<?> parent, final View view,
 		          int position, long id) {
 		    		Intent intentD = new Intent(Inicio.this, DetalleIncidente.class);
-		    		intentD.putExtra("titulo", ((TextView)view.findViewById(android.R.id.text1)).getText());
-		    		intentD.putExtra("Usuario", ((TextView)view.findViewById(android.R.id.text2)).getText());
+		    		intentD.putExtra("id", ((TextView)view.findViewById(R.id.lblTituloIncListview)).getText());
 		    		startActivity(intentD);
 		      }
 
@@ -88,6 +84,52 @@ public class Inicio extends Activity {
         alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
                      60*60*1000, pintent);
 	}
+	
+	@Override
+	protected void onResume() {
+		CentroIncidentes centroI = CentroIncidentes.darInstancia(this);
+		List<Incidente> ultimosIncidentes = centroI.darUltimos5Incidentes();
+//		String[] columns = new String[] { "_id","titulo", "id"};
+//		MatrixCursor matrixCursor= new MatrixCursor(columns);
+//		startManagingCursor(matrixCursor);
+//		for (int i = 0; i < ultimosIncidentes.size(); i++ ) {
+//			Incidente inc = (Incidente) ultimosIncidentes.get(i);
+//			matrixCursor.addRow(new Object[] { i,inc.getTitulo(), inc.getUsuarioCreacion()});
+//		}
+//		int[] toViews = {android.R.id.edit, android.R.id.text1,android.R.id.text2};
+//		mAdapter = new SimpleCursorAdapter (this,android.R.layout.simple_list_item_2, matrixCursor,columns, toViews, 0);
+		mAdapter = new IncidentesListAdapter(this,R.layout.incidentelistview,ultimosIncidentes);
+		ListView lstUltimo = (ListView) findViewById(R.id.lstNuevosIncidentes);
+		lstUltimo.setAdapter(mAdapter);
+		lstUltimo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+		      @Override
+		      public void onItemClick(AdapterView<?> parent, final View view,
+		          int position, long id) {
+		    		Intent intentD = new Intent(Inicio.this, DetalleIncidente.class);
+		    		intentD.putExtra("id",Long.parseLong(((TextView)view.findViewById(R.id.lblTituloIncListview)).getTag()+""));
+		    		startActivity(intentD);
+		      }
+
+		    });
+//		ListView lstUltimo = (ListView) findViewById(R.id.lstNuevosIncidentes);
+//		lstUltimo.setAdapter(mAdapter);
+//		mAdapter.swapCursor(matrixCursor);
+//		lstUltimo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//
+//		      @Override
+//		      public void onItemClick(AdapterView<?> parent, final View view,
+//		          int position, long id) {
+//		    		Intent intentD = new Intent(Inicio.this, DetalleIncidente.class);
+//		    		intentD.putExtra("titulo", ((TextView)view.findViewById(android.R.id.text1)).getText());
+//		    		intentD.putExtra("Usuario", ((TextView)view.findViewById(android.R.id.text2)).getText());
+//		    		startActivity(intentD);
+//		      }
+//
+//		    });
+		mAdapter.notifyDataSetChanged();
+		super.onResume();
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -106,6 +148,7 @@ public class Inicio extends Activity {
 			editor.putBoolean(CentroIncidentes.prefPrimeraVez, true);
 			editor.putInt(CentroIncidentes.prefEdad, data.getIntExtra("edad", 0));
 			editor.commit();
+			
 			setContentView(R.layout.activity_inicio);
 		}
 	}

@@ -9,14 +9,14 @@
     tools:context=".DetalleIncidente" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/lblTituloIncListview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp"
         android:text="@string/lblDetalleIncDescripcion" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/lblUsuarioIncListview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txtDetalleIncDescripcion"
@@ -27,8 +27,8 @@
         android:id="@+id/txtDetalleIncZona"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/lblUsuarioIncListview"
+        android:layout_below="@+id/lblUsuarioIncListview"
         android:ems="10"
         android:enabled="false"
         android:inputType="text" />
@@ -37,8 +37,8 @@
         android:id="@+id/txtDetalleIncDescripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_alignTop="@+id/textView1"
+        android:layout_alignLeft="@+id/lblTituloIncListview"
+        android:layout_alignTop="@+id/lblTituloIncListview"
         android:ems="10"
         android:enabled="false"
         android:inputType="textLongMessage" />

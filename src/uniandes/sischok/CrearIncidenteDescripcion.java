@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.Menu;
@@ -23,13 +24,10 @@ import uniandes.sischok.mundo.DaoMaster.DevOpenHelper;
 
 public class CrearIncidenteDescripcion extends Activity {
 
-
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_crear_incidente_descripcion);
-		// Show the Up button in the action bar.
 		setupActionBar();
 	}
 
@@ -44,7 +42,6 @@ public class CrearIncidenteDescripcion extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.crear_incidente_descripcion, menu);
 		return true;
 	}
@@ -53,13 +50,6 @@ public class CrearIncidenteDescripcion extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case android.R.id.home:
-			// This ID represents the Home or Up button. In the case of this
-			// activity, the Up button is shown. Use NavUtils to allow users
-			// to navigate up one level in the application structure. For
-			// more details, see the Navigation pattern on Android Design:
-			//
-			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
-			//
 			NavUtils.navigateUpFromSameTask(this);
 			return true;
 		}
@@ -73,6 +63,7 @@ public class CrearIncidenteDescripcion extends Activity {
 		String descripcion = ((EditText) findViewById(R.id.txtDescripcion)).getText().toString();
 		int gravedad = Integer.parseInt(((EditText) findViewById(R.id.txtGravedad)).getText().toString());
 	    SharedPreferences sharedpreferences = getSharedPreferences(CentroIncidentes.nombrePreferencias, Context.MODE_PRIVATE);
+		AlertDialog alertDialog = new AlertDialog.Builder(CrearIncidenteDescripcion.this).create();
 	    if(!titulo.equals("")&&!descripcion.equals("")&&(gravedad<=5||gravedad>0))
 	    	{
 				Incidente indicienteNuevo = new Incidente(null, titulo, descripcion, getIntent().getIntExtra("zona",0), gravedad, new Date(), sharedpreferences.getString(CentroIncidentes.prefNombre, "Administrador Sischok"));
@@ -82,22 +73,26 @@ public class CrearIncidenteDescripcion extends Activity {
 				DaoSession daoSession = daoMaster.newSession();
 				IncidenteDao indicenteDao = daoSession.getIncidenteDao();
 				indicenteDao.insert(indicienteNuevo);
-	    	}
+				alertDialog.setTitle("Exito");
+				alertDialog.setMessage("Su incidente se ha agregado");
+				alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+	            public void onClick(DialogInterface dialog, int which) {
+	            	Intent crearIncDes = new Intent(CrearIncidenteDescripcion.this, Inicio.class);
+	            	startActivity(crearIncDes);
+	            	
+	            }
+	    });
+	    alertDialog.show();
+		    }
 	    else
 	    {
-			AlertDialog alertDialog = new AlertDialog.Builder(
-					CrearIncidenteDescripcion.this).create();
-
-    alertDialog.setTitle("Error");
-    alertDialog.setMessage("No cumple los requisitos basicos");
-
-    alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+	    		alertDialog.setTitle("Error");
+	    		alertDialog.setMessage("No cumple los requisitos basicos");
+	    		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
             }
     });
     alertDialog.show();
 	    }
-		
-		
 	}
 }

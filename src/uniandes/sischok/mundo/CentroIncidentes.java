@@ -11,12 +11,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import de.greenrobot.dao.query.QueryBuilder;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import uniandes.sischok.Inicio;
 import uniandes.sischok.R;
 import uniandes.sischok.mundo.Incidente;
 import uniandes.sischok.mundo.DaoMaster.DevOpenHelper;
@@ -33,6 +34,7 @@ public class CentroIncidentes {
 	public static final String nomdb = "sischok-db";
 	public static final String strarchivoIncidentesBasicos = "IncidentesBasicos";
 	private static CentroIncidentes instancia;	
+	@SuppressWarnings("unused")
 	private ArrayList<Incidente> incidentesLocales;
 	private IncidenteDao incidenteDao;
 	private Context contexto;
@@ -63,7 +65,7 @@ public class CentroIncidentes {
 		return instancia;
 	}
 
-	public void iniciarBasedeDatos()
+	@SuppressLint("SimpleDateFormat") public void iniciarBasedeDatos()
 	{
 		try {
 			String jsonIncidentes = "";
@@ -89,14 +91,21 @@ public class CentroIncidentes {
 		}
 	}
 	
-	@SuppressWarnings("rawtypes")
-	public List darUltimos5Incidentes()
+	public List<Incidente> darUltimos5Incidentes()
 	{
-		QueryBuilder qb = incidenteDao.queryBuilder();
+		QueryBuilder<Incidente> qb = incidenteDao.queryBuilder();
 		qb.limit(5);
 		qb.orderDesc(Properties.FechaCreacion);
 		return qb.list();
 		
+	}
+	
+	public Incidente darIncidentePorId(long id)
+	{
+		QueryBuilder<Incidente> qb = incidenteDao.queryBuilder();
+		qb.limit(1);
+		qb.where(Properties.Id.eq(id));
+		return qb.unique();
 	}
 	
 	public Boolean registarIncidentes (String strTitulo,String strDescripcion, String strUsuario, int intZona,int intGravedad)
