@@ -1,0 +1,33 @@
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="uniandes.sischok.CompartirIncidente"
+    android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/compartirconlistView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.42" >
+        </ListView>
+
+        <Button
+            android:id="@+id/btnCompartirConComp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="enviar"
+            android:text="@string/lblCompartirSMS" />
+
+        <Button
+            android:id="@+id/btnCancelarComp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:onClick="cancelar"
+            android:text="@android:string/cancel" />
+
+    </LinearLayout>
