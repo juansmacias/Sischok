@@ -73,5 +73,12 @@
     <string name="title_activity_consultar_incidentes">Consultar Incidentes</string>
     <string name="lblConsultarIncSeleccionarLocalidad">Seleccionar la Localidad:</string>
     <string name="lblDetalleIncConsultar">Consultar Incidentes</string>
+    <string name="lblSinTitulo">Sin Titulo</string>
+    <string name="lblUsuarioDesconocido">Usuario Desconocido</string>
+    <string name="lblSinTelefono">Sin Celular Registrado</string>
+    <string name="title_activity_compartir_incidente">Compartir Incidente</string>
+    <string name="lblCompartirSMS">Compartir mediante SMS</string>
+    <string name="lblCompartirConDetalleInc">Compartir Incidente</string>
+    
 
 </resources>

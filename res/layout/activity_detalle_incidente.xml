@@ -9,14 +9,14 @@
     tools:context=".DetalleIncidente" >
 
     <TextView
-        android:id="@+id/lblTituloIncListview"
+        android:id="@+id/lblDetalleIncDescripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp"
         android:text="@string/lblDetalleIncDescripcion" />
 
     <TextView
-        android:id="@+id/lblUsuarioIncListview"
+        android:id="@+id/lblDetalleIncZona"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txtDetalleIncDescripcion"
@@ -27,8 +27,8 @@
         android:id="@+id/txtDetalleIncZona"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/lblUsuarioIncListview"
-        android:layout_below="@+id/lblUsuarioIncListview"
+        android:layout_alignLeft="@+id/lblDetalleIncZona"
+        android:layout_below="@+id/lblDetalleIncZona"
         android:ems="10"
         android:enabled="false"
         android:inputType="text" />
@@ -37,8 +37,9 @@
         android:id="@+id/txtDetalleIncDescripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/lblTituloIncListview"
-        android:layout_alignTop="@+id/lblTituloIncListview"
+        android:layout_alignLeft="@+id/lblDetalleIncDescripcion"
+        android:layout_alignTop="@+id/lblDetalleIncDescripcion"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:enabled="false"
         android:inputType="textLongMessage" />
@@ -102,5 +103,14 @@
         android:ems="10"
         android:enabled="false"
         android:inputType="date" />
+    
+    <Button
+        android:id="@+id/btnCompartirDetalleInc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txtDetalleIncFechaCreacion"
+        android:onClick="compartirInc"
+        android:text="@string/lblCompartirConDetalleInc" />
 
 </RelativeLayout>

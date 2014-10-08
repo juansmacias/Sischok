@@ -3,13 +3,17 @@ package uniandes.sischok;
 import uniandes.sischok.mundo.CentroIncidentes;
 import uniandes.sischok.mundo.Incidente;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 import android.widget.EditText;
 import uniandes.sischok.R;
 
 
 public class DetalleIncidente extends Activity {
+	
+	private Incidente incActual;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -17,18 +21,18 @@ public class DetalleIncidente extends Activity {
 		setContentView(R.layout.activity_detalle_incidente);		
 		long id = getIntent().getLongExtra("id",0);
 		CentroIncidentes centroIncidentes = CentroIncidentes.darInstancia(this);
-		Incidente inc = centroIncidentes.darIncidentePorId(id);
-		setTitle(inc.getTitulo());		
+		incActual = centroIncidentes.darIncidentePorId(id);
+		setTitle(incActual.getTitulo());		
 		EditText txtdesc = (EditText) findViewById(R.id.txtDetalleIncDescripcion);
-		txtdesc.setText(inc.getDescripcion());
+		txtdesc.setText(incActual.getDescripcion());
 		EditText txtZona = (EditText) findViewById(R.id.txtDetalleIncZona);
-		txtZona.setText(inc.getZona()+"");
+		txtZona.setText(incActual.getZona()+"");
 		EditText txtGravedad = (EditText) findViewById(R.id.txtDetalleIncGravedad);
-		txtGravedad.setText(inc.getGravedad()+"");
+		txtGravedad.setText(incActual.getGravedad()+"");
 		EditText txtCreador = (EditText) findViewById(R.id.txtDetalleIncUsuario);
-		txtCreador.setText(inc.getUsuarioCreacion());
+		txtCreador.setText(incActual.getUsuarioCreacion());
 		EditText txtfecha = (EditText) findViewById(R.id.txtDetalleIncFechaCreacion);
-		txtfecha.setText(inc.getFechaCreacion().toString());
+		txtfecha.setText(incActual.getFechaCreacion().toString());
 	}
 
 	@Override
@@ -36,5 +40,12 @@ public class DetalleIncidente extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.detalle_incidente, menu);
 		return true;
+	}
+	
+	public void compartirInc (View view)
+	{
+		Intent intent = new Intent(this,CompartirIncidente.class);
+		intent.putExtra("incidente", incActual.toString());
+		startActivity(intent);	
 	}
 }

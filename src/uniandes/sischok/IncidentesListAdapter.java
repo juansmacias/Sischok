@@ -47,7 +47,7 @@ public class IncidentesListAdapter extends ArrayAdapter<Incidente> {
 			vista =  ((Activity) mContext).getLayoutInflater().inflate(R.layout.incidentelistview, pariente, false);
 		}
 		Incidente incActual = mlistInc.get(posicion);
-		TextView lblTitulo = (TextView) vista.findViewById(R.id.lblTituloIncListview);
+		TextView lblTitulo = (TextView) vista.findViewById(R.id.lblSinTituloIncListView);
 		lblTitulo.setText(incActual.getTitulo());
 		lblTitulo.setTag(incActual.getId());
 		TextView lblUsuario = (TextView) vista.findViewById(R.id.lblUsuarioIncListview);

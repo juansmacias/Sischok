@@ -43,15 +43,6 @@ public class Inicio extends Activity {
 			startActivityForResult(intentBienvenida,1);
 		}
 		List<Incidente> ultimosIncidentes = centroI.darUltimos5Incidentes();
-//		String[] columns = new String[] { "_id","titulo", "id"};
-//		MatrixCursor matrixCursor= new MatrixCursor(columns);
-//		startManagingCursor(matrixCursor);
-//		for (int i = 0; i < ultimosIncidentes.size(); i++ ) {
-//			Incidente inc = (Incidente) ultimosIncidentes.get(i);
-//			matrixCursor.addRow(new Object[] { i,inc.getTitulo(), inc.getUsuarioCreacion()});
-//		}
-//		int[] toViews = {android.R.id.edit, android.R.id.text1,android.R.id.text2};
-//		mAdapter = new SimpleCursorAdapter (this,android.R.layout.simple_list_item_2, matrixCursor,columns, toViews, 0);
 		mAdapter = new IncidentesListAdapter(this,R.layout.incidentelistview,ultimosIncidentes);
 		ListView lstUltimo = (ListView) findViewById(R.id.lstNuevosIncidentes);
 		lstUltimo.setAdapter(mAdapter);
@@ -61,7 +52,7 @@ public class Inicio extends Activity {
 		      public void onItemClick(AdapterView<?> parent, final View view,
 		          int position, long id) {
 		    		Intent intentD = new Intent(Inicio.this, DetalleIncidente.class);
-		    		intentD.putExtra("id", ((TextView)view.findViewById(R.id.lblTituloIncListview)).getText());
+		    		intentD.putExtra("id", ((TextView)view.findViewById(R.id.lblSinTituloIncListView)).getText());
 		    		startActivity(intentD);
 		      }
 
@@ -69,9 +60,7 @@ public class Inicio extends Activity {
 		Intent intent = new Intent(this, CentroEventos.class);
 		startService(intent);
 		
-		// TODO: If exposing deep links into your app, handle intents here.
-		//crea el intent de las notificaciones
-		
+		// TODO:crea el intent de las notificaciones		
 		 // Start service Centro Eventos using AlarmManager
 
         Calendar cal = Calendar.getInstance();
@@ -89,44 +78,19 @@ public class Inicio extends Activity {
 	protected void onResume() {
 		CentroIncidentes centroI = CentroIncidentes.darInstancia(this);
 		List<Incidente> ultimosIncidentes = centroI.darUltimos5Incidentes();
-//		String[] columns = new String[] { "_id","titulo", "id"};
-//		MatrixCursor matrixCursor= new MatrixCursor(columns);
-//		startManagingCursor(matrixCursor);
-//		for (int i = 0; i < ultimosIncidentes.size(); i++ ) {
-//			Incidente inc = (Incidente) ultimosIncidentes.get(i);
-//			matrixCursor.addRow(new Object[] { i,inc.getTitulo(), inc.getUsuarioCreacion()});
-//		}
-//		int[] toViews = {android.R.id.edit, android.R.id.text1,android.R.id.text2};
-//		mAdapter = new SimpleCursorAdapter (this,android.R.layout.simple_list_item_2, matrixCursor,columns, toViews, 0);
 		mAdapter = new IncidentesListAdapter(this,R.layout.incidentelistview,ultimosIncidentes);
 		ListView lstUltimo = (ListView) findViewById(R.id.lstNuevosIncidentes);
 		lstUltimo.setAdapter(mAdapter);
 		lstUltimo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
 		      @Override
 		      public void onItemClick(AdapterView<?> parent, final View view,
 		          int position, long id) {
 		    		Intent intentD = new Intent(Inicio.this, DetalleIncidente.class);
-		    		intentD.putExtra("id",Long.parseLong(((TextView)view.findViewById(R.id.lblTituloIncListview)).getTag()+""));
+		    		intentD.putExtra("id",Long.parseLong(((TextView)view.findViewById(R.id.lblSinTituloIncListView)).getTag()+""));
 		    		startActivity(intentD);
 		      }
 
 		    });
-//		ListView lstUltimo = (ListView) findViewById(R.id.lstNuevosIncidentes);
-//		lstUltimo.setAdapter(mAdapter);
-//		mAdapter.swapCursor(matrixCursor);
-//		lstUltimo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
-//		      @Override
-//		      public void onItemClick(AdapterView<?> parent, final View view,
-//		          int position, long id) {
-//		    		Intent intentD = new Intent(Inicio.this, DetalleIncidente.class);
-//		    		intentD.putExtra("titulo", ((TextView)view.findViewById(android.R.id.text1)).getText());
-//		    		intentD.putExtra("Usuario", ((TextView)view.findViewById(android.R.id.text2)).getText());
-//		    		startActivity(intentD);
-//		      }
-//
-//		    });
 		mAdapter.notifyDataSetChanged();
 		super.onResume();
 	}

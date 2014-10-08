@@ -9,21 +9,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.support.v4.app.NavUtils;
 import uniandes.sischok.mundo.CentroIncidentes;
-import uniandes.sischok.mundo.DaoMaster;
-import uniandes.sischok.mundo.DaoSession;
 import uniandes.sischok.mundo.Incidente;
-import uniandes.sischok.mundo.IncidenteDao;
-import uniandes.sischok.mundo.DaoMaster.DevOpenHelper;
-
 public class CrearIncidenteDescripcion extends Activity {
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -66,22 +60,24 @@ public class CrearIncidenteDescripcion extends Activity {
 		AlertDialog alertDialog = new AlertDialog.Builder(CrearIncidenteDescripcion.this).create();
 	    if(!titulo.equals("")&&!descripcion.equals("")&&(gravedad<=5||gravedad>0))
 	    	{
-				Incidente indicienteNuevo = new Incidente(null, titulo, descripcion, getIntent().getIntExtra("zona",0), gravedad, new Date(), sharedpreferences.getString(CentroIncidentes.prefNombre, "Administrador Sischok"));
-				DevOpenHelper helperNuevo = new DaoMaster.DevOpenHelper(this, CentroIncidentes.nomdb, null);
-				SQLiteDatabase db = helperNuevo.getWritableDatabase();
-				DaoMaster daoMaster = new DaoMaster(db);
-				DaoSession daoSession = daoMaster.newSession();
-				IncidenteDao indicenteDao = daoSession.getIncidenteDao();
-				indicenteDao.insert(indicienteNuevo);
+				final Incidente indicienteNuevo = new Incidente(null, titulo, descripcion, getIntent().getIntExtra("zona",0), gravedad, new Date(), sharedpreferences.getString(CentroIncidentes.prefNombre, "Administrador Sischok"));
+				CentroIncidentes centroInc = CentroIncidentes.darInstancia(this);
+				centroInc.crearIncidente(indicienteNuevo);
 				alertDialog.setTitle("Exito");
 				alertDialog.setMessage("Su incidente se ha agregado");
 				alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 	            public void onClick(DialogInterface dialog, int which) {
 	            	Intent crearIncDes = new Intent(CrearIncidenteDescripcion.this, Inicio.class);
 	            	startActivity(crearIncDes);
-	            	
-	            }
-	    });
+	            	}
+				});
+				alertDialog.setButton2("Compartir ", new DialogInterface.OnClickListener() {
+		            public void onClick(DialogInterface dialog, int which) {
+		            	Intent intent = new Intent(CrearIncidenteDescripcion.this,CompartirIncidente.class);
+		            	intent.putExtra("incidente", indicienteNuevo.toString());
+		            	startActivity(intent);		            	
+		            }     
+				});
 	    alertDialog.show();
 		    }
 	    else
@@ -91,8 +87,9 @@ public class CrearIncidenteDescripcion extends Activity {
 	    		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
             }
-    });
+	    		});
     alertDialog.show();
 	    }
 	}
+	
 }

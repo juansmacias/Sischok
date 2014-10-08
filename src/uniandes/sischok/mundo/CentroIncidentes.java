@@ -17,7 +17,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import uniandes.sischok.Inicio;
 import uniandes.sischok.R;
 import uniandes.sischok.mundo.Incidente;
 import uniandes.sischok.mundo.DaoMaster.DevOpenHelper;
@@ -139,7 +138,11 @@ public class CentroIncidentes {
 			e.printStackTrace();
 		}
 		return arrIncidentes.toString();
-
+	}
+	
+	public void crearIncidente (Incidente incidente)
+	{
+		incidenteDao.insert(incidente);
 	}
 	
 	private Incidente darIncidentesPorZona(int zona)
@@ -147,10 +150,6 @@ public class CentroIncidentes {
 		return null;
 	}
 	
-	public static Boolean compartirIncidente(String textoMensaje, String UsuariosDestino)
-	{
-		return false;
-	}
 //	JSONArray jArryIncs = new JSONArray();
 //	for (int i = 0; i < ultimosIncidentes.size(); i++) {
 //		JSONObject jobjIncA = new JSONObject();

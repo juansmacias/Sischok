@@ -5,12 +5,12 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/lblTituloIncListview"
+        android:id="@+id/lblSinTituloIncListView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="17dp"
-        android:layout_marginTop="20dp"
-        android:text="Sin Titulo"
+        android:layout_marginTop="28dp"
+        android:text="@string/lblSinTitulo"
         android:textAppearance="?android:attr/textAppearanceListItem" />
 
     <TextView
@@ -18,8 +18,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="17dp"
-        android:layout_marginTop="5dp"
-        android:text="Usuario Desconocido"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:text="@string/lblUsuarioDesconocido" />
 
 </LinearLayout>
