@@ -119,25 +119,17 @@ public class CentroIncidentes {
 	 * @param zonas Codigos de zonas que se quiere consultar en formato json.
 	 * @return Se retorna un arreglo de Incidentes en formato json
 	 */
-	public String consultarIncidentesPorZonas(String zonas)
+	public List<Incidente> consultarIncidentesPorZonas(String zonas)
 	{
-		JSONObject jObjZonas;
-		JSONArray arrIncidentes = new JSONArray();
-		try {
-		jObjZonas = new JSONObject(zonas);
-		int contZ = Integer.parseInt(jObjZonas.getString("Tamano"));
-		for(int i =0;i<contZ;i++)
-		{
-			int zonaAcual = Integer.parseInt(jObjZonas.getString("Zona"+i));
-			Incidente incidenteActual= darIncidentesPorZona(zonaAcual);
-			JSONObject jIncidenteActaul = new JSONObject();
-			jIncidenteActaul.put("titulo", incidenteActual.getTitulo());
-			arrIncidentes.put(jIncidenteActaul);
+		
+		String[] zonasp = zonas.split("-");
+		List<Integer> zonasInt = new ArrayList<Integer>();
+		for (int i = 0; i < zonasp.length; i++) {
+			zonasInt.add(Integer.decode(zonasp[0]));
 		}
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-		return arrIncidentes.toString();
+		QueryBuilder<Incidente> qb = incidenteDao.queryBuilder();
+		qb.where(Properties.Zona.in(zonasInt));
+		return qb.list();
 	}
 	
 	public void crearIncidente (Incidente incidente)

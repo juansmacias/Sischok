@@ -79,6 +79,6 @@
     <string name="title_activity_compartir_incidente">Compartir Incidente</string>
     <string name="lblCompartirSMS">Compartir mediante SMS</string>
     <string name="lblCompartirConDetalleInc">Compartir Incidente</string>
-    
+    <string name="title_activity_ver_resultado_incidentes">Resultado Incidentes</string>
 
 </resources>
