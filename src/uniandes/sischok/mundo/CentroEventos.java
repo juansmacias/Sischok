@@ -2,6 +2,8 @@ package uniandes.sischok.mundo;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import uniandes.sischok.Inicio;
 import uniandes.sischok.R;
 import android.app.AlarmManager;
 import android.app.IntentService;
@@ -51,9 +53,6 @@ public class CentroEventos extends IntentService
 		Cursor cur = null;
 		ContentResolver cr = context.getContentResolver();
 		
-		
-//    	Toast.makeText(getApplicationContext(), "Revisar Sichock: la prueba de las nots", Toast.LENGTH_LONG).show();
-		
     	Long timeNow = new Date().getTime();
 		Uri.Builder eventsUriBuilder = CalendarContract.Instances.CONTENT_URI.buildUpon();
 		ContentUris.appendId(eventsUriBuilder, timeNow);
@@ -65,7 +64,6 @@ public class CentroEventos extends IntentService
 		
 		//arreglo de los eventos de cada dia
         String[] CalTitle = new String[cur.getCount()];
-//    	Toast.makeText(getApplicationContext(), "Eventos: "+CalTitle.length, Toast.LENGTH_LONG).show();
     	//yayyy si saleeeeee
     	
         // recorre los eventos resultados de la consulta para notificar unicamente los que van a suceder en la proxima hora y 59 min
@@ -74,10 +72,12 @@ public class CentroEventos extends IntentService
             CalTitle[i] = cur.getString(1);
             
             	NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            	//para que al notificar abra la app en la pagina principal
+            	Intent notificationIntent = new Intent (context, Inicio.class );
+            	notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+            	            | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             	// prepare intent which is triggered if the notification is selected
-//            	intent = new Intent(this, NotificationReceiver.class);
             	PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
-//            	Notification.Builder builder  = new Notification.Builder(this);
             	Notification n  = new Notification.Builder(this)
                 .setContentTitle("Revisar zonas peligrosas ")
                 .setContentText("Evento: "+ cur.getString(1))
