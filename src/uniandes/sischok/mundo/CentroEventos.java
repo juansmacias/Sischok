@@ -1,10 +1,8 @@
 package uniandes.sischok.mundo;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import uniandes.sischok.Inicio;
-import uniandes.sischok.R;
 import android.app.AlarmManager;
 import android.app.IntentService;
 import android.app.Notification;
@@ -16,10 +14,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
-import android.net.Uri.Builder;
 import android.provider.CalendarContract;
-import android.provider.CalendarContract.Calendars;
-import android.provider.CalendarContract.Events;
 import android.widget.Toast;
 
 public class CentroEventos extends IntentService
@@ -81,7 +76,7 @@ public class CentroEventos extends IntentService
             	Notification n  = new Notification.Builder(this)
                 .setContentTitle("Revisar zonas peligrosas ")
                 .setContentText("Evento: "+ cur.getString(1))
-                .setSmallIcon(R.drawable.icono)
+//                .setSmallIcon(R.drawable.icon)
                 .setContentIntent(pIntent)
                 .setAutoCancel(true).build();
 //           NO     .addAction(R.drawable.icon, "Call", pIntent)

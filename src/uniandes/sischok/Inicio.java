@@ -2,6 +2,9 @@ package uniandes.sischok;
 
 import java.util.List;
 import java.util.Calendar;
+
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -119,8 +122,21 @@ public class Inicio extends Activity {
 	
 	public void crearIncidente (View view)
 	{
-		Intent intetCrear = new Intent(this, CrearIncidenteBarrios.class);
-		startActivity(intetCrear);
+		//Verifica si el dispositivo esta conectado 
+		 ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+			    NetworkInfo netInfo = cm.getActiveNetworkInfo();
+			    if (netInfo != null && netInfo.isConnectedOrConnecting())
+			    {
+			        //esta conectado a internet
+			    	Intent intentCrearGPS = new Intent(this, CrearIncidenteGPS.class);
+			    	startActivity(intentCrearGPS);
+			    }
+			    
+			    else
+			    {
+			    	Intent intetCrear = new Intent(this, CrearIncidenteBarrios.class);
+			    	startActivity(intetCrear);
+			    }
 	}
 	public void consultarIncidente (View view)
 	{
