@@ -4,8 +4,12 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
+
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -23,6 +27,7 @@ public class CrearIncidenteGPS extends Activity implements LocationListener
     protected LocationManager locationManager;
 //    private String provider;
     private LatLng myLocation;
+//    private ArrayList<LatLng> lstLatLngs;
     // Flag for GPS status
     boolean isGPSEnabled = false;
     // Flag for network status
@@ -123,15 +128,57 @@ public class CrearIncidenteGPS extends Activity implements LocationListener
 //            }
             gMap.setMyLocationEnabled(true);
 //            Marker TP = gMap.addMarker(new MarkerOptions().position(myLocation).title("Estoy aca").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
+
+//            lstLatLngs = new ArrayList<LatLng>();
+            gMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() 
+            {
+            	@Override
+            	public void onMapClick(final LatLng point) 
+            	{
+            		// TODO Auto-generated method stub
+            		
+            		 AlertDialog.Builder builder = new AlertDialog.Builder(CrearIncidenteGPS.this);
+            		 builder.setMessage("Desea agregar un incidente en este lugar?")
+            		        .setCancelable(false)
+            		        .setPositiveButton("Si", new DialogInterface.OnClickListener() 
+            		        {
+            		            public void onClick(DialogInterface dialog, int id) 
+            		            {
+            		            	//Agregar el incidente
+//            		            	lstLatLngs.add(point);
+            		            	insertarIncidente(point);
+//            		            	gMap.addMarker(new MarkerOptions().position(point));
+            		            }
+            		        })
+            		        .setNegativeButton("No", new DialogInterface.OnClickListener() 
+            		        {
+            		            public void onClick(DialogInterface dialog, int id) 
+            		            {
+            		                 dialog.cancel();
+            		            }
+            		        });
+            		 AlertDialog alert = builder.create();
+            		 alert.show();
+            		
+            	}
+            });
     }
  
 
+    public void insertarIncidente(LatLng point)
+    {
+    	Intent intentCrearIncidenteLatLng = new Intent(this, CrearIncidenteConLatLng.class);
+    	intentCrearIncidenteLatLng.putExtra("IncidenteLatLng", point );
+    	startActivity(intentCrearIncidenteLatLng);
+    }
     @Override
     public void onLocationChanged(Location location) {
       latitude = (int) (location.getLatitude());
       longitude = (int) (location.getLongitude());
 //      latituteField.setText(String.valueOf(lat)); nuevo text view
 //      longitudeField.setText(String.valueOf(lng));
+//      myLocation = new LatLng(latitude,longitude);
+//      gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 15));
     }
     
     @Override

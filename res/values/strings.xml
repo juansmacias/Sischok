@@ -10,11 +10,13 @@
     <string name="lblSeleccionarBarrio">Selecciona la Localidad del indicente:</string>
     <string name="title_activity_crear_incidente_descripcion">Crear Incidente</string>
     <string name="title_activity_crear_incidente_gps">Crear Incidente GPS</string>
+    <string name="title_activity_crear_incidente_latlng">Crear Incidente GPS</string>
     <string name="lblCrearIncidentesTitulo">Titulo para el incidente:</string>
     <string name="lblCrearIncidenteDescripcion">Ingresa datos adicionales:</string>
     <string name="lblCrearIncidenteIngresodescripcion">Ingresa una descripcion para el incidente:</string>
     <string name="lblCrearIncidenteGravedad">Selecciona el nivel de gravedad (1 al 5):</string>
     <string name="btnCrearIncidente"> Crear Incidente</string>
+    <string name="btnCrearIncidenteLatLng">Crear Incidente Localizado</string>
     <string name="lblLocalidad1">Antonio Nariño</string>
     <string name="lblLocalidad2">Barrios Unidos</string>
     <string name="lblLocalidad3">Bosa</string>

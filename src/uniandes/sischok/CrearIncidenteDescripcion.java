@@ -28,21 +28,23 @@ public class CrearIncidenteDescripcion extends Activity {
 	/**
 	 * Set up the {@link android.app.ActionBar}.
 	 */
-	private void setupActionBar() {
-
+	private void setupActionBar() 
+	{
 		getActionBar().setDisplayHomeAsUpEnabled(true);
-
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+	public boolean onCreateOptionsMenu(Menu menu) 
+	{
 		getMenuInflater().inflate(R.menu.crear_incidente_descripcion, menu);
 		return true;
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
+	public boolean onOptionsItemSelected(MenuItem item) 
+	{
+		switch (item.getItemId()) 
+		{
 		case android.R.id.home:
 			NavUtils.navigateUpFromSameTask(this);
 			return true;
