@@ -110,17 +110,17 @@ public class CrearIncidenteGPS extends Activity implements LocationListener
             e.printStackTrace();
         }
 
-           gMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+            gMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
             myLocation = new LatLng(latitude,longitude);
             gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 15));
- 
-            // check if map is created successfully or not
-            if (gMap == null) 
-            {
-                Toast.makeText(getApplicationContext(),
-                        "Sorry! unable to create maps", Toast.LENGTH_SHORT)
-                        .show();
-            }
+// 
+//            // check if map is created successfully or not
+//            if (gMap == null) 
+//            {
+//                Toast.makeText(getApplicationContext(),
+//                        "Sorry! unable to create maps", Toast.LENGTH_SHORT)
+//                        .show();
+//            }
             gMap.setMyLocationEnabled(true);
 //            Marker TP = gMap.addMarker(new MarkerOptions().position(myLocation).title("Estoy aca").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
     }

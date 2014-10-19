@@ -1,7 +1,5 @@
 package uniandes.sischok.mundo;
 
-import java.util.Date;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -138,18 +136,6 @@ public class Incidente {
     				e.printStackTrace();
     			}
     	return jobjIncA.toString();
-    }
-    
-    public static Incidente toIncidente (JSONObject jsonO)
-    {
-    	Incidente objInc= null;
-    	try {
-    		objInc = new Incidente(Long.parseLong(jsonO.getString("_id")), jsonO.getString("titulo"), jsonO.getString("descripcion"),  Integer.valueOf(jsonO.getInt("zona")),  Integer.valueOf(jsonO.getInt("gravedad")), (Date)jsonO.get("fechaCreacion"), jsonO.getString("usuarioCreacion"));
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	return objInc;
     }
 
 }
