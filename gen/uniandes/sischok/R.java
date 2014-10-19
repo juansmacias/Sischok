@@ -9,34 +9,384 @@ package uniandes.sischok;
 
 public final class R {
     public static final class attr {
+        /** 
+    The size of the ad. It must be one of BANNER, FULL_BANNER, LEADERBOARD,
+    MEDIUM_RECTANGLE, SMART_BANNER, WIDE_SKYSCRAPER, or
+    &lt;width&gt;x&lt;height&gt;.
+    
+         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int adSize=0x7f010000;
+        /** 
+    A comma-separated list of the supported ad sizes. The sizes must be one of
+    BANNER, FULL_BANNER, LEADERBOARD, MEDIUM_RECTANGLE, SMART_BANNER,
+    WIDE_SKYSCRAPER, or &lt;width&gt;x&lt;height&gt;.
+    
+         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int adSizes=0x7f010001;
+        /**  The ad unit ID. 
+         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int adUnitId=0x7f010002;
+        /**  Theme to be used for the Wallet selector 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>holo_dark</code></td><td>0</td><td></td></tr>
+<tr><td><code>holo_light</code></td><td>1</td><td></td></tr>
+</table>
+         */
+        public static final int appTheme=0x7f010011;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int buttonBarButtonStyle=0x7f010001;
+        public static final int buttonBarButtonStyle=0x7f010021;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int buttonBarStyle=0x7f010000;
+        public static final int buttonBarStyle=0x7f010020;
+        /**  Appearance of the buy button. Must be one of "classic", "grayscale" and "monochrome" 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>classic</code></td><td>1</td><td></td></tr>
+<tr><td><code>grayscale</code></td><td>2</td><td></td></tr>
+<tr><td><code>monochrome</code></td><td>3</td><td></td></tr>
+</table>
+         */
+        public static final int buyButtonAppearance=0x7f010018;
+        /**  Height of the buy button. This includes an 8dp padding (4dp on each side) used for
+             pressed and focused states of the button. The value can be a specific height, e.g.
+             "48dp", or special values "match_parent" and "wrap_content". 
+         <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>May be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>match_parent</code></td><td>-1</td><td></td></tr>
+<tr><td><code>wrap_content</code></td><td>-2</td><td></td></tr>
+</table>
+         */
+        public static final int buyButtonHeight=0x7f010015;
+        /**  Text on the buy button. Must be one of "buy_with_google", "buy_now" and "book_now" 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>buy_with_google</code></td><td>1</td><td></td></tr>
+<tr><td><code>buy_now</code></td><td>2</td><td></td></tr>
+<tr><td><code>book_now</code></td><td>3</td><td></td></tr>
+</table>
+         */
+        public static final int buyButtonText=0x7f010017;
+        /**  Width of the buy button. This includes an 8dp padding (4dp on each side) used for
+             pressed and focused states of the button. The value can be a specific width, e.g.
+             "300dp", or special values "match_parent" and "wrap_content". 
+         <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>May be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>match_parent</code></td><td>-1</td><td></td></tr>
+<tr><td><code>wrap_content</code></td><td>-2</td><td></td></tr>
+</table>
+         */
+        public static final int buyButtonWidth=0x7f010016;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cameraBearing=0x7f010004;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cameraTargetLat=0x7f010005;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cameraTargetLng=0x7f010006;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cameraTilt=0x7f010007;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cameraZoom=0x7f010008;
+        /**  Google Wallet environment to use 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>production</code></td><td>1</td><td></td></tr>
+<tr><td><code>sandbox</code></td><td>0</td><td></td></tr>
+<tr><td><code>strict_sandbox</code></td><td>2</td><td></td></tr>
+</table>
+         */
+        public static final int environment=0x7f010012;
+        /**  Fragment mode 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>buyButton</code></td><td>1</td><td></td></tr>
+<tr><td><code>selectionDetails</code></td><td>2</td><td></td></tr>
+</table>
+         */
+        public static final int fragmentMode=0x7f010014;
+        /**  A style resource specifing attributes to customize the look and feel of WalletFragment 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int fragmentStyle=0x7f010013;
+        /** <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>none</code></td><td>0</td><td></td></tr>
+<tr><td><code>normal</code></td><td>1</td><td></td></tr>
+<tr><td><code>satellite</code></td><td>2</td><td></td></tr>
+<tr><td><code>terrain</code></td><td>3</td><td></td></tr>
+<tr><td><code>hybrid</code></td><td>4</td><td></td></tr>
+</table>
+         */
+        public static final int mapType=0x7f010003;
+        /**  Masked wallet details background 
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int maskedWalletDetailsBackground=0x7f01001b;
+        /**  "Change" button background in masked wallet details view 
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int maskedWalletDetailsButtonBackground=0x7f01001d;
+        /**  TextAppearance for the "Change" button in masked wallet details view 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int maskedWalletDetailsButtonTextAppearance=0x7f01001c;
+        /**  TextAppearance for headers describing masked wallet details 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int maskedWalletDetailsHeaderTextAppearance=0x7f01001a;
+        /**  Type of the wallet logo image in masked wallet details view 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>classic</code></td><td>1</td><td></td></tr>
+<tr><td><code>monochrome</code></td><td>2</td><td></td></tr>
+</table>
+         */
+        public static final int maskedWalletDetailsLogoImageType=0x7f01001f;
+        /**  Color of the Google Wallet logo text in masked wallet details view 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int maskedWalletDetailsLogoTextColor=0x7f01001e;
+        /**  TextAppearance for masked wallet details 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int maskedWalletDetailsTextAppearance=0x7f010019;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int uiCompass=0x7f010009;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int uiRotateGestures=0x7f01000a;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int uiScrollGestures=0x7f01000b;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int uiTiltGestures=0x7f01000c;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int uiZoomControls=0x7f01000d;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int uiZoomGestures=0x7f01000e;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int useViewLifecycle=0x7f01000f;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int zOrderOnTop=0x7f010010;
     }
     public static final class color {
-        public static final int amarillo_inicio=0x7f05000e;
-        public static final int amarillo_recordar=0x7f050008;
-        public static final int azul_CrearIBarrio=0x7f050003;
-        public static final int black_overlay=0x7f050011;
-        public static final int blanco=0x7f05000b;
-        public static final int gris=0x7f05000a;
-        public static final int morado_Fondonicio=0x7f05000f;
-        public static final int naranja_CrearIFondoObjetos=0x7f050004;
-        public static final int naranja_comuunidad=0x7f050009;
-        public static final int purple_dark=0x7f050002;
-        public static final int purple_light=0x7f050000;
-        public static final int purple_middle=0x7f050001;
-        public static final int rojo_elemento=0x7f050007;
-        public static final int rojo_inicioBototes=0x7f050010;
-        public static final int rosado_botonCrearIncidente=0x7f05000d;
-        public static final int verde_Ciudad=0x7f050005;
-        public static final int verde_Juego=0x7f050006;
-        public static final int verde_elementos=0x7f05000c;
+        public static final int amarillo_inicio=0x7f070025;
+        public static final int amarillo_recordar=0x7f07001f;
+        public static final int azul_CrearIBarrio=0x7f07001a;
+        public static final int black_overlay=0x7f070028;
+        public static final int blanco=0x7f070022;
+        public static final int common_action_bar_splitter=0x7f070009;
+        /**  Sign-in Button Colors 
+         */
+        public static final int common_signin_btn_dark_text_default=0x7f070000;
+        public static final int common_signin_btn_dark_text_disabled=0x7f070002;
+        public static final int common_signin_btn_dark_text_focused=0x7f070003;
+        public static final int common_signin_btn_dark_text_pressed=0x7f070001;
+        public static final int common_signin_btn_default_background=0x7f070008;
+        public static final int common_signin_btn_light_text_default=0x7f070004;
+        public static final int common_signin_btn_light_text_disabled=0x7f070006;
+        public static final int common_signin_btn_light_text_focused=0x7f070007;
+        public static final int common_signin_btn_light_text_pressed=0x7f070005;
+        public static final int common_signin_btn_text_dark=0x7f070029;
+        public static final int common_signin_btn_text_light=0x7f07002a;
+        public static final int gris=0x7f070021;
+        public static final int morado_Fondonicio=0x7f070026;
+        public static final int naranja_CrearIFondoObjetos=0x7f07001b;
+        public static final int naranja_comuunidad=0x7f070020;
+        public static final int purple_dark=0x7f070019;
+        public static final int purple_light=0x7f070017;
+        public static final int purple_middle=0x7f070018;
+        public static final int rojo_elemento=0x7f07001e;
+        public static final int rojo_inicioBototes=0x7f070027;
+        public static final int rosado_botonCrearIncidente=0x7f070024;
+        public static final int verde_Ciudad=0x7f07001c;
+        public static final int verde_Juego=0x7f07001d;
+        public static final int verde_elementos=0x7f070023;
+        public static final int wallet_bright_foreground_disabled_holo_light=0x7f07000f;
+        /** 
+         Wallet colors to support consistent Wallet fragment holo dark UI in client application
+         regardless of the theme and device type
+    
+         */
+        public static final int wallet_bright_foreground_holo_dark=0x7f07000a;
+        public static final int wallet_bright_foreground_holo_light=0x7f070010;
+        public static final int wallet_dim_foreground_disabled_holo_dark=0x7f07000c;
+        public static final int wallet_dim_foreground_holo_dark=0x7f07000b;
+        public static final int wallet_dim_foreground_inverse_disabled_holo_dark=0x7f07000e;
+        public static final int wallet_dim_foreground_inverse_holo_dark=0x7f07000d;
+        public static final int wallet_highlighted_text_holo_dark=0x7f070014;
+        public static final int wallet_highlighted_text_holo_light=0x7f070013;
+        public static final int wallet_hint_foreground_holo_dark=0x7f070012;
+        public static final int wallet_hint_foreground_holo_light=0x7f070011;
+        public static final int wallet_holo_blue_light=0x7f070015;
+        public static final int wallet_link_text_light=0x7f070016;
+        public static final int wallet_primary_text_holo_light=0x7f07002b;
+        public static final int wallet_secondary_text_holo_dark=0x7f07002c;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -50,10 +400,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f060000;
-        public static final int activity_vertical_margin=0x7f060001;
-        public static final int slidingmenu_offset=0x7f060003;
-        public static final int slidingmenu_shadow_width=0x7f060002;
+        public static final int activity_horizontal_margin=0x7f0a0000;
+        public static final int activity_vertical_margin=0x7f0a0001;
+        public static final int slidingmenu_offset=0x7f0a0003;
+        public static final int slidingmenu_shadow_width=0x7f0a0002;
     }
     public static final class drawable {
         public static final int antonionarino=0x7f020000;
@@ -61,125 +411,181 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int bosa=0x7f020002;
         public static final int chapinero=0x7f020003;
         public static final int ciudadbolivar=0x7f020004;
-        public static final int engativa=0x7f020005;
-        public static final int fondocrearincidente=0x7f020006;
-        public static final int fontibon=0x7f020007;
-        public static final int ic_launcher=0x7f020008;
-        public static final int icono=0x7f020009;
-        public static final int icono7=0x7f02000a;
-        public static final int kennedy=0x7f02000b;
-        public static final int lacandelaria=0x7f02000c;
-        public static final int martires=0x7f02000d;
-        public static final int puentearanda=0x7f02000e;
-        public static final int rafaeluribe=0x7f02000f;
-        public static final int sancristobal=0x7f020010;
-        public static final int santafe=0x7f020011;
-        public static final int slidingmenu_icono=0x7f020012;
-        public static final int slidingmenu_list_selector_background=0x7f020013;
-        public static final int slidingmenu_shadow=0x7f020014;
-        public static final int suba=0x7f020015;
-        public static final int teusaquillo=0x7f020016;
-        public static final int tunjuelito=0x7f020017;
-        public static final int url=0x7f020018;
-        public static final int usaquen=0x7f020019;
-        public static final int usme=0x7f02001a;
+        public static final int common_full_open_on_phone=0x7f020005;
+        public static final int common_ic_googleplayservices=0x7f020006;
+        public static final int common_signin_btn_icon_dark=0x7f020007;
+        public static final int common_signin_btn_icon_disabled_dark=0x7f020008;
+        public static final int common_signin_btn_icon_disabled_focus_dark=0x7f020009;
+        public static final int common_signin_btn_icon_disabled_focus_light=0x7f02000a;
+        public static final int common_signin_btn_icon_disabled_light=0x7f02000b;
+        public static final int common_signin_btn_icon_focus_dark=0x7f02000c;
+        public static final int common_signin_btn_icon_focus_light=0x7f02000d;
+        public static final int common_signin_btn_icon_light=0x7f02000e;
+        public static final int common_signin_btn_icon_normal_dark=0x7f02000f;
+        public static final int common_signin_btn_icon_normal_light=0x7f020010;
+        public static final int common_signin_btn_icon_pressed_dark=0x7f020011;
+        public static final int common_signin_btn_icon_pressed_light=0x7f020012;
+        public static final int common_signin_btn_text_dark=0x7f020013;
+        public static final int common_signin_btn_text_disabled_dark=0x7f020014;
+        public static final int common_signin_btn_text_disabled_focus_dark=0x7f020015;
+        public static final int common_signin_btn_text_disabled_focus_light=0x7f020016;
+        public static final int common_signin_btn_text_disabled_light=0x7f020017;
+        public static final int common_signin_btn_text_focus_dark=0x7f020018;
+        public static final int common_signin_btn_text_focus_light=0x7f020019;
+        public static final int common_signin_btn_text_light=0x7f02001a;
+        public static final int common_signin_btn_text_normal_dark=0x7f02001b;
+        public static final int common_signin_btn_text_normal_light=0x7f02001c;
+        public static final int common_signin_btn_text_pressed_dark=0x7f02001d;
+        public static final int common_signin_btn_text_pressed_light=0x7f02001e;
+        public static final int engativa=0x7f02001f;
+        public static final int fondocrearincidente=0x7f020020;
+        public static final int fontibon=0x7f020021;
+        public static final int ic_launcher=0x7f020022;
+        public static final int ic_plusone_medium_off_client=0x7f020023;
+        public static final int ic_plusone_small_off_client=0x7f020024;
+        public static final int ic_plusone_standard_off_client=0x7f020025;
+        public static final int ic_plusone_tall_off_client=0x7f020026;
+        public static final int icono=0x7f020027;
+        public static final int icono7=0x7f020028;
+        public static final int kennedy=0x7f020029;
+        public static final int lacandelaria=0x7f02002a;
+        public static final int martires=0x7f02002b;
+        public static final int powered_by_google_dark=0x7f02002c;
+        public static final int powered_by_google_light=0x7f02002d;
+        public static final int puentearanda=0x7f02002e;
+        public static final int rafaeluribe=0x7f02002f;
+        public static final int sancristobal=0x7f020030;
+        public static final int santafe=0x7f020031;
+        public static final int slidingmenu_icono=0x7f020032;
+        public static final int slidingmenu_list_selector_background=0x7f020033;
+        public static final int slidingmenu_shadow=0x7f020034;
+        public static final int suba=0x7f020035;
+        public static final int teusaquillo=0x7f020036;
+        public static final int tunjuelito=0x7f020037;
+        public static final int url=0x7f020038;
+        public static final int usaquen=0x7f020039;
+        public static final int usme=0x7f02003a;
     }
     public static final class id {
-        public static final int TextView01=0x7f0a0004;
-        public static final int TextView02=0x7f0a0032;
-        public static final int TextView03=0x7f0a0030;
-        public static final int TextView04=0x7f0a002e;
-        public static final int TextView05=0x7f0a002c;
-        public static final int TextView06=0x7f0a002a;
-        public static final int TextView07=0x7f0a0028;
-        public static final int TextView08=0x7f0a0026;
-        public static final int TextView09=0x7f0a0024;
-        public static final int TextView10=0x7f0a0022;
-        public static final int TextView11=0x7f0a0035;
-        public static final int TextView12=0x7f0a0043;
-        public static final int TextView13=0x7f0a0045;
-        public static final int TextView14=0x7f0a0041;
-        public static final int TextView15=0x7f0a003f;
-        public static final int TextView16=0x7f0a003d;
-        public static final int TextView17=0x7f0a003b;
-        public static final int TextView18=0x7f0a0039;
-        public static final int TextView19=0x7f0a0037;
-        public static final int action_settings=0x7f0a005e;
-        public static final int btnAjustes=0x7f0a005a;
-        public static final int btnCancelarComp=0x7f0a0009;
-        public static final int btnCompartirConComp=0x7f0a0008;
-        public static final int btnCompartirDetalleInc=0x7f0a0055;
-        public static final int btnConsultaIncidentes=0x7f0a0058;
-        public static final int btnConsultar=0x7f0a001f;
-        public static final int btnCrearIncidente=0x7f0a0057;
-        public static final int btnIncidentesPorAmigos=0x7f0a0059;
-        public static final int btnLocalidad1=0x7f0a0021;
-        public static final int btnLocalidad10=0x7f0a0033;
-        public static final int btnLocalidad11=0x7f0a0034;
-        public static final int btnLocalidad12=0x7f0a0036;
-        public static final int btnLocalidad13=0x7f0a0038;
-        public static final int btnLocalidad14=0x7f0a003a;
-        public static final int btnLocalidad15=0x7f0a003c;
-        public static final int btnLocalidad16=0x7f0a003e;
-        public static final int btnLocalidad17=0x7f0a0040;
-        public static final int btnLocalidad18=0x7f0a0042;
-        public static final int btnLocalidad19=0x7f0a0044;
-        public static final int btnLocalidad2=0x7f0a0023;
-        public static final int btnLocalidad3=0x7f0a0025;
-        public static final int btnLocalidad4=0x7f0a0027;
-        public static final int btnLocalidad5=0x7f0a0029;
-        public static final int btnLocalidad6=0x7f0a002b;
-        public static final int btnLocalidad7=0x7f0a002d;
-        public static final int btnLocalidad8=0x7f0a002f;
-        public static final int btnLocalidad9=0x7f0a0031;
-        public static final int btncrearIncidente=0x7f0a004b;
-        public static final int compartirconlistView=0x7f0a0007;
-        public static final int dummy_button=0x7f0a0006;
-        public static final int fullscreen_content=0x7f0a0000;
-        public static final int lblDetalleIncDescripcion=0x7f0a004c;
-        public static final int lblDetalleIncZona=0x7f0a004d;
-        public static final int lblIngresaDatos=0x7f0a0020;
-        public static final int lblSinTeleComCon=0x7f0a005c;
-        public static final int lblSinTituloIncListView=0x7f0a005d;
-        public static final int lblUsuarioComConListview=0x7f0a0001;
-        public static final int lblUsuarioIncListview=0x7f0a0002;
-        public static final int linearLayout1=0x7f0a0046;
-        public static final int lstNuevosIncidentes=0x7f0a0056;
-        public static final int radLocalidad1=0x7f0a000c;
-        public static final int radLocalidad10=0x7f0a0015;
-        public static final int radLocalidad11=0x7f0a0016;
-        public static final int radLocalidad12=0x7f0a0017;
-        public static final int radLocalidad13=0x7f0a0018;
-        public static final int radLocalidad14=0x7f0a0019;
-        public static final int radLocalidad15=0x7f0a001a;
-        public static final int radLocalidad16=0x7f0a001b;
-        public static final int radLocalidad17=0x7f0a001c;
-        public static final int radLocalidad18=0x7f0a001d;
-        public static final int radLocalidad19=0x7f0a001e;
-        public static final int radLocalidad2=0x7f0a000d;
-        public static final int radLocalidad3=0x7f0a000e;
-        public static final int radLocalidad4=0x7f0a000f;
-        public static final int radLocalidad5=0x7f0a0010;
-        public static final int radLocalidad6=0x7f0a0011;
-        public static final int radLocalidad7=0x7f0a0012;
-        public static final int radLocalidad8=0x7f0a0013;
-        public static final int radLocalidad9=0x7f0a0014;
-        public static final int radioLocalidad=0x7f0a000b;
-        public static final int scrollView1=0x7f0a000a;
-        public static final int textView3=0x7f0a0049;
-        public static final int textView4=0x7f0a0051;
-        public static final int textView5=0x7f0a0053;
-        public static final int txtDescripcion=0x7f0a0048;
-        public static final int txtDetalleIncDescripcion=0x7f0a004e;
-        public static final int txtDetalleIncFechaCreacion=0x7f0a0054;
-        public static final int txtDetalleIncGravedad=0x7f0a0050;
-        public static final int txtDetalleIncUsuario=0x7f0a0052;
-        public static final int txtDetalleIncZona=0x7f0a004f;
-        public static final int txtEdad=0x7f0a0005;
-        public static final int txtGravedad=0x7f0a004a;
-        public static final int txtNombre=0x7f0a0003;
-        public static final int txtTitulo=0x7f0a0047;
-        public static final int verIncConsultaZonasListView=0x7f0a005b;
+        public static final int TextView01=0x7f080018;
+        public static final int TextView02=0x7f080046;
+        public static final int TextView03=0x7f080044;
+        public static final int TextView04=0x7f080042;
+        public static final int TextView05=0x7f080040;
+        public static final int TextView06=0x7f08003e;
+        public static final int TextView07=0x7f08003c;
+        public static final int TextView08=0x7f08003a;
+        public static final int TextView09=0x7f080038;
+        public static final int TextView10=0x7f080036;
+        public static final int TextView11=0x7f080049;
+        public static final int TextView12=0x7f080057;
+        public static final int TextView13=0x7f080059;
+        public static final int TextView14=0x7f080055;
+        public static final int TextView15=0x7f080053;
+        public static final int TextView16=0x7f080051;
+        public static final int TextView17=0x7f08004f;
+        public static final int TextView18=0x7f08004d;
+        public static final int TextView19=0x7f08004b;
+        public static final int action_settings=0x7f080073;
+        public static final int book_now=0x7f080010;
+        public static final int btnAjustes=0x7f08006f;
+        public static final int btnCancelarComp=0x7f08001d;
+        public static final int btnCompartirConComp=0x7f08001c;
+        public static final int btnCompartirDetalleInc=0x7f08006a;
+        public static final int btnConsultaIncidentes=0x7f08006d;
+        public static final int btnConsultar=0x7f080033;
+        public static final int btnCrearIncidente=0x7f08006c;
+        public static final int btnIncidentesPorAmigos=0x7f08006e;
+        public static final int btnLocalidad1=0x7f080035;
+        public static final int btnLocalidad10=0x7f080047;
+        public static final int btnLocalidad11=0x7f080048;
+        public static final int btnLocalidad12=0x7f08004a;
+        public static final int btnLocalidad13=0x7f08004c;
+        public static final int btnLocalidad14=0x7f08004e;
+        public static final int btnLocalidad15=0x7f080050;
+        public static final int btnLocalidad16=0x7f080052;
+        public static final int btnLocalidad17=0x7f080054;
+        public static final int btnLocalidad18=0x7f080056;
+        public static final int btnLocalidad19=0x7f080058;
+        public static final int btnLocalidad2=0x7f080037;
+        public static final int btnLocalidad3=0x7f080039;
+        public static final int btnLocalidad4=0x7f08003b;
+        public static final int btnLocalidad5=0x7f08003d;
+        public static final int btnLocalidad6=0x7f08003f;
+        public static final int btnLocalidad7=0x7f080041;
+        public static final int btnLocalidad8=0x7f080043;
+        public static final int btnLocalidad9=0x7f080045;
+        public static final int btncrearIncidente=0x7f08005f;
+        public static final int buyButton=0x7f08000a;
+        public static final int buy_now=0x7f08000f;
+        public static final int buy_with_google=0x7f08000e;
+        public static final int classic=0x7f080011;
+        public static final int compartirconlistView=0x7f08001b;
+        public static final int dummy_button=0x7f08001a;
+        public static final int fullscreen_content=0x7f080014;
+        public static final int grayscale=0x7f080012;
+        public static final int holo_dark=0x7f080005;
+        public static final int holo_light=0x7f080006;
+        public static final int hybrid=0x7f080004;
+        public static final int lblDetalleIncDescripcion=0x7f080061;
+        public static final int lblDetalleIncZona=0x7f080062;
+        public static final int lblIngresaDatos=0x7f080034;
+        public static final int lblSinTeleComCon=0x7f080071;
+        public static final int lblSinTituloIncListView=0x7f080072;
+        public static final int lblUsuarioComConListview=0x7f080015;
+        public static final int lblUsuarioIncListview=0x7f080016;
+        public static final int linearLayout1=0x7f08005a;
+        public static final int lstNuevosIncidentes=0x7f08006b;
+        public static final int map=0x7f080060;
+        public static final int match_parent=0x7f08000c;
+        public static final int monochrome=0x7f080013;
+        public static final int none=0x7f080000;
+        public static final int normal=0x7f080001;
+        public static final int production=0x7f080007;
+        public static final int radLocalidad1=0x7f080020;
+        public static final int radLocalidad10=0x7f080029;
+        public static final int radLocalidad11=0x7f08002a;
+        public static final int radLocalidad12=0x7f08002b;
+        public static final int radLocalidad13=0x7f08002c;
+        public static final int radLocalidad14=0x7f08002d;
+        public static final int radLocalidad15=0x7f08002e;
+        public static final int radLocalidad16=0x7f08002f;
+        public static final int radLocalidad17=0x7f080030;
+        public static final int radLocalidad18=0x7f080031;
+        public static final int radLocalidad19=0x7f080032;
+        public static final int radLocalidad2=0x7f080021;
+        public static final int radLocalidad3=0x7f080022;
+        public static final int radLocalidad4=0x7f080023;
+        public static final int radLocalidad5=0x7f080024;
+        public static final int radLocalidad6=0x7f080025;
+        public static final int radLocalidad7=0x7f080026;
+        public static final int radLocalidad8=0x7f080027;
+        public static final int radLocalidad9=0x7f080028;
+        public static final int radioLocalidad=0x7f08001f;
+        public static final int sandbox=0x7f080008;
+        public static final int satellite=0x7f080002;
+        public static final int scrollView1=0x7f08001e;
+        public static final int selectionDetails=0x7f08000b;
+        public static final int strict_sandbox=0x7f080009;
+        public static final int terrain=0x7f080003;
+        public static final int textView3=0x7f08005d;
+        public static final int textView4=0x7f080066;
+        public static final int textView5=0x7f080068;
+        public static final int txtDescripcion=0x7f08005c;
+        public static final int txtDetalleIncDescripcion=0x7f080063;
+        public static final int txtDetalleIncFechaCreacion=0x7f080069;
+        public static final int txtDetalleIncGravedad=0x7f080065;
+        public static final int txtDetalleIncUsuario=0x7f080067;
+        public static final int txtDetalleIncZona=0x7f080064;
+        public static final int txtEdad=0x7f080019;
+        public static final int txtGravedad=0x7f08005e;
+        public static final int txtNombre=0x7f080017;
+        public static final int txtTitulo=0x7f08005b;
+        public static final int verIncConsultaZonasListView=0x7f080070;
+        public static final int wrap_content=0x7f08000d;
+    }
+    public static final class integer {
+        public static final int google_play_services_version=0x7f090000;
     }
     public static final class layout {
         public static final int activity_bienvenida=0x7f030000;
@@ -187,107 +593,221 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int activity_consultar_incidentes=0x7f030002;
         public static final int activity_crear_incidente_barrios=0x7f030003;
         public static final int activity_crear_incidente_descripcion=0x7f030004;
-        public static final int activity_detalle_incidente=0x7f030005;
-        public static final int activity_inicio=0x7f030006;
-        public static final int activity_ver_resultado_incidentes=0x7f030007;
-        public static final int doblelbllistview=0x7f030008;
-        public static final int incidentelistview=0x7f030009;
+        public static final int activity_crear_incidente_gps=0x7f030005;
+        public static final int activity_crear_incidente_latlng=0x7f030006;
+        public static final int activity_detalle_incidente=0x7f030007;
+        public static final int activity_inicio=0x7f030008;
+        public static final int activity_ver_resultado_incidentes=0x7f030009;
+        public static final int doblelbllistview=0x7f03000a;
+        public static final int incidentelistview=0x7f03000b;
     }
     public static final class menu {
-        public static final int bienvenida=0x7f090000;
-        public static final int compartir_incidente=0x7f090001;
-        public static final int consultar_incidentes=0x7f090002;
-        public static final int crear_incidente_barrios=0x7f090003;
-        public static final int crear_incidente_descripcion=0x7f090004;
-        public static final int detalle_incidente=0x7f090005;
-        public static final int inicio=0x7f090006;
-        public static final int ver_resultado_incidentes=0x7f090007;
+        public static final int bienvenida=0x7f0b0000;
+        public static final int compartir_incidente=0x7f0b0001;
+        public static final int consultar_incidentes=0x7f0b0002;
+        public static final int crear_incidente_barrios=0x7f0b0003;
+        public static final int crear_incidente_descripcion=0x7f0b0004;
+        public static final int crear_incidente_gps=0x7f0b0005;
+        public static final int detalle_incidente=0x7f0b0006;
+        public static final int inicio=0x7f0b0007;
+        public static final int ver_resultado_incidentes=0x7f0b0008;
     }
     public static final class raw {
         public static final int incidentesbasicos=0x7f040000;
     }
     public static final class string {
-        public static final int action_settings=0x7f070003;
-        public static final int app_name=0x7f070000;
-        public static final int btnCrearIncidente=0x7f07000d;
-        public static final int codLocalidad1=0x7f070021;
-        public static final int codLocalidad10=0x7f07002a;
-        public static final int codLocalidad11=0x7f07002b;
-        public static final int codLocalidad12=0x7f07002c;
-        public static final int codLocalidad13=0x7f07002d;
-        public static final int codLocalidad14=0x7f07002e;
-        public static final int codLocalidad15=0x7f07002f;
-        public static final int codLocalidad16=0x7f070030;
-        public static final int codLocalidad17=0x7f070031;
-        public static final int codLocalidad18=0x7f070032;
-        public static final int codLocalidad19=0x7f070033;
-        public static final int codLocalidad2=0x7f070022;
-        public static final int codLocalidad3=0x7f070023;
-        public static final int codLocalidad4=0x7f070024;
-        public static final int codLocalidad5=0x7f070025;
-        public static final int codLocalidad6=0x7f070026;
-        public static final int codLocalidad7=0x7f070027;
-        public static final int codLocalidad8=0x7f070028;
-        public static final int codLocalidad9=0x7f070029;
-        public static final int dummy_button=0x7f07003b;
-        public static final int dummy_content=0x7f07003c;
-        public static final int hello_world=0x7f070004;
-        public static final int lblBienvenidaEdad=0x7f07003f;
-        public static final int lblBienvenidaNombre=0x7f07003e;
-        public static final int lblCompartirConDetalleInc=0x7f07004f;
-        public static final int lblCompartirSMS=0x7f07004e;
-        public static final int lblConsultarIncSeleccionarLocalidad=0x7f070048;
-        public static final int lblCrearIncidenteDescripcion=0x7f07000a;
-        public static final int lblCrearIncidenteGravedad=0x7f07000c;
-        public static final int lblCrearIncidenteIngresodescripcion=0x7f07000b;
-        public static final int lblCrearIncidentesTitulo=0x7f070009;
-        public static final int lblDetalleIncConsultar=0x7f070049;
-        public static final int lblDetalleIncDescripcion=0x7f070042;
-        public static final int lblDetalleIncFechaCreacion=0x7f070046;
-        public static final int lblDetalleIncGravedad=0x7f070044;
-        public static final int lblDetalleIncUsuario=0x7f070045;
-        public static final int lblDetalleIncZona=0x7f070043;
-        public static final int lblLocalidad1=0x7f07000e;
-        public static final int lblLocalidad10=0x7f070017;
-        public static final int lblLocalidad11=0x7f070018;
-        public static final int lblLocalidad12=0x7f070019;
-        public static final int lblLocalidad13=0x7f07001a;
-        public static final int lblLocalidad14=0x7f07001b;
-        public static final int lblLocalidad15=0x7f07001c;
-        public static final int lblLocalidad16=0x7f07001d;
-        public static final int lblLocalidad17=0x7f07001e;
-        public static final int lblLocalidad18=0x7f07001f;
-        public static final int lblLocalidad19=0x7f070020;
-        public static final int lblLocalidad2=0x7f07000f;
-        public static final int lblLocalidad3=0x7f070010;
-        public static final int lblLocalidad4=0x7f070011;
-        public static final int lblLocalidad5=0x7f070012;
-        public static final int lblLocalidad6=0x7f070013;
-        public static final int lblLocalidad7=0x7f070014;
-        public static final int lblLocalidad8=0x7f070015;
-        public static final int lblLocalidad9=0x7f070016;
-        public static final int lblNuevosIncidentes=0x7f070034;
-        public static final int lblSeleccionarBarrio=0x7f070006;
-        public static final int lblSinTelefono=0x7f07004c;
-        public static final int lblSinTitulo=0x7f07004a;
-        public static final int lblTextoBienvenida=0x7f07003d;
-        public static final int lblUsuarioDesconocido=0x7f07004b;
-        public static final int lblbntCrearIncidente=0x7f070035;
-        public static final int lblbntCrearIncidenteGPS=0x7f070036;
-        public static final int lblbtnAjustes=0x7f070039;
-        public static final int lblbtnConsultaIncidente=0x7f070037;
-        public static final int lblbtnIncidentesPorAmigos=0x7f070038;
-        public static final int lblbtnIniciarApp=0x7f070040;
-        public static final int title_activity_bienvenida=0x7f07003a;
-        public static final int title_activity_compartir_incidente=0x7f07004d;
-        public static final int title_activity_consultar_incidentes=0x7f070047;
-        public static final int title_activity_crear_incidente_barrios=0x7f070005;
-        public static final int title_activity_crear_incidente_descripcion=0x7f070007;
-        public static final int title_activity_crear_incidente_gps=0x7f070008;
-        public static final int title_activity_detalle_incidente=0x7f070041;
-        public static final int title_activity_inicio=0x7f070002;
-        public static final int title_activity_ver_resultado_incidentes=0x7f070050;
-        public static final int title_incidente_detail=0x7f070001;
+        public static final int accept=0x7f060002;
+        public static final int action_settings=0x7f060026;
+        public static final int app_name=0x7f060023;
+        public static final int btnCrearIncidente=0x7f060031;
+        public static final int btnCrearIncidenteLatLng=0x7f060032;
+        public static final int codLocalidad1=0x7f060046;
+        public static final int codLocalidad10=0x7f06004f;
+        public static final int codLocalidad11=0x7f060050;
+        public static final int codLocalidad12=0x7f060051;
+        public static final int codLocalidad13=0x7f060052;
+        public static final int codLocalidad14=0x7f060053;
+        public static final int codLocalidad15=0x7f060054;
+        public static final int codLocalidad16=0x7f060055;
+        public static final int codLocalidad17=0x7f060056;
+        public static final int codLocalidad18=0x7f060057;
+        public static final int codLocalidad19=0x7f060058;
+        public static final int codLocalidad2=0x7f060047;
+        public static final int codLocalidad3=0x7f060048;
+        public static final int codLocalidad4=0x7f060049;
+        public static final int codLocalidad5=0x7f06004a;
+        public static final int codLocalidad6=0x7f06004b;
+        public static final int codLocalidad7=0x7f06004c;
+        public static final int codLocalidad8=0x7f06004d;
+        public static final int codLocalidad9=0x7f06004e;
+        /**   Text for notification shown when the Android Wear apps needs to be updated. Only shown on the wearable. [CHAR LIMIT=NONE] 
+         */
+        public static final int common_android_wear_notification_needs_update_text=0x7f060009;
+        /**  Message in confirmation dialog informing user that they need to update
+        the Android Wear app [CHAR LIMIT=NONE] 
+         */
+        public static final int common_android_wear_update_text=0x7f060016;
+        /**  Title of confirmation dialog informing user that they need to update
+        the Android Wear app (from Play Store) [CHAR LIMIT=40] 
+         */
+        public static final int common_android_wear_update_title=0x7f060014;
+        /**  Button in confirmation dialog to enable Google Play services.  Clicking it
+        will direct user to application settings of Google Play services where they
+        can enable it [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_enable_button=0x7f060012;
+        /**  Message in confirmation dialog informing user they need to enable
+        Google Play services in application settings [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_enable_text=0x7f060011;
+        /**  Title of confirmation dialog informing user they need to enable
+        Google Play services in application settings [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_enable_title=0x7f060010;
+        /**   Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
+         */
+        public static final int common_google_play_services_error_notification_requested_by_msg=0x7f06000b;
+        /**  Button in confirmation dialog for installing Google Play services [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_install_button=0x7f06000f;
+        /**  (For phones) Message in confirmation dialog informing user that
+        they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_install_text_phone=0x7f06000d;
+        /**  (For tablets) Message in confirmation dialog informing user that
+        they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_install_text_tablet=0x7f06000e;
+        /**  Title of confirmation dialog informing user that they need to install
+        Google Play services (from Play Store) [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_install_title=0x7f06000c;
+        /**  Message in confirmation dialog informing the user that they provided an invalid account. [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_invalid_account_text=0x7f06001a;
+        /**  Title of confirmation dialog informing the user that they provided an invalid account. [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_invalid_account_title=0x7f060019;
+        /**   Title for notification shown when GooglePlayServices needs to be enabled for an
+        application to work. [CHAR LIMIT=70] 
+         */
+        public static final int common_google_play_services_needs_enabling_title=0x7f06000a;
+        /**  Message in confirmation dialog informing the user that a network error occurred. [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_network_error_text=0x7f060018;
+        /**  Title of confirmation dialog informing the user that a network error occurred. [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_network_error_title=0x7f060017;
+        /**   Title for notification shown when GooglePlayServices needs to be installed
+        for an application to work. [CHAR LIMIT=70] 
+         */
+        public static final int common_google_play_services_notification_needs_installation_title=0x7f060007;
+        /**   Title for notification shown when GooglePlayServices needs to be updated for an
+        application to work. [CHAR LIMIT=70] 
+         */
+        public static final int common_google_play_services_notification_needs_update_title=0x7f060008;
+        /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=42] 
+         */
+        public static final int common_google_play_services_notification_ticker=0x7f060006;
+        /**  Message in confirmation dialog informing user there is an unknown issue in Google Play
+        services [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_unknown_issue=0x7f06001b;
+        /**  Message in confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_unsupported_text=0x7f06001d;
+        /**  Title of confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_unsupported_title=0x7f06001c;
+        /**  Button in confirmation dialog for updating Google Play services [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_update_button=0x7f06001e;
+        /**  Message in confirmation dialog informing user that they need to update
+        Google Play services (from Play Store) [CHAR LIMIT=NONE] 
+         */
+        public static final int common_google_play_services_update_text=0x7f060015;
+        /**  Title of confirmation dialog informing user that they need to update
+        Google Play services (from Play Store) [CHAR LIMIT=40] 
+         */
+        public static final int common_google_play_services_update_title=0x7f060013;
+        /**  Label for an action to open a notifications content on the phone [CHAR LIMIT=25] 
+         */
+        public static final int common_open_on_phone=0x7f060021;
+        /**  Sign-in button text [CHAR LIMIT=15] 
+         */
+        public static final int common_signin_button_text=0x7f06001f;
+        /**  Long form sign-in button text [CHAR LIMIT=30] 
+         */
+        public static final int common_signin_button_text_long=0x7f060020;
+        public static final int create_calendar_message=0x7f060005;
+        public static final int create_calendar_title=0x7f060004;
+        public static final int decline=0x7f060003;
+        public static final int dummy_button=0x7f060060;
+        public static final int dummy_content=0x7f060061;
+        public static final int hello_world=0x7f060027;
+        public static final int lblBienvenidaEdad=0x7f060064;
+        public static final int lblBienvenidaNombre=0x7f060063;
+        public static final int lblCompartirConDetalleInc=0x7f060074;
+        public static final int lblCompartirSMS=0x7f060073;
+        public static final int lblConsultarIncSeleccionarLocalidad=0x7f06006d;
+        public static final int lblCrearIncidenteDescripcion=0x7f06002e;
+        public static final int lblCrearIncidenteGravedad=0x7f060030;
+        public static final int lblCrearIncidenteIngresodescripcion=0x7f06002f;
+        public static final int lblCrearIncidentesTitulo=0x7f06002d;
+        public static final int lblDetalleIncConsultar=0x7f06006e;
+        public static final int lblDetalleIncDescripcion=0x7f060067;
+        public static final int lblDetalleIncFechaCreacion=0x7f06006b;
+        public static final int lblDetalleIncGravedad=0x7f060069;
+        public static final int lblDetalleIncUsuario=0x7f06006a;
+        public static final int lblDetalleIncZona=0x7f060068;
+        public static final int lblLocalidad1=0x7f060033;
+        public static final int lblLocalidad10=0x7f06003c;
+        public static final int lblLocalidad11=0x7f06003d;
+        public static final int lblLocalidad12=0x7f06003e;
+        public static final int lblLocalidad13=0x7f06003f;
+        public static final int lblLocalidad14=0x7f060040;
+        public static final int lblLocalidad15=0x7f060041;
+        public static final int lblLocalidad16=0x7f060042;
+        public static final int lblLocalidad17=0x7f060043;
+        public static final int lblLocalidad18=0x7f060044;
+        public static final int lblLocalidad19=0x7f060045;
+        public static final int lblLocalidad2=0x7f060034;
+        public static final int lblLocalidad3=0x7f060035;
+        public static final int lblLocalidad4=0x7f060036;
+        public static final int lblLocalidad5=0x7f060037;
+        public static final int lblLocalidad6=0x7f060038;
+        public static final int lblLocalidad7=0x7f060039;
+        public static final int lblLocalidad8=0x7f06003a;
+        public static final int lblLocalidad9=0x7f06003b;
+        public static final int lblNuevosIncidentes=0x7f060059;
+        public static final int lblSeleccionarBarrio=0x7f060029;
+        public static final int lblSinTelefono=0x7f060071;
+        public static final int lblSinTitulo=0x7f06006f;
+        public static final int lblTextoBienvenida=0x7f060062;
+        public static final int lblUsuarioDesconocido=0x7f060070;
+        public static final int lblbntCrearIncidente=0x7f06005a;
+        public static final int lblbntCrearIncidenteGPS=0x7f06005b;
+        public static final int lblbtnAjustes=0x7f06005e;
+        public static final int lblbtnConsultaIncidente=0x7f06005c;
+        public static final int lblbtnIncidentesPorAmigos=0x7f06005d;
+        public static final int lblbtnIniciarApp=0x7f060065;
+        public static final int store_picture_message=0x7f060001;
+        public static final int store_picture_title=0x7f060000;
+        public static final int title_activity_bienvenida=0x7f06005f;
+        public static final int title_activity_compartir_incidente=0x7f060072;
+        public static final int title_activity_consultar_incidentes=0x7f06006c;
+        public static final int title_activity_crear_incidente_barrios=0x7f060028;
+        public static final int title_activity_crear_incidente_descripcion=0x7f06002a;
+        public static final int title_activity_crear_incidente_gps=0x7f06002b;
+        public static final int title_activity_crear_incidente_latlng=0x7f06002c;
+        public static final int title_activity_detalle_incidente=0x7f060066;
+        public static final int title_activity_inicio=0x7f060025;
+        public static final int title_activity_ver_resultado_incidentes=0x7f060075;
+        public static final int title_incidente_detail=0x7f060024;
+        /**  Text on a placeholder buy button when Google Play services is not
+         available or up-to-date 
+         */
+        public static final int wallet_buy_button_place_holder=0x7f060022;
     }
     public static final class style {
         /** 
@@ -311,17 +831,102 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f050005;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080001;
-        public static final int ButtonBar=0x7f080003;
-        public static final int ButtonBarButton=0x7f080004;
-        public static final int FullscreenActionBarStyle=0x7f080005;
-        public static final int FullscreenTheme=0x7f080002;
+        public static final int AppTheme=0x7f050006;
+        public static final int ButtonBar=0x7f050008;
+        public static final int ButtonBarButton=0x7f050009;
+        public static final int FullscreenActionBarStyle=0x7f05000a;
+        public static final int FullscreenTheme=0x7f050007;
+        public static final int Theme_IAPTheme=0x7f050000;
+        public static final int WalletFragmentDefaultButtonTextAppearance=0x7f050003;
+        public static final int WalletFragmentDefaultDetailsHeaderTextAppearance=0x7f050002;
+        public static final int WalletFragmentDefaultDetailsTextAppearance=0x7f050001;
+        /** 
+         Default style of the wallet fragment that will be used if not set explicitly
+         when fragment is created
+    
+         */
+        public static final int WalletFragmentDefaultStyle=0x7f050004;
     }
     public static final class styleable {
+        /** Attributes that can be used with a AdsAttrs.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #AdsAttrs_adSize uniandes.sischok:adSize}</code></td><td>
+    The size of the ad.</td></tr>
+           <tr><td><code>{@link #AdsAttrs_adSizes uniandes.sischok:adSizes}</code></td><td>
+    A comma-separated list of the supported ad sizes.</td></tr>
+           <tr><td><code>{@link #AdsAttrs_adUnitId uniandes.sischok:adUnitId}</code></td><td> The ad unit ID.</td></tr>
+           </table>
+           @see #AdsAttrs_adSize
+           @see #AdsAttrs_adSizes
+           @see #AdsAttrs_adUnitId
+         */
+        public static final int[] AdsAttrs = {
+            0x7f010000, 0x7f010001, 0x7f010002
+        };
+        /**
+          <p>
+          @attr description
+          
+    The size of the ad. It must be one of BANNER, FULL_BANNER, LEADERBOARD,
+    MEDIUM_RECTANGLE, SMART_BANNER, WIDE_SKYSCRAPER, or
+    &lt;width&gt;x&lt;height&gt;.
+    
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name uniandes.sischok:adSize
+        */
+        public static final int AdsAttrs_adSize = 0;
+        /**
+          <p>
+          @attr description
+          
+    A comma-separated list of the supported ad sizes. The sizes must be one of
+    BANNER, FULL_BANNER, LEADERBOARD, MEDIUM_RECTANGLE, SMART_BANNER,
+    WIDE_SKYSCRAPER, or &lt;width&gt;x&lt;height&gt;.
+    
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name uniandes.sischok:adSizes
+        */
+        public static final int AdsAttrs_adSizes = 1;
+        /**
+          <p>
+          @attr description
+           The ad unit ID. 
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name uniandes.sischok:adUnitId
+        */
+        public static final int AdsAttrs_adUnitId = 2;
         /** 
          Declare custom theme attributes that allow changing which styles are
          used for button bars depending on the API level.
@@ -340,7 +945,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #ButtonBarContainerTheme_buttonBarStyle
          */
         public static final int[] ButtonBarContainerTheme = {
-            0x7f010000, 0x7f010001
+            0x7f010020, 0x7f010021
         };
         /**
           <p>This symbol is the offset where the {@link uniandes.sischok.R.attr#buttonBarButtonStyle}
@@ -362,5 +967,572 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           @attr name uniandes.sischok:buttonBarStyle
         */
         public static final int ButtonBarContainerTheme_buttonBarStyle = 0;
+        /** Attributes that can be used with a MapAttrs.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #MapAttrs_cameraBearing uniandes.sischok:cameraBearing}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_cameraTargetLat uniandes.sischok:cameraTargetLat}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_cameraTargetLng uniandes.sischok:cameraTargetLng}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_cameraTilt uniandes.sischok:cameraTilt}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_cameraZoom uniandes.sischok:cameraZoom}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_mapType uniandes.sischok:mapType}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiCompass uniandes.sischok:uiCompass}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiRotateGestures uniandes.sischok:uiRotateGestures}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiScrollGestures uniandes.sischok:uiScrollGestures}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiTiltGestures uniandes.sischok:uiTiltGestures}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiZoomControls uniandes.sischok:uiZoomControls}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_uiZoomGestures uniandes.sischok:uiZoomGestures}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_useViewLifecycle uniandes.sischok:useViewLifecycle}</code></td><td></td></tr>
+           <tr><td><code>{@link #MapAttrs_zOrderOnTop uniandes.sischok:zOrderOnTop}</code></td><td></td></tr>
+           </table>
+           @see #MapAttrs_cameraBearing
+           @see #MapAttrs_cameraTargetLat
+           @see #MapAttrs_cameraTargetLng
+           @see #MapAttrs_cameraTilt
+           @see #MapAttrs_cameraZoom
+           @see #MapAttrs_mapType
+           @see #MapAttrs_uiCompass
+           @see #MapAttrs_uiRotateGestures
+           @see #MapAttrs_uiScrollGestures
+           @see #MapAttrs_uiTiltGestures
+           @see #MapAttrs_uiZoomControls
+           @see #MapAttrs_uiZoomGestures
+           @see #MapAttrs_useViewLifecycle
+           @see #MapAttrs_zOrderOnTop
+         */
+        public static final int[] MapAttrs = {
+            0x7f010003, 0x7f010004, 0x7f010005, 0x7f010006,
+            0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a,
+            0x7f01000b, 0x7f01000c, 0x7f01000d, 0x7f01000e,
+            0x7f01000f, 0x7f010010
+        };
+        /**
+          <p>This symbol is the offset where the {@link uniandes.sischok.R.attr#cameraBearing}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name uniandes.sischok:cameraBearing
+        */
+        public static final int MapAttrs_cameraBearing = 1;
+        /**
+          <p>This symbol is the offset where the {@link uniandes.sischok.R.attr#cameraTargetLat}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name uniandes.sischok:cameraTargetLat
+        */
+        public static final int MapAttrs_cameraTargetLat = 2;
+        /**
+          <p>This symbol is the offset where the {@link uniandes.sischok.R.attr#cameraTargetLng}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name uniandes.sischok:cameraTargetLng
+        */
+        public static final int MapAttrs_cameraTargetLng = 3;
+        /**
+          <p>This symbol is the offset where the {@link uniandes.sischok.R.attr#cameraTilt}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name uniandes.sischok:cameraTilt
+        */
+        public static final int MapAttrs_cameraTilt = 4;
+        /**
+          <p>This symbol is the offset where the {@link uniandes.sischok.R.attr#cameraZoom}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name uniandes.sischok:cameraZoom
+        */
+        public static final int MapAttrs_cameraZoom = 5;
+        /**
+          <p>This symbol is the offset where the {@link uniandes.sischok.R.attr#mapType}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>none</code></td><td>0</td><td></td></tr>
+<tr><td><code>normal</code></td><td>1</td><td></td></tr>
+<tr><td><code>satellite</code></td><td>2</td><td></td></tr>
+<tr><td><code>terrain</code></td><td>3</td><td></td></tr>
+<tr><td><code>hybrid</code></td><td>4</td><td></td></tr>
+</table>
+          @attr name uniandes.sischok:mapType
+        */
+        public static final int MapAttrs_mapType = 0;
+        /**
+          <p>This symbol is the offset where the {@link uniandes.sischok.R.attr#uiCompass}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name uniandes.sischok:uiCompass
+        */
+        public static final int MapAttrs_uiCompass = 6;
+        /**
+          <p>This symbol is the offset where the {@link uniandes.sischok.R.attr#uiRotateGestures}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name uniandes.sischok:uiRotateGestures
+        */
+        public static final int MapAttrs_uiRotateGestures = 7;
+        /**
+          <p>This symbol is the offset where the {@link uniandes.sischok.R.attr#uiScrollGestures}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name uniandes.sischok:uiScrollGestures
+        */
+        public static final int MapAttrs_uiScrollGestures = 8;
+        /**
+          <p>This symbol is the offset where the {@link uniandes.sischok.R.attr#uiTiltGestures}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name uniandes.sischok:uiTiltGestures
+        */
+        public static final int MapAttrs_uiTiltGestures = 9;
+        /**
+          <p>This symbol is the offset where the {@link uniandes.sischok.R.attr#uiZoomControls}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name uniandes.sischok:uiZoomControls
+        */
+        public static final int MapAttrs_uiZoomControls = 10;
+        /**
+          <p>This symbol is the offset where the {@link uniandes.sischok.R.attr#uiZoomGestures}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name uniandes.sischok:uiZoomGestures
+        */
+        public static final int MapAttrs_uiZoomGestures = 11;
+        /**
+          <p>This symbol is the offset where the {@link uniandes.sischok.R.attr#useViewLifecycle}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name uniandes.sischok:useViewLifecycle
+        */
+        public static final int MapAttrs_useViewLifecycle = 12;
+        /**
+          <p>This symbol is the offset where the {@link uniandes.sischok.R.attr#zOrderOnTop}
+          attribute's value can be found in the {@link #MapAttrs} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name uniandes.sischok:zOrderOnTop
+        */
+        public static final int MapAttrs_zOrderOnTop = 13;
+        /**  Attributes for the WalletFragment &lt;fragment&gt; tag 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #WalletFragmentOptions_appTheme uniandes.sischok:appTheme}</code></td><td> Theme to be used for the Wallet selector </td></tr>
+           <tr><td><code>{@link #WalletFragmentOptions_environment uniandes.sischok:environment}</code></td><td> Google Wallet environment to use </td></tr>
+           <tr><td><code>{@link #WalletFragmentOptions_fragmentMode uniandes.sischok:fragmentMode}</code></td><td> Fragment mode </td></tr>
+           <tr><td><code>{@link #WalletFragmentOptions_fragmentStyle uniandes.sischok:fragmentStyle}</code></td><td> A style resource specifing attributes to customize the look and feel of WalletFragment </td></tr>
+           </table>
+           @see #WalletFragmentOptions_appTheme
+           @see #WalletFragmentOptions_environment
+           @see #WalletFragmentOptions_fragmentMode
+           @see #WalletFragmentOptions_fragmentStyle
+         */
+        public static final int[] WalletFragmentOptions = {
+            0x7f010011, 0x7f010012, 0x7f010013, 0x7f010014
+        };
+        /**
+          <p>
+          @attr description
+           Theme to be used for the Wallet selector 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>holo_dark</code></td><td>0</td><td></td></tr>
+<tr><td><code>holo_light</code></td><td>1</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name uniandes.sischok:appTheme
+        */
+        public static final int WalletFragmentOptions_appTheme = 0;
+        /**
+          <p>
+          @attr description
+           Google Wallet environment to use 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>production</code></td><td>1</td><td></td></tr>
+<tr><td><code>sandbox</code></td><td>0</td><td></td></tr>
+<tr><td><code>strict_sandbox</code></td><td>2</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name uniandes.sischok:environment
+        */
+        public static final int WalletFragmentOptions_environment = 1;
+        /**
+          <p>
+          @attr description
+           Fragment mode 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>buyButton</code></td><td>1</td><td></td></tr>
+<tr><td><code>selectionDetails</code></td><td>2</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name uniandes.sischok:fragmentMode
+        */
+        public static final int WalletFragmentOptions_fragmentMode = 3;
+        /**
+          <p>
+          @attr description
+           A style resource specifing attributes to customize the look and feel of WalletFragment 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name uniandes.sischok:fragmentStyle
+        */
+        public static final int WalletFragmentOptions_fragmentStyle = 2;
+        /**  Attributes that may be specified in a style resource to customize the look and feel of
+         WalletFragment 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_buyButtonAppearance uniandes.sischok:buyButtonAppearance}</code></td><td> Appearance of the buy button.</td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_buyButtonHeight uniandes.sischok:buyButtonHeight}</code></td><td> Height of the buy button.</td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_buyButtonText uniandes.sischok:buyButtonText}</code></td><td> Text on the buy button.</td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_buyButtonWidth uniandes.sischok:buyButtonWidth}</code></td><td> Width of the buy button.</td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsBackground uniandes.sischok:maskedWalletDetailsBackground}</code></td><td> Masked wallet details background </td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsButtonBackground uniandes.sischok:maskedWalletDetailsButtonBackground}</code></td><td> "Change" button background in masked wallet details view </td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsButtonTextAppearance uniandes.sischok:maskedWalletDetailsButtonTextAppearance}</code></td><td> TextAppearance for the "Change" button in masked wallet details view </td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsHeaderTextAppearance uniandes.sischok:maskedWalletDetailsHeaderTextAppearance}</code></td><td> TextAppearance for headers describing masked wallet details </td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsLogoImageType uniandes.sischok:maskedWalletDetailsLogoImageType}</code></td><td> Type of the wallet logo image in masked wallet details view </td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsLogoTextColor uniandes.sischok:maskedWalletDetailsLogoTextColor}</code></td><td> Color of the Google Wallet logo text in masked wallet details view </td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsTextAppearance uniandes.sischok:maskedWalletDetailsTextAppearance}</code></td><td> TextAppearance for masked wallet details </td></tr>
+           </table>
+           @see #WalletFragmentStyle_buyButtonAppearance
+           @see #WalletFragmentStyle_buyButtonHeight
+           @see #WalletFragmentStyle_buyButtonText
+           @see #WalletFragmentStyle_buyButtonWidth
+           @see #WalletFragmentStyle_maskedWalletDetailsBackground
+           @see #WalletFragmentStyle_maskedWalletDetailsButtonBackground
+           @see #WalletFragmentStyle_maskedWalletDetailsButtonTextAppearance
+           @see #WalletFragmentStyle_maskedWalletDetailsHeaderTextAppearance
+           @see #WalletFragmentStyle_maskedWalletDetailsLogoImageType
+           @see #WalletFragmentStyle_maskedWalletDetailsLogoTextColor
+           @see #WalletFragmentStyle_maskedWalletDetailsTextAppearance
+         */
+        public static final int[] WalletFragmentStyle = {
+            0x7f010015, 0x7f010016, 0x7f010017, 0x7f010018,
+            0x7f010019, 0x7f01001a, 0x7f01001b, 0x7f01001c,
+            0x7f01001d, 0x7f01001e, 0x7f01001f
+        };
+        /**
+          <p>
+          @attr description
+           Appearance of the buy button. Must be one of "classic", "grayscale" and "monochrome" 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>classic</code></td><td>1</td><td></td></tr>
+<tr><td><code>grayscale</code></td><td>2</td><td></td></tr>
+<tr><td><code>monochrome</code></td><td>3</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name uniandes.sischok:buyButtonAppearance
+        */
+        public static final int WalletFragmentStyle_buyButtonAppearance = 3;
+        /**
+          <p>
+          @attr description
+           Height of the buy button. This includes an 8dp padding (4dp on each side) used for
+             pressed and focused states of the button. The value can be a specific height, e.g.
+             "48dp", or special values "match_parent" and "wrap_content". 
+
+
+          <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>May be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>match_parent</code></td><td>-1</td><td></td></tr>
+<tr><td><code>wrap_content</code></td><td>-2</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name uniandes.sischok:buyButtonHeight
+        */
+        public static final int WalletFragmentStyle_buyButtonHeight = 0;
+        /**
+          <p>
+          @attr description
+           Text on the buy button. Must be one of "buy_with_google", "buy_now" and "book_now" 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>buy_with_google</code></td><td>1</td><td></td></tr>
+<tr><td><code>buy_now</code></td><td>2</td><td></td></tr>
+<tr><td><code>book_now</code></td><td>3</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name uniandes.sischok:buyButtonText
+        */
+        public static final int WalletFragmentStyle_buyButtonText = 2;
+        /**
+          <p>
+          @attr description
+           Width of the buy button. This includes an 8dp padding (4dp on each side) used for
+             pressed and focused states of the button. The value can be a specific width, e.g.
+             "300dp", or special values "match_parent" and "wrap_content". 
+
+
+          <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>May be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>match_parent</code></td><td>-1</td><td></td></tr>
+<tr><td><code>wrap_content</code></td><td>-2</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name uniandes.sischok:buyButtonWidth
+        */
+        public static final int WalletFragmentStyle_buyButtonWidth = 1;
+        /**
+          <p>
+          @attr description
+           Masked wallet details background 
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          <p>This is a private symbol.
+          @attr name uniandes.sischok:maskedWalletDetailsBackground
+        */
+        public static final int WalletFragmentStyle_maskedWalletDetailsBackground = 6;
+        /**
+          <p>
+          @attr description
+           "Change" button background in masked wallet details view 
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          <p>This is a private symbol.
+          @attr name uniandes.sischok:maskedWalletDetailsButtonBackground
+        */
+        public static final int WalletFragmentStyle_maskedWalletDetailsButtonBackground = 8;
+        /**
+          <p>
+          @attr description
+           TextAppearance for the "Change" button in masked wallet details view 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name uniandes.sischok:maskedWalletDetailsButtonTextAppearance
+        */
+        public static final int WalletFragmentStyle_maskedWalletDetailsButtonTextAppearance = 7;
+        /**
+          <p>
+          @attr description
+           TextAppearance for headers describing masked wallet details 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name uniandes.sischok:maskedWalletDetailsHeaderTextAppearance
+        */
+        public static final int WalletFragmentStyle_maskedWalletDetailsHeaderTextAppearance = 5;
+        /**
+          <p>
+          @attr description
+           Type of the wallet logo image in masked wallet details view 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>classic</code></td><td>1</td><td></td></tr>
+<tr><td><code>monochrome</code></td><td>2</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name uniandes.sischok:maskedWalletDetailsLogoImageType
+        */
+        public static final int WalletFragmentStyle_maskedWalletDetailsLogoImageType = 10;
+        /**
+          <p>
+          @attr description
+           Color of the Google Wallet logo text in masked wallet details view 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name uniandes.sischok:maskedWalletDetailsLogoTextColor
+        */
+        public static final int WalletFragmentStyle_maskedWalletDetailsLogoTextColor = 9;
+        /**
+          <p>
+          @attr description
+           TextAppearance for masked wallet details 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name uniandes.sischok:maskedWalletDetailsTextAppearance
+        */
+        public static final int WalletFragmentStyle_maskedWalletDetailsTextAppearance = 4;
     };
 }

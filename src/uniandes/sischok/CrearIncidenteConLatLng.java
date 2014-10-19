@@ -2,44 +2,51 @@ package uniandes.sischok;
 
 import java.util.Date;
 
-import android.os.Bundle;
+import com.google.android.gms.maps.model.LatLng;
+
+import uniandes.sischok.mundo.CentroIncidentes;
+import uniandes.sischok.mundo.Incidente;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.view.Menu;
+import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.support.v4.app.NavUtils;
-import uniandes.sischok.mundo.CentroIncidentes;
-import uniandes.sischok.mundo.Incidente;
-public class CrearIncidenteDescripcion extends Activity {
+
+public class CrearIncidenteConLatLng extends Activity
+{
+
+	//String con el punto LatLng
+	private String value;
 	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) 
+	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_crear_incidente_descripcion);
+		setContentView(R.layout.activity_crear_incidente_latlng);
 		setupActionBar();
+		
+		Bundle extras = getIntent().getExtras();
+		if (extras != null) 
+		{
+			//punto elegido en el mapa
+		    String value = extras.getString("IncidenteLatLng");
+		}
 	}
-
+	
 	/**
 	 * Set up the {@link android.app.ActionBar}.
 	 */
-	private void setupActionBar() 
+	private void setupActionBar()
 	{
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) 
-	{
-		getMenuInflater().inflate(R.menu.crear_incidente_descripcion, menu);
-		return true;
-	}
-
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) 
 	{
@@ -52,14 +59,18 @@ public class CrearIncidenteDescripcion extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
+	//TODO
 	@SuppressWarnings("deprecation")
-	public void crearIncidente (View view)
+	public void crearIncidenteLatLng (View view)
 	{
 		String titulo = ((EditText) findViewById(R.id.txtTitulo)).getText().toString();
 		String descripcion = ((EditText) findViewById(R.id.txtDescripcion)).getText().toString();
 		int gravedad = Integer.parseInt(((EditText) findViewById(R.id.txtGravedad)).getText().toString());
+		//Saca la localizacion del incidente y la agrega en 
+		String[] geo = value.split(",");
+		LatLng incidenteP = new LatLng(Float.parseFloat(geo[0]), Float.parseFloat(geo[1]));
 	    SharedPreferences sharedpreferences = getSharedPreferences(CentroIncidentes.nombrePreferencias, Context.MODE_PRIVATE);
-		AlertDialog alertDialog = new AlertDialog.Builder(CrearIncidenteDescripcion.this).create();
+		AlertDialog alertDialog = new AlertDialog.Builder(CrearIncidenteConLatLng.this).create();
 	    if(!titulo.equals("")&&!descripcion.equals("")&&(gravedad<=5||gravedad>0))
 	    	{
 				final Incidente indicienteNuevo = new Incidente(null, titulo, descripcion, getIntent().getIntExtra("zona",0), gravedad, new Date(), sharedpreferences.getString(CentroIncidentes.prefNombre, "Administrador Sischok"));
@@ -69,13 +80,13 @@ public class CrearIncidenteDescripcion extends Activity {
 				alertDialog.setMessage("Su incidente se ha agregado");
 				alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 	            public void onClick(DialogInterface dialog, int which) {
-	            	Intent crearIncDes = new Intent(CrearIncidenteDescripcion.this, Inicio.class);
+	            	Intent crearIncDes = new Intent(CrearIncidenteConLatLng.this, Inicio.class);
 	            	startActivity(crearIncDes);
 	            	}
 				});
 				alertDialog.setButton2("Compartir ", new DialogInterface.OnClickListener() {
 		            public void onClick(DialogInterface dialog, int which) {
-		            	Intent intent = new Intent(CrearIncidenteDescripcion.this,CompartirIncidente.class);
+		            	Intent intent = new Intent(CrearIncidenteConLatLng.this,CompartirIncidente.class);
 		            	intent.putExtra("incidente", indicienteNuevo.toString());
 		            	startActivity(intent);		            	
 		            }     
@@ -90,8 +101,7 @@ public class CrearIncidenteDescripcion extends Activity {
             public void onClick(DialogInterface dialog, int which) {
             }
 	    		});
-    alertDialog.show();
+	    		alertDialog.show();
 	    }
 	}
-	
 }

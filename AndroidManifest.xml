@@ -28,7 +28,6 @@
     
     <application
         android:allowBackup="true"
-        android:debuggable="true" 
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
@@ -101,6 +100,15 @@
             android:name=".VerResultadoIncidentes"
             android:label="@string/title_activity_ver_resultado_incidentes" >
         </activity>
+          <activity
+            android:name=".CrearIncidenteConLatLng"
+            android:label="@string/title_activity_crear_incidente_latlng"
+            android:parentActivityName=".CrearIncidenteConLatLng" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="uniandes.sischok.CrearIncidenteConLatLng" />
+        </activity>
+        
         <!-- Goolge Maps API Key -->
             <uses-library android:name="com.google.android.maps" />
 	<meta-data
