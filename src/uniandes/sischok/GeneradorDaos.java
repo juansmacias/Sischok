@@ -16,11 +16,15 @@ public class GeneradorDaos {
 
 	    private static void AgregarInciente(Schema schema) {
 	        Entity incidentep = schema.addEntity("Incidente");
+	        incidentep.setHasKeepSections(true);
 	        incidentep.addIdProperty();
+	        incidentep.addStringProperty("idServidor");
 	        incidentep.addStringProperty("titulo").notNull();
 	        incidentep.addStringProperty("descripcion");
 	        incidentep.addIntProperty("zona");
 	        incidentep.addIntProperty("gravedad");
+	        incidentep.addLongProperty("latitud");
+	        incidentep.addLongProperty("longitud");
 	        incidentep.addDateProperty("fechaCreacion");
 	        incidentep.addStringProperty("usuarioCreacion");
 	    }

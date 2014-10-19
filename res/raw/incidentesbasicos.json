@@ -6,7 +6,10 @@
       "gravedad": "2",
       "zona": "4",
       "descripcion": "En la circunvalar con 72",
-      "titulo": "Cruce Peligroso"
+      "titulo": "Cruce Peligroso",
+	"idServidor" : "",
+	"latitud”:"",
+	"longitud":""
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -14,7 +17,10 @@
       "gravedad": "4",
       "zona": "1",
       "descripcion": "Por la Iglesia ",
-      "titulo": "Cruce Peligroso"
+      "titulo": "Cruce Peligroso”,
+"idServidor" : "",
+	"latitud”:"",
+	"longitud":""
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -22,7 +28,11 @@
       "gravedad": "2",
       "zona": "2",
       "descripcion": "Por la Iglesia Santo Tomas",
-      "titulo": "	 Peligrosa"
+      "titulo": "Peligrosa”,
+"idServidor" : "",
+	"latitud”:"",
+	"longitud":""
+
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -30,7 +40,11 @@
       "gravedad": "5",
       "zona": "3",
       "descripcion": "Por la Iglesia San Rafael",
-      "titulo": "Curva Peligrosa"
+      "titulo": "Curva Peligrosa",
+"idServidor" : "",
+	"latitud”:"",
+	"longitud":""
+
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -38,7 +52,11 @@
       "gravedad": "1",
       "zona": "5",
       "descripcion": "Por la Iglesia San Juan",
-      "titulo": "Cruce Peligroso"
+      "titulo": "Cruce Peligroso",
+"idServidor" : "",
+	"latitud”:"",
+	"longitud":""
+
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -46,7 +64,11 @@
       "gravedad": "5",
       "zona": "6",
       "descripcion": "Por la el Colegio Distrital Colombo",
-      "titulo": "Cruce Peligroso"
+      "titulo": "Cruce Peligroso",
+"idServidor" : "",
+	"latitud”:"",
+	"longitud":""
+
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -54,7 +76,11 @@
       "gravedad": "2",
       "zona": "7",
       "descripcion": "Por la Iglesia.",
-      "titulo": "Cruce Peligroso"
+      "titulo": "Cruce Peligroso",
+"idServidor" : "",
+	"latitud”:"",
+	"longitud":""
+
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -62,7 +88,11 @@
       "gravedad": "2",
       "zona": "8",
       "descripcion": "Por la Iglesia San Pedro",
-      "titulo": "Cruce inadecuado de Peatones."
+      "titulo": "Cruce inadecuado de Peatones.",
+"idServidor" : "",
+	"latitud”:"",
+	"longitud":""
+
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -70,7 +100,11 @@
       "gravedad": "2",
       "zona": "9",
       "descripcion": "Por la Iglesia San Cristancho",
-      "titulo": "Peligro de Atropello."
+      "titulo": "Peligro de Atropello.",
+"idServidor" : "",
+	"latitud”:"",
+	"longitud":""
+
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -78,7 +112,10 @@
       "gravedad": "2",
       "zona": "10",
       "descripcion": "Por la Colegio Vicente Nuovo",
-      "titulo": "Curva Peligroso"
+      "titulo": "Curva Peligroso",
+"idServidor" : "",
+	"latitud”:"",
+	"longitud":""
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -86,7 +123,11 @@
       "gravedad": "2",
       "zona": "11",
       "descripcion": "Por la Colegio Bellos Pinos",
-      "titulo": "Cruce Peligroso"
+      "titulo": "Cruce Peligroso",
+"idServidor" : "",
+	"latitud”:"",
+	"longitud":""
+
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -94,7 +135,11 @@
       "gravedad": "4",
       "zona": "12",
       "descripcion": "Por la Colegio Pedros",
-      "titulo": "Cruce Peligroso"
+      "titulo": "Cruce Peligroso", 
+"idServidor" : "",
+	"latitud”:"",
+	"longitud":""
+
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -102,7 +147,11 @@
       "gravedad": "2",
       "zona": "13",
       "descripcion": "Por el Colegio Distrital",
-      "titulo": "Cruce Peligroso"
+      "titulo": "Cruce Peligroso",
+	"idServidor" : "",
+	"latitud”:"",
+	"longitud":""
+
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -110,7 +159,11 @@
       "gravedad": "2",
       "zona": "14",
       "descripcion": "Por el Colegio Distrital",
-      "titulo": "Cruce inadecuado de Peatones."
+      "titulo": "Cruce inadecuado de Peatones.",
+	"idServidor" : "",
+	"latitud”:"",
+	"longitud":""
+
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -118,7 +171,11 @@
       "gravedad": "2",
       "zona": "15",
       "descripcion": "Por el Colegio Distrital",
-      "titulo": "Cruce Peligroso"
+      "titulo": "Cruce Peligroso",
+	"idServidor" : "",
+	"latitud”:"",
+	"longitud":""
+
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -126,7 +183,11 @@
       "gravedad": "5",
       "zona": "16",
       "descripcion": "Por el Colegio Distrital",
-      "titulo": "Cruce Peligroso"
+      "titulo": "Cruce Peligroso",
+	"idServidor" : "",
+	"latitud”:"",
+	"longitud":""
+
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -134,7 +195,11 @@
       "gravedad": "2",
       "zona": "17",
       "descripcion": "Por el Colegio Distrital",
-      "titulo": "Cruce inadecuado de Peatones."
+      "titulo": "Cruce inadecuado de Peatones.",
+	"idServidor" : "",
+	"latitud”:"",
+	"longitud":""
+
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -142,7 +207,11 @@
       "gravedad": "3",
       "zona": "18",
       "descripcion": "Por el Colegio Distrital",
-      "titulo": "Cruce Peligroso"
+      "titulo": "Cruce Peligroso",
+	"idServidor" : "",
+	"latitud”:"",
+	"longitud":""
+
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -150,7 +219,11 @@
       "gravedad": "2",
       "zona": "19",
       "descripcion": "Por el Colegio Distrital",
-      "titulo": "Semaforo no respetado por Vehiculos."
+      "titulo": "Semaforo no respetado por Vehiculos.",
+	"idServidor" : "",
+	"latitud”:"",
+	"longitud":""
+
     }
   ]
 }
