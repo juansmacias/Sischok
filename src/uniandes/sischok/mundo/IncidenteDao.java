@@ -1,7 +1,5 @@
 package uniandes.sischok.mundo;
 
-import org.json.JSONArray;
-
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
@@ -26,12 +24,15 @@ public class IncidenteDao extends AbstractDao<Incidente, Long> {
     */
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
-        public final static Property Titulo = new Property(1, String.class, "titulo", false, "TITULO");
-        public final static Property Descripcion = new Property(2, String.class, "descripcion", false, "DESCRIPCION");
-        public final static Property Zona = new Property(3, Integer.class, "zona", false, "ZONA");
-        public final static Property Gravedad = new Property(4, Integer.class, "gravedad", false, "GRAVEDAD");
-        public final static Property FechaCreacion = new Property(5, java.util.Date.class, "fechaCreacion", false, "FECHA_CREACION");
-        public final static Property UsuarioCreacion = new Property(6, String.class, "usuarioCreacion", false, "USUARIO_CREACION");
+        public final static Property IdServidor = new Property(1, String.class, "idServidor", false, "ID_SERVIDOR");
+        public final static Property Titulo = new Property(2, String.class, "titulo", false, "TITULO");
+        public final static Property Descripcion = new Property(3, String.class, "descripcion", false, "DESCRIPCION");
+        public final static Property Zona = new Property(4, Integer.class, "zona", false, "ZONA");
+        public final static Property Gravedad = new Property(5, Integer.class, "gravedad", false, "GRAVEDAD");
+        public final static Property Latitud = new Property(6, Long.class, "latitud", false, "LATITUD");
+        public final static Property Longitud = new Property(7, Long.class, "longitud", false, "LONGITUD");
+        public final static Property FechaCreacion = new Property(8, java.util.Date.class, "fechaCreacion", false, "FECHA_CREACION");
+        public final static Property UsuarioCreacion = new Property(9, String.class, "usuarioCreacion", false, "USUARIO_CREACION");
     };
 
 
@@ -48,12 +49,15 @@ public class IncidenteDao extends AbstractDao<Incidente, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "'INCIDENTE' (" + //
                 "'_id' INTEGER PRIMARY KEY ," + // 0: id
-                "'TITULO' TEXT NOT NULL ," + // 1: titulo
-                "'DESCRIPCION' TEXT," + // 2: descripcion
-                "'ZONA' INTEGER," + // 3: zona
-                "'GRAVEDAD' INTEGER," + // 4: gravedad
-                "'FECHA_CREACION' INTEGER," + // 5: fechaCreacion
-                "'USUARIO_CREACION' TEXT);"); // 6: usuarioCreacion
+                "'ID_SERVIDOR' TEXT," + // 1: idServidor
+                "'TITULO' TEXT NOT NULL ," + // 2: titulo
+                "'DESCRIPCION' TEXT," + // 3: descripcion
+                "'ZONA' INTEGER," + // 4: zona
+                "'GRAVEDAD' INTEGER," + // 5: gravedad
+                "'LATITUD' INTEGER," + // 6: latitud
+                "'LONGITUD' INTEGER," + // 7: longitud
+                "'FECHA_CREACION' INTEGER," + // 8: fechaCreacion
+                "'USUARIO_CREACION' TEXT);"); // 9: usuarioCreacion
     }
 
     /** Drops the underlying database table. */
@@ -71,31 +75,46 @@ public class IncidenteDao extends AbstractDao<Incidente, Long> {
         if (id != null) {
             stmt.bindLong(1, id);
         }
-        stmt.bindString(2, entity.getTitulo());
+ 
+        String idServidor = entity.getIdServidor();
+        if (idServidor != null) {
+            stmt.bindString(2, idServidor);
+        }
+        stmt.bindString(3, entity.getTitulo());
  
         String descripcion = entity.getDescripcion();
         if (descripcion != null) {
-            stmt.bindString(3, descripcion);
+            stmt.bindString(4, descripcion);
         }
  
         Integer zona = entity.getZona();
         if (zona != null) {
-            stmt.bindLong(4, zona);
+            stmt.bindLong(5, zona);
         }
  
         Integer gravedad = entity.getGravedad();
         if (gravedad != null) {
-            stmt.bindLong(5, gravedad);
+            stmt.bindLong(6, gravedad);
+        }
+ 
+        Long latitud = entity.getLatitud();
+        if (latitud != null) {
+            stmt.bindLong(7, latitud);
+        }
+ 
+        Long longitud = entity.getLongitud();
+        if (longitud != null) {
+            stmt.bindLong(8, longitud);
         }
  
         java.util.Date fechaCreacion = entity.getFechaCreacion();
         if (fechaCreacion != null) {
-            stmt.bindLong(6, fechaCreacion.getTime());
+            stmt.bindLong(9, fechaCreacion.getTime());
         }
  
         String usuarioCreacion = entity.getUsuarioCreacion();
         if (usuarioCreacion != null) {
-            stmt.bindString(7, usuarioCreacion);
+            stmt.bindString(10, usuarioCreacion);
         }
     }
 
@@ -110,12 +129,15 @@ public class IncidenteDao extends AbstractDao<Incidente, Long> {
     public Incidente readEntity(Cursor cursor, int offset) {
         Incidente entity = new Incidente( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            cursor.getString(offset + 1), // titulo
-            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // descripcion
-            cursor.isNull(offset + 3) ? null : cursor.getInt(offset + 3), // zona
-            cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4), // gravedad
-            cursor.isNull(offset + 5) ? null : new java.util.Date(cursor.getLong(offset + 5)), // fechaCreacion
-            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6) // usuarioCreacion
+            cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // idServidor
+            cursor.getString(offset + 2), // titulo
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // descripcion
+            cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4), // zona
+            cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5), // gravedad
+            cursor.isNull(offset + 6) ? null : cursor.getLong(offset + 6), // latitud
+            cursor.isNull(offset + 7) ? null : cursor.getLong(offset + 7), // longitud
+            cursor.isNull(offset + 8) ? null : new java.util.Date(cursor.getLong(offset + 8)), // fechaCreacion
+            cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9) // usuarioCreacion
         );
         return entity;
     }
@@ -124,12 +146,15 @@ public class IncidenteDao extends AbstractDao<Incidente, Long> {
     @Override
     public void readEntity(Cursor cursor, Incidente entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
-        entity.setTitulo(cursor.getString(offset + 1));
-        entity.setDescripcion(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
-        entity.setZona(cursor.isNull(offset + 3) ? null : cursor.getInt(offset + 3));
-        entity.setGravedad(cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4));
-        entity.setFechaCreacion(cursor.isNull(offset + 5) ? null : new java.util.Date(cursor.getLong(offset + 5)));
-        entity.setUsuarioCreacion(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
+        entity.setIdServidor(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
+        entity.setTitulo(cursor.getString(offset + 2));
+        entity.setDescripcion(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
+        entity.setZona(cursor.isNull(offset + 4) ? null : cursor.getInt(offset + 4));
+        entity.setGravedad(cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5));
+        entity.setLatitud(cursor.isNull(offset + 6) ? null : cursor.getLong(offset + 6));
+        entity.setLongitud(cursor.isNull(offset + 7) ? null : cursor.getLong(offset + 7));
+        entity.setFechaCreacion(cursor.isNull(offset + 8) ? null : new java.util.Date(cursor.getLong(offset + 8)));
+        entity.setUsuarioCreacion(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
      }
     
     /** @inheritdoc */
@@ -154,6 +179,5 @@ public class IncidenteDao extends AbstractDao<Incidente, Long> {
     protected boolean isEntityUpdateable() {
         return true;
     }
-    
     
 }

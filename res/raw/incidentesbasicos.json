@@ -8,8 +8,8 @@
       "descripcion": "En la circunvalar con 72",
       "titulo": "Cruce Peligroso",
 	"idServidor" : "",
-	"latitud”:"",
-	"longitud":""
+	"latitud”:"4.645833",
+	"longitud":"-74.063333"
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -19,8 +19,8 @@
       "descripcion": "Por la Iglesia ",
       "titulo": "Cruce Peligroso”,
 "idServidor" : "",
-	"latitud”:"",
-	"longitud":""
+	"latitud”:"4.591655",
+	"longitud":"-74.106505"
     },
     {
       "usuarioCreacion": "Administrador Sischok",
@@ -30,8 +30,8 @@
       "descripcion": "Por la Iglesia Santo Tomas",
       "titulo": "Peligrosa”,
 "idServidor" : "",
-	"latitud”:"",
-	"longitud":""
+	"latitud”:"4.678611",
+	"longitud":"-74.078611"
 
     },
     {
@@ -42,8 +42,8 @@
       "descripcion": "Por la Iglesia San Rafael",
       "titulo": "Curva Peligrosa",
 "idServidor" : "",
-	"latitud”:"",
-	"longitud":""
+	"latitud”:"4.617063",
+	"longitud":"-74.189916"
 
     },
     {

@@ -68,7 +68,7 @@ public class CrearIncidenteDescripcion extends Activity {
 	    if(!titulo.equals("")&&!descripcion.equals("")&&(gravedad<=5||gravedad>0))
 	    	{
 	    	CentroIncidentes centroInc = CentroIncidentes.darInstancia(this);
-			final Incidente indicienteNuevo = new Incidente(null, titulo, descripcion, getIntent().getIntExtra("zona",0), gravedad, new Date(), sharedpreferences.getString(CentroIncidentes.prefNombre, "Administrador Sischok"));
+			final Incidente indicienteNuevo = new Incidente(null, "",titulo, descripcion, getIntent().getIntExtra("zona",0), gravedad,  Long.valueOf(new Double(4.591655).longValue()), Long.valueOf((new Double(-74.063333)).longValue()), new Date(), sharedpreferences.getString(CentroIncidentes.prefNombre, "Administrador Sischok"));
 			ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 			NetworkInfo netInfo = cm.getActiveNetworkInfo();
 			if (netInfo != null && netInfo.isConnectedOrConnecting())

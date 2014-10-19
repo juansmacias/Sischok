@@ -82,7 +82,7 @@ public class CentroIncidentes {
 	        	JSONObject jIncidente = (JSONObject)jAryIncidentes.get(i);
 	        	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 	        	Date fechap = sdf.parse(jIncidente.getString("fechaCreacion"));
-	        	Incidente inciactual = new Incidente(null, jIncidente.getString("titulo"), jIncidente.getString("descripcion"), Integer.parseInt(jIncidente.getString("zona")), Integer.parseInt(jIncidente.getString("gravedad")),fechap, jIncidente.getString("usuarioCreacion"));
+	        	Incidente inciactual = new Incidente(null, jIncidente.getString("idServidor"), jIncidente.getString("titulo"), jIncidente.getString("descripcion"), Integer.parseInt(jIncidente.getString("zona")), Integer.parseInt(jIncidente.getString("gravedad")), Long.valueOf(jIncidente.getString("latitud")),Long.valueOf(jIncidente.getString("longitud")), fechap, jIncidente.getString("usuarioCreacion"));
 	        	incidenteDao.insert(inciactual);
 			}
 		} catch (Exception e) {

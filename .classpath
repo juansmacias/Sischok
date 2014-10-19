@@ -8,5 +8,6 @@
 	<classpathentry exported="true" kind="lib" path="libs/android-async-http-1.4.6.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/google-play-services_lib/libs/google-play-services.jar"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/google-play-services_lib"/>
+	<classpathentry kind="lib" path="libs/freemarker-2.3.20.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
