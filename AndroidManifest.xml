@@ -76,6 +76,12 @@
                 android:value="uniandes.sischok.CrearIncidenteGPS" />
         </activity>
         <activity
+            android:name=".Bienvenidaawsdgcfhv"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_bienvenida"
+            android:theme="@style/FullscreenTheme" >
+        </activity>
+        <activity
             android:name=".Bienvenida"
             android:label="@string/title_activity_bienvenida" >
         </activity>
