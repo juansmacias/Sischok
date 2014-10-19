@@ -76,12 +76,6 @@
                 android:value="uniandes.sischok.CrearIncidenteGPS" />
         </activity>
         <activity
-            android:name=".Bienvenidaawsdgcfhv"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_bienvenida"
-            android:theme="@style/FullscreenTheme" >
-        </activity>
-        <activity
             android:name=".Bienvenida"
             android:label="@string/title_activity_bienvenida" >
         </activity>
@@ -100,6 +94,14 @@
         <activity
             android:name=".VerResultadoIncidentes"
             android:label="@string/title_activity_ver_resultado_incidentes" >
+        </activity>
+          <activity
+            android:name=".CrearIncidenteConLatLng"
+            android:label="@string/title_activity_crear_incidente_latlng" >
+            android:parentActivityName=".CrearIncidenteConLatLng" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="uniandes.sischok.CrearIncidenteConLatLng" />
         </activity>
         <!-- Goolge Maps API Key -->
             <uses-library android:name="com.google.android.maps" />

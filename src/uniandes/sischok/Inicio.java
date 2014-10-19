@@ -123,20 +123,20 @@ public class Inicio extends Activity {
 	public void crearIncidente (View view)
 	{
 		//Verifica si el dispositivo esta conectado 
-		 ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-			    NetworkInfo netInfo = cm.getActiveNetworkInfo();
-			    if (netInfo != null && netInfo.isConnectedOrConnecting())
-			    {
-			        //esta conectado a internet
-			    	Intent intentCrearGPS = new Intent(this, CrearIncidenteGPS.class);
-			    	startActivity(intentCrearGPS);
-			    }
-			    
-			    else
-			    {
+//		 ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+//			    NetworkInfo netInfo = cm.getActiveNetworkInfo();
+//			    if (netInfo != null && netInfo.isConnectedOrConnecting())
+//			    {
+//			        //esta conectado a internet
+//			    	Intent intentCrearGPS = new Intent(this, CrearIncidenteGPS.class);
+//			    	startActivity(intentCrearGPS);
+//			    }
+//			    
+//			    else
+//			    {
 			    	Intent intetCrear = new Intent(this, CrearIncidenteBarrios.class);
 			    	startActivity(intetCrear);
-			    }
+//			    }
 	}
 	public void consultarIncidente (View view)
 	{
