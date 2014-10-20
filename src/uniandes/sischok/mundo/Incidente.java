@@ -138,10 +138,11 @@ public class Incidente {
     	JSONObject jobjIncA = new JSONObject();
     			try {
     				jobjIncA.put("titulo", titulo);
-    				jobjIncA.put("id", id);
     				jobjIncA.put("gravedad",gravedad);
     				jobjIncA.put("zona", zona);
     				jobjIncA.put("descripcion", descripcion);
+    				jobjIncA.put("latitud",latitud);
+    				jobjIncA.put("longitud", longitud);
     				jobjIncA.put("fechaCreacion", fechaCreacion.toString());
     				jobjIncA.put("usuarioCreacion", usuarioCreacion);
     			} catch (JSONException e) {
