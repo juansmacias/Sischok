@@ -9,21 +9,13 @@ import java.util.Date;
 import java.util.List;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-
-import com.loopj.android.http.JsonHttpResponseHandler;
 
 import de.greenrobot.dao.query.QueryBuilder;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-
-import uniandes.sischok.BackendRestClient;
-import uniandes.sischok.CrearIncidenteDescripcion;
-import uniandes.sischok.Inicio;
 import uniandes.sischok.R;
 import uniandes.sischok.mundo.Incidente;
 import uniandes.sischok.mundo.DaoMaster.DevOpenHelper;
@@ -89,7 +81,7 @@ public class CentroIncidentes {
 	        	JSONObject jIncidente = (JSONObject)jAryIncidentes.get(i);
 	        	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 	        	Date fechap = sdf.parse(jIncidente.getString("fechaCreacion"));
-	        	Incidente inciactual = new Incidente(null, "", jIncidente.getString("titulo"), jIncidente.getString("descripcion"), Integer.parseInt(jIncidente.getString("zona")), Integer.parseInt(jIncidente.getString("gravedad")), Long.valueOf(Double.valueOf(jIncidente.getString("latitud")).longValue()),Long.valueOf(Double.valueOf(jIncidente.getString("longitud")).longValue()), fechap, jIncidente.getString("usuarioCreacion"));
+	        	Incidente inciactual = new Incidente(null, "", jIncidente.getString("titulo"), jIncidente.getString("descripcion"), Integer.parseInt(jIncidente.getString("zona")), Integer.parseInt(jIncidente.getString("gravedad")), Double.valueOf(jIncidente.getString("latitud")),Double.valueOf(jIncidente.getString("longitud")), fechap, jIncidente.getString("usuarioCreacion"));
 	        	incidenteDao.insert(inciactual);
 			}
 		} catch (Exception e) {
@@ -144,6 +136,7 @@ public class CentroIncidentes {
 		incidenteDao.insert(incidente);
 	}
 	
+	@SuppressWarnings("unused")
 	private Incidente darIncidentesPorZona(int zona)
 	{
 		return null;

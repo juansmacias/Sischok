@@ -7,7 +7,7 @@ import de.greenrobot.daogenerator.Schema;
 public class GeneradorDaos {
 
 	    public static void main(String[] args) throws Exception {
-	        Schema schema = new Schema(1000, "uniandes.sischok");
+	        Schema schema = new Schema(1000, "");
 	        
 	        AgregarInciente(schema);
 	        
@@ -23,8 +23,8 @@ public class GeneradorDaos {
 	        incidentep.addStringProperty("descripcion");
 	        incidentep.addIntProperty("zona");
 	        incidentep.addIntProperty("gravedad");
-	        incidentep.addLongProperty("latitud");
-	        incidentep.addLongProperty("longitud");
+	        incidentep.addDoubleProperty("latitud");
+	        incidentep.addDoubleProperty("longitud");
 	        incidentep.addDateProperty("fechaCreacion");
 	        incidentep.addStringProperty("usuarioCreacion");
 	    }

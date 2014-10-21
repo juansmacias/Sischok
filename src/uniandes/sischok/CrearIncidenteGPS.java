@@ -168,7 +168,7 @@ public class CrearIncidenteGPS extends Activity implements LocationListener
     public void insertarIncidente(LatLng point)
     {
     	Intent intentCrearIncidenteLatLng = new Intent(this, CrearIncidenteConLatLng.class);
-    	intentCrearIncidenteLatLng.putExtra("IncidenteLatLng", point );
+    	intentCrearIncidenteLatLng.putExtra("IncidenteLatLng", point.latitude+","+point.longitude );
     	startActivity(intentCrearIncidenteLatLng);
     }
     @Override
