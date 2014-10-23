@@ -1,5 +1,9 @@
 package uniandes.sischok;
 
+import org.apache.http.HttpRequest;
+import org.apache.http.HttpRequestFactory;
+
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -7,6 +11,9 @@ import com.google.android.gms.maps.model.LatLng;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,11 +27,16 @@ import android.widget.Toast;
 
 public class CrearIncidenteGPS extends Activity implements LocationListener
 {
+	
+	private static final String PLACES_SEARCH_URL =  "https://maps.googleapis.com/maps/api/place/search/json?";
+	private static final String PLACES_SEARCHTEXT_URL =  "https://maps.googleapis.com/maps/api/place/textsearch/output?parameters";
+	
 	private Context mContext;
 	// Google Map
     private GoogleMap gMap;
     private Location location;
     protected LocationManager locationManager;
+    private Location initialLocation;
 //    private String provider;
     private LatLng myLocation;
 //    private ArrayList<LatLng> lstLatLngs;
@@ -60,7 +72,7 @@ public class CrearIncidenteGPS extends Activity implements LocationListener
     	mContext = getApplicationContext();
     	try 
     	{
-            locationManager = (LocationManager) mContext.getSystemService(LOCATION_SERVICE);
+            locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
             
             // Getting GPS status
             isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
@@ -88,6 +100,10 @@ public class CrearIncidenteGPS extends Activity implements LocationListener
                         {
                             latitude = location.getLatitude();
                             longitude = location.getLongitude();
+//                            initialLocation = new LatLng(latitude, longitude);
+                            initialLocation = new Location("inicial");
+                            initialLocation.setLatitude(latitude);
+                            initialLocation.setLongitude(longitude);
                         }
                     }
                 }
@@ -105,6 +121,10 @@ public class CrearIncidenteGPS extends Activity implements LocationListener
                             {
                                 latitude = location.getLatitude();
                                 longitude = location.getLongitude();
+//                                initialLocation = new LatLng(latitude, longitude);
+                                initialLocation = new Location("inicial");
+                                initialLocation.setLatitude(latitude);
+                                initialLocation.setLongitude(longitude);
                             }
                         }
                     }
@@ -162,6 +182,17 @@ public class CrearIncidenteGPS extends Activity implements LocationListener
             		
             	}
             });
+            
+//            HttpRequestFactory httpRequestFactory = createRequestFactory(transport);
+//            HttpRequest request = httpRequestFactory.buildGetRequest(new GenericUrl(PLACES_SEARCH_URL));
+//            request.url.put("key", "");
+//            request.url.put("location", latitude + "," + longitude);
+//            request.url.put("radius", 500);
+//            request.url.put("sensor", "false");
+//            infowindow = new google.maps.InfoWindow();
+            
+//            var service = new google.maps.places.PlacesService(gMap);
+//            service.nearbySearch(request, callback);
     }
  
 
@@ -171,15 +202,75 @@ public class CrearIncidenteGPS extends Activity implements LocationListener
     	intentCrearIncidenteLatLng.putExtra("IncidenteLatLng", point.latitude+","+point.longitude );
     	startActivity(intentCrearIncidenteLatLng);
     }
+
     @Override
-    public void onLocationChanged(Location location) {
+    public void onLocationChanged(Location location) 
+    {
       latitude = (int) (location.getLatitude());
       longitude = (int) (location.getLongitude());
-//      latituteField.setText(String.valueOf(lat)); nuevo text view
-//      longitudeField.setText(String.valueOf(lng));
-//      myLocation = new LatLng(latitude,longitude);
-//      gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 15));
+      LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+      CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);
+      gMap.animateCamera(cameraUpdate);
+      locationManager.removeUpdates(this);
+      
+//      float[] results = new float[1];
+//      Location.distanceBetween(initialLocation.latitude, initialLocation.longitude, latLng.latitude, latLng.longitude, results);
+      float distance = initialLocation.distanceTo(location);
+      if(distance > 12)
+      {
+    	  
+    	  NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+      	//para que al notificar abra la app en la pagina principal
+      	Intent notificationIntent = new Intent (mContext, Inicio.class );
+      	notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+      	            | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+      	// prepare intent which is triggered if the notification is selected
+      	PendingIntent pIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
+      	Notification n  = new Notification.Builder(this)
+          .setContentTitle("Incidentes de la nueva zona")
+          .setContentText("Ha avanzado: "+ distance)
+          .setSmallIcon(R.drawable.icono)
+          .setContentIntent(pIntent)
+          .setAutoCancel(true).build();
+  //   NO     .addAction(R.drawable.icon, "Call", pIntent)
+//       NO   .addAction(R.drawable.icon, "More", pIntent)
+//         NO .addAction(R.drawable.icon, "And more", pIntent).build();
+//      		Notification n = builder.build();A
+      	notificationManager.notify(0, n);
+
+      	//easy way
+      	Toast.makeText(getApplicationContext(), 
+                  "Revisar Incidentes de la zona", Toast.LENGTH_LONG).show();
+      	
+      	//Cambia el inicial al actual
+      	initialLocation.setLatitude(latitude);
+      	initialLocation.setLongitude(longitude);
+      }
     }
+    
+    public double CalculationByDistance(Location startP, Location endP) 
+    {
+        int Radius=6371;//radius of earth in Km  
+        double lat1 = startP.getLatitude();
+        double lat2 = endP.getLatitude();
+        double lon1 = startP.getLongitude();
+        double lon2 = endP.getLongitude();
+        double dLat = Math.toRadians(lat2-lat1);
+        double dLon = Math.toRadians(lon2-lon1);
+        double a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+        Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) *
+        Math.sin(dLon/2) * Math.sin(dLon/2);
+        double c = 2 * Math.asin(Math.sqrt(a));
+//        double valueResult= Radius*c;
+//        double km=valueResult/1;
+//        DecimalFormat newFormat = new DecimalFormat("####");
+//        int kmInDec =  Integer.valueOf(newFormat.format(km));
+//        double meter=valueResult%1000;
+//        double meterInDec= Integer.valueOf(newFormat.format(meter));
+//        Log.i("Radius Value",""+valueResult+"   KM  "+kmInDec+" Meter   "+meterInDec);
+
+        return Radius * c;
+     }
     
     @Override
     protected void onResume() {

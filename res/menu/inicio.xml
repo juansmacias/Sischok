@@ -1,9 +1,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <item
+        
+    	<item
+        	android:id="@+id/crear"
+        	android:onClick = "onOptionsItemSelected" 
+        	android:orderInCategory="100"
+       	 	android:showAsAction="never"
+        	android:title="@string/action_crear"/>
+        
+    	<item
+       	 	android:id="@+id/ver"
+        	android:onClick = "onOptionsItemSelected" 
+        	android:orderInCategory="100"
+        	android:showAsAction="never"
+        	android:title="@string/action_ver"/>
+        	
+       <item
         android:id="@+id/fullscreen_content"
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/action_settings"/>
-
 </menu>

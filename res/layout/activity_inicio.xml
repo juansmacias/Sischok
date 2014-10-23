@@ -27,26 +27,8 @@
         <ListView
             android:id="@+id/lstNuevosIncidentes"
             android:layout_width="match_parent"
-            android:layout_height="200dp" >
+            android:layout_height="320dp" >
         </ListView>
-
-        <Button
-            android:id="@+id/btnCrearIncidente"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginBottom="0dp"
-            android:background="@color/rojo_inicioBototes"
-            android:paddingBottom="0dp"
-            android:text="@string/lblbntCrearIncidente"
-            android:onClick="crearIncidente" />
-
-        <Button
-            android:id="@+id/btnConsultaIncidentes"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="@color/rojo_inicioBototes"
-            android:text="@string/lblbtnConsultaIncidente" 
-            android:onClick="consultarIncidente" />
 
         <Button
             android:id="@+id/btnIncidentesPorAmigos"
@@ -56,14 +38,6 @@
             android:text="@string/lblbtnIncidentesPorAmigos"
             android:textSize="17sp"
             android:onClick="consultarIncidentePorAmigos" />
-
-        <Button
-            android:id="@+id/btnAjustes"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="@color/rojo_inicioBototes"
-            android:text="@string/lblbtnAjustes"
-            android:onClick="ajustes" />
 
     </LinearLayout>
 

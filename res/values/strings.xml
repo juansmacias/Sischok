@@ -4,7 +4,9 @@
     <string name="app_name">Sischok</string>
     <string name="title_incidente_detail">incidente Detail</string>
     <string name="title_activity_inicio">Inicio</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="action_crear">Crear Incidente</string>
+   	<string name="action_ver">Consultar Incidentes</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_crear_incidente_barrios">Seleccionar Barrio</string>
     <string name="lblSeleccionarBarrio">Selecciona la Localidad del indicente:</string>

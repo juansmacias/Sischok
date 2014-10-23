@@ -2,6 +2,7 @@ package uniandes.sischok.mundo;
 
 import java.util.Date;
 
+import uniandes.sischok.R;
 import uniandes.sischok.Inicio;
 import android.app.AlarmManager;
 import android.app.IntentService;
@@ -72,11 +73,11 @@ public class CentroEventos extends IntentService
             	notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
             	            | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             	// prepare intent which is triggered if the notification is selected
-            	PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
+            	PendingIntent pIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
             	Notification n  = new Notification.Builder(this)
                 .setContentTitle("Revisar zonas peligrosas ")
                 .setContentText("Evento: "+ cur.getString(1))
-//                .setSmallIcon(R.drawable.icon)
+                .setSmallIcon(R.drawable.icono)
                 .setContentIntent(pIntent)
                 .setAutoCancel(true).build();
 //           NO     .addAction(R.drawable.icon, "Call", pIntent)

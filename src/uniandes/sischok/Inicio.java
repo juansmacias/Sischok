@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -99,11 +100,72 @@ public class Inicio extends Activity {
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+	public boolean onCreateOptionsMenu(Menu menu) 
+	{
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.inicio, menu);
 		return true;
 	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) 
+	{
+		switch  ( item . getItemId ()) 
+		 { 
+	        case R.id.crear : 
+	        	//crear intent y start y verificar conexion
+	       	 ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+			    NetworkInfo netInfo = cm.getActiveNetworkInfo();
+			    if (netInfo != null && netInfo.isConnectedOrConnecting())
+			    {
+			        //esta conectado a internet
+			    	Intent intentCrearGPS = new Intent(this, CrearIncidenteGPS.class);
+			    	startActivity(intentCrearGPS);
+			    	return true;
+			    }
+			    else 
+			    {
+			    	Intent intetCrear = new Intent(this, CrearIncidenteBarrios.class);
+			    	startActivity(intetCrear);
+			    	return true;
+			    }
+	        case R.id.ver : 
+	        	//crear intent y start 
+	    		Intent intetConsultar = new Intent(this, ConsultarIncidentes.class);
+	    		startActivity(intetConsultar);
+	    		return true;
+		 }
+				return  false ; 
+	}
+	public  void onGroupItemClick ( MenuItem item ) 
+	{ 
+//	    // Uno de los elementos del grupo (con el atributo onClick) se ha hecho clic 
+//	    // El parametro elemento pasado aqui indica que elemento es 
+//	    // Todas las demas clics elemento de menu se manejan por onOptionsItemSelected ()
+//		 switch  ( item . getItemId ()) 
+//		 { 
+//	        case R.id.crear : 
+//	        	//crear intent y start y verificar conexion
+//	       	 ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+//			    NetworkInfo netInfo = cm.getActiveNetworkInfo();
+//			    if (netInfo != null && netInfo.isConnectedOrConnecting())
+//			    {
+//			        //esta conectado a internet
+//			    	Intent intentCrearGPS = new Intent(this, CrearIncidenteGPS.class);
+//			    	startActivity(intentCrearGPS);
+//			    }
+//			    
+//			    else 
+//			    {
+//			    	Intent intetCrear = new Intent(this, CrearIncidenteBarrios.class);
+//			    	startActivity(intetCrear);
+//			    }
+//	        case R.id.ver : 
+//	        	//crear intent y start 
+//	    		Intent intetConsultar = new Intent(this, ConsultarIncidentes.class);
+//	    		startActivity(intetConsultar);
+//	    }
+	 }
 	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {

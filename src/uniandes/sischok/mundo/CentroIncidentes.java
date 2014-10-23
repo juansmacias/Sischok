@@ -17,8 +17,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import uniandes.sischok.R;
-import uniandes.sischok.mundo.Incidente;
 import uniandes.sischok.mundo.DaoMaster.DevOpenHelper;
+import uniandes.sischok.mundo.Incidente;
 import uniandes.sischok.mundo.IncidenteDao.Properties;
 
 public class CentroIncidentes {
@@ -46,7 +46,8 @@ public class CentroIncidentes {
 		incidentesLocales = new ArrayList<Incidente>();
 		DevOpenHelper helperNuevo = new DaoMaster.DevOpenHelper(contexto, nomdb, null);
 		 SQLiteDatabase db = helperNuevo.getWritableDatabase();
-		DaoMaster daoMaster = new DaoMaster(db);
+		 DaoMaster daoMaster = new DaoMaster(db);
+//		DaoMaster daoMaster = new DaoMaster(db);
 		DaoSession daoSession = daoMaster.newSession();
 		incidenteDao = daoSession.getIncidenteDao();
 		this.contexto = contexto; 
