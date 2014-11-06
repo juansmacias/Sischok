@@ -492,7 +492,6 @@ containing a value of this type.
         public static final int btnCompartirConComp=0x7f08001c;
         public static final int btnCompartirDetalleInc=0x7f08006a;
         public static final int btnConsultar=0x7f080033;
-        public static final int btnIncidentesPorAmigos=0x7f08006c;
         public static final int btnLocalidad1=0x7f080035;
         public static final int btnLocalidad10=0x7f080047;
         public static final int btnLocalidad11=0x7f080048;
@@ -533,8 +532,9 @@ containing a value of this type.
         public static final int lblUsuarioComConListview=0x7f080015;
         public static final int lblUsuarioIncListview=0x7f080016;
         public static final int linearLayout1=0x7f08005a;
-        public static final int lstNuevosIncidentes=0x7f08006b;
+        public static final int lstNuevosIncidentes=0x7f08006c;
         public static final int map=0x7f080060;
+        public static final int mapInicio=0x7f08006b;
         public static final int match_parent=0x7f08000c;
         public static final int monochrome=0x7f080013;
         public static final int none=0x7f080000;

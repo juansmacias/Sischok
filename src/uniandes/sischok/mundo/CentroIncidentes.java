@@ -29,6 +29,7 @@ public class CentroIncidentes {
 	public static final String prefPrimeraVez = "PrimeraVez";
 	public static final String prefNombre = "nombre";
 	public static final String prefEdad = "edad";
+	public static final String prefBorracho = "borracho";
 	public static final String nomdb = "sischok-db";
 	public static final String strarchivoIncidentesBasicos = "IncidentesBasicos";
 	private static CentroIncidentes instancia;	
@@ -99,6 +100,21 @@ public class CentroIncidentes {
 		
 	}
 	
+	@SuppressLint("SimpleDateFormat")
+	public List<Incidente> darUltimos5IncidentesEnServidor(JSONArray JsonO)
+	{
+		ArrayList<Incidente> objUltimoIncidnete = new ArrayList<Incidente>();
+			try{
+		        for (int i = 0; i < JsonO.length(); i++) {
+		        	JSONObject jIncidente = (JSONObject)JsonO.get(i);
+		        	objUltimoIncidnete.add(Incidente.toIncidenteDeServidor(jIncidente));
+		        }
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		return objUltimoIncidnete;
+	}
+	
 	public Incidente darIncidentePorId(long id)
 	{
 		QueryBuilder<Incidente> qb = incidenteDao.queryBuilder();
@@ -112,6 +128,7 @@ public class CentroIncidentes {
 //		incidentesLocales.add(new Incidente(strTitulo, strDescripcion, strUsuario, intZona, intGravedad ));		
 		return true;
 	}
+
 	
 	
 	/**

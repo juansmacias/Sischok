@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Sischok</string>
     <string name="title_incidente_detail">incidente Detail</string>
     <string name="title_activity_inicio">Inicio</string>
@@ -86,6 +85,4 @@
     <string name="lblCompartirSMS">Compartir mediante SMS</string>
     <string name="lblCompartirConDetalleInc">Compartir Incidente</string>
     <string name="title_activity_ver_resultado_incidentes">Resultado Incidentes</string>
-      
-
 </resources>

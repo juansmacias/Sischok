@@ -56,7 +56,6 @@ public class CrearIncidenteGPS extends Activity implements LocationListener
         setContentView(R.layout.activity_crear_incidente_gps);
         try 
         {
-            // Loading map
             initilizeMap();
  
         } catch (Exception e) {

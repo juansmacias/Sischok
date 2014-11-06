@@ -160,7 +160,7 @@ public class Incidente {
     	try {
     		String date = jsonO.getString("fechaCreacion").replace('T', ' ');
     		date.replace(".000Z", "");
-    		objInc = new Incidente( null, jsonO.getString("_id"),jsonO.getString("titulo"), jsonO.getString("descripcion"),  Integer.valueOf(jsonO.getInt("zona")),  Integer.valueOf(jsonO.getInt("gravedad")),  Double.valueOf(jsonO.getLong("latitud")),  Double.valueOf(jsonO.getLong("longitud")), new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(date), jsonO.getString("usuarioCreacion"));
+    		objInc = new Incidente( null, jsonO.getString("_id"),jsonO.getString("titulo"), jsonO.getString("descripcion"),  Integer.valueOf(jsonO.getInt("zona")),  Integer.valueOf(jsonO.getInt("gravedad")), jsonO.getDouble("latitud"), jsonO.getDouble("longitud"), new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(date), jsonO.getString("usuarioCreacion"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
