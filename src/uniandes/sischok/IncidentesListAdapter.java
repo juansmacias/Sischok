@@ -40,6 +40,7 @@ public class IncidentesListAdapter extends ArrayAdapter<Incidente> {
 		return mlistInc.get(i).getId();
 	}
 
+	
 	@Override
 	public View getView(int posicion, View vista, ViewGroup pariente) {
 		if(vista==null)
