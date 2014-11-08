@@ -306,7 +306,7 @@ public class Inicio extends Activity implements LocationListener{
     public void onLocationChanged(Location location) 
     {
       myLocation = new LatLng(location.getLatitude(), location.getLongitude());
-      CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(myLocation, 10);
+      CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(myLocation, 11);
       gMap.animateCamera(cameraUpdate);
       locationManager.removeUpdates(this);
     }

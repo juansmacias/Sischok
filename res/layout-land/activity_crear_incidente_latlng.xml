@@ -7,12 +7,15 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:windowSoftInputMode="adjustResize"
     tools:context=".CrearIncidenteConLatLng" >
 
     <LinearLayout
         android:id="@+id/linearLayout1"
-        android:layout_width="586dp"
-        android:layout_height="519dp"
+        android:layout_width="478dp"
+        android:layout_height="480dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginTop="17dp"
         android:background="@drawable/fondocrearincidente"
@@ -24,22 +27,21 @@
             android:layout_height="60dp"
             android:layout_marginTop="30dp"
             android:text="@string/lblCrearIncidentesTitulo"
-            android:textSize="23sp" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/txtTitulo"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:imeOptions="flagNoExtractUi"
+            android:layout_height="50dp"
             android:inputType="text" />
 
         <TextView
             android:id="@+id/lblUsuarioIncListview"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginTop="30dp"
             android:text="@string/lblCrearIncidenteIngresodescripcion"
-            android:textSize="23sp" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/txtDescripcion"
@@ -47,23 +49,21 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:ems="10"
-            android:imeOptions="flagNoExtractUi"
             android:inputType="textMultiLine|textImeMultiLine" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginTop="30dp"
             android:text="@string/lblCrearIncidenteGravedad"
-            android:textSize="23sp" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/txtGravedad"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:ems="10"
-            android:imeOptions="flagNoExtractUi"
             android:inputType="number" />
 
         <Button
@@ -74,7 +74,7 @@
             android:background="@color/rosado_botonCrearIncidente"
             android:onClick="crearIncidenteLatLng"
             android:text="@string/btnCrearIncidenteLatLng"
-            android:textSize="23sp" />
+            android:textSize="20sp" />
     </LinearLayout>
 
 </ScrollView>
