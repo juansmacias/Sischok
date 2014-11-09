@@ -110,8 +110,13 @@ public class CrearIncidenteConLatLng extends Activity
 					Log.i("Servicio Backend", "Creo Incidente: "+indicienteNuevo.getTitulo()+". caso conectivididad");
 				}
 			}
+			else
+			{
+				centroInc.crearIncidente(indicienteNuevo);
+				Log.i("Servicio Backend", "Creo Incidente: "+indicienteNuevo.getTitulo());
+
+			}
 			
-			centroInc.crearIncidente(indicienteNuevo);
 			alertDialog.setTitle("Exito");
 			alertDialog.setMessage("Su incidente se ha agregado");
 			alertDialog.setButton("OK", new DialogInterface.OnClickListener() {

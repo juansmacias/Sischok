@@ -110,9 +110,12 @@ public class CrearIncidenteDescripcion extends Activity {
 						Log.i("Servicio Backend", "Creo Incidente: "+indicienteNuevo.getTitulo()+". caso conectivididad catch");
 					}
 				}
-				centroInc.crearIncidente(indicienteNuevo);
-				Log.i("Servicio Backend", "Creo Incidente: "+indicienteNuevo.getTitulo());
+				else
+				{
+					centroInc.crearIncidente(indicienteNuevo);
+					Log.i("Servicio Backend", "Creo Incidente: "+indicienteNuevo.getTitulo());
 
+				}
 				alertDialog.setTitle("Exito");
 				alertDialog.setMessage("Su incidente se ha agregado");
 				alertDialog.setButton("OK", new DialogInterface.OnClickListener() 

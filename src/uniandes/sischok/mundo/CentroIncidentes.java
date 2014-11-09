@@ -15,6 +15,8 @@ import de.greenrobot.dao.query.QueryBuilder;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.database.sqlite.SQLiteDatabase;
 import uniandes.sischok.R;
 import uniandes.sischok.mundo.DaoMaster.DevOpenHelper;
@@ -28,8 +30,10 @@ public class CentroIncidentes {
 	public static final String nombrePreferencias = "Preferencias";
 	public static final String prefPrimeraVez = "PrimeraVez";
 	public static final String prefNombre = "nombre";
+	public static final String prefNombreDefault = "Administrador Sischok";
 	public static final String prefEdad = "edad";
 	public static final String prefBorracho = "borracho";
+	public static final String prefFechaActualizacion = "FechaActualizacion";
 	public static final String nomdb = "sischok-db";
 	public static final String strarchivoIncidentesBasicos = "IncidentesBasicos";
 	private static CentroIncidentes instancia;	
@@ -37,6 +41,7 @@ public class CentroIncidentes {
 	private ArrayList<Incidente> incidentesLocales;
 	private IncidenteDao incidenteDao;
 	private Context contexto;
+	private Date fechaActualizacion;
 	
 	
 	
@@ -48,7 +53,6 @@ public class CentroIncidentes {
 		DevOpenHelper helperNuevo = new DaoMaster.DevOpenHelper(contexto, nomdb, null);
 		 SQLiteDatabase db = helperNuevo.getWritableDatabase();
 		 DaoMaster daoMaster = new DaoMaster(db);
-//		DaoMaster daoMaster = new DaoMaster(db);
 		DaoSession daoSession = daoMaster.newSession();
 		incidenteDao = daoSession.getIncidenteDao();
 		this.contexto = contexto; 
@@ -65,7 +69,8 @@ public class CentroIncidentes {
 		return instancia;
 	}
 
-	@SuppressLint("SimpleDateFormat") public void iniciarBasedeDatos()
+	@SuppressLint("SimpleDateFormat") 
+	public void iniciarBasedeDatos()
 	{
 		try {
 			String jsonIncidentes = "";
@@ -100,15 +105,24 @@ public class CentroIncidentes {
 		
 	}
 	
-	@SuppressLint("SimpleDateFormat")
-	public List<Incidente> darUltimos5IncidentesEnServidor(JSONArray JsonO)
+	public List<Incidente> darUltimosIncidentesEnServidor(JSONArray JsonO)
 	{
 		ArrayList<Incidente> objUltimoIncidnete = new ArrayList<Incidente>();
 			try{
 		        for (int i = 0; i < JsonO.length(); i++) {
 		        	JSONObject jIncidente = (JSONObject)JsonO.get(i);
-		        	objUltimoIncidnete.add(Incidente.toIncidenteDeServidor(jIncidente));
+		        	Incidente actualNuevo = Incidente.toIncidenteDeServidor(jIncidente);
+		        	long idNuevo = crearIncidente(actualNuevo);
+		        	objUltimoIncidnete.add(darIncidentePorId(idNuevo));
 		        }
+		        if(JsonO.length()>0){
+			         SharedPreferences sharedpreferences = contexto.getSharedPreferences(CentroIncidentes.nombrePreferencias, Context.MODE_PRIVATE);
+				        fechaActualizacion = new Date();
+				        Editor editor = sharedpreferences.edit();
+				        editor.putLong(prefFechaActualizacion, fechaActualizacion.getTime());
+				        editor.commit();
+		        }
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -149,15 +163,25 @@ public class CentroIncidentes {
 		return qb.list();
 	}
 	
-	public void crearIncidente (Incidente incidente)
+	public long crearIncidente (Incidente incidente)
 	{
-		incidenteDao.insert(incidente);
+		return incidenteDao.insert(incidente);
 	}
 	
 	@SuppressWarnings("unused")
 	private Incidente darIncidentesPorZona(int zona)
 	{
 		return null;
+	}
+	
+	public Date darfechaActualizacion()
+	{
+		return fechaActualizacion;
+	}
+	
+	public void setFechaActualizacion(Date date)
+	{
+		fechaActualizacion = date;
 	}
 	
 //	JSONArray jArryIncs = new JSONArray();

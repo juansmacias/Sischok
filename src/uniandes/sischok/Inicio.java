@@ -1,5 +1,8 @@
 package uniandes.sischok;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Calendar;
 
@@ -45,6 +48,7 @@ public class Inicio extends Activity implements LocationListener{
 	private SharedPreferences sharedpreferences;
 	private IncidentesListAdapter mAdapter;
 	private List<Incidente> ultimosIncidentes;
+	private CentroIncidentes centroI;
 	@SuppressWarnings("unused")
 	private Context mContext;
 	private GoogleMap gMap;
@@ -61,15 +65,15 @@ public class Inicio extends Activity implements LocationListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_inicio);
 		sharedpreferences = getSharedPreferences(CentroIncidentes.nombrePreferencias, Context.MODE_PRIVATE);
-		CentroIncidentes centroI = CentroIncidentes.darInstancia(this);
-
+		centroI = CentroIncidentes.darInstancia(this);
 		if (!sharedpreferences.contains(CentroIncidentes.prefPrimeraVez))
 		{
-			  
+
 			centroI.iniciarBasedeDatos();
 			Intent intentBienvenida = new Intent(this, Bienvenida.class);
 			startActivityForResult(intentBienvenida,1);
 		}
+		centroI.setFechaActualizacion(new Date(sharedpreferences.getLong(CentroIncidentes.prefFechaActualizacion, (new Date()).getTime())));
 		Intent intent = new Intent(this, CentroEventos.class);
 		startService(intent);
 
@@ -85,60 +89,87 @@ public class Inicio extends Activity implements LocationListener{
 		//for 30 mint 60*60*1000
 		alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
 				60*60*1000, pintent);
-        try 
-        {
-            initilizeMap();
- 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+		try 
+		{
+			initilizeMap();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
-	
+
 	public void refrescarIncidentesListAdapter(List<Incidente> lstIncidentes)
 	{
-		if(lstIncidentes!=null)
-		ultimosIncidentes = lstIncidentes;
-		mAdapter = new IncidentesListAdapter(this,R.layout.incidentelistview,ultimosIncidentes);
-		ListView lstUltimo = (ListView) findViewById(R.id.lstNuevosIncidentes);
-		lstUltimo.setAdapter(mAdapter);
-		lstUltimo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, final View view,
-					int position, long id) {
-				Intent intentD = new Intent(Inicio.this, DetalleIncidente.class);
-				intentD.putExtra("id",Long.parseLong(((TextView)view.findViewById(R.id.lblSinTituloIncListView)).getTag()+""));
-				startActivity(intentD);
-			}
+		if(lstIncidentes!=null&&lstIncidentes.size()>0)
+		{
+			ultimosIncidentes = lstIncidentes;
+			mAdapter = new IncidentesListAdapter(this,R.layout.incidentelistview,ultimosIncidentes);
+			ListView lstUltimo = (ListView) findViewById(R.id.lstNuevosIncidentes);
+			lstUltimo.setAdapter(mAdapter);
+			lstUltimo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+				@Override
+				public void onItemClick(AdapterView<?> parent, final View view,
+						int position, long id) {
+					Intent intentD = new Intent(Inicio.this, DetalleIncidente.class);
+					intentD.putExtra("id",((TextView)view.findViewById(R.id.lblSinTituloIncListView)).getTag()+"");
+					startActivity(intentD);
+				}
 
-		});
+			});
+		}
+		else
+		{
+			ultimosIncidentes = centroI.darUltimos5Incidentes();
+			mAdapter = new IncidentesListAdapter(this,R.layout.incidentelistview,ultimosIncidentes);
+			ListView lstUltimo = (ListView) findViewById(R.id.lstNuevosIncidentes);
+			lstUltimo.setAdapter(mAdapter);
+			lstUltimo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+				@Override
+				public void onItemClick(AdapterView<?> parent, final View view,
+						int position, long id) {
+					Intent intentD = new Intent(Inicio.this, DetalleIncidente.class);
+					intentD.putExtra("id",((TextView)view.findViewById(R.id.lblSinTituloIncListView)).getTag()+"");
+					startActivity(intentD);
+				}
+
+			});
+		}
 		mAdapter.notifyDataSetChanged();
-		
-        if(ultimosIncidentes!=null)
-        {
-        	for (Incidente incActual : ultimosIncidentes) {
-            	gMap.addMarker(new MarkerOptions()
-                .position(new LatLng(incActual.getLatitud(), incActual.getLongitud()))
-                .title(incActual.getTitulo()));
+
+		if(ultimosIncidentes!=null)
+		{
+			for (Incidente incActual : ultimosIncidentes) {
+				gMap.addMarker(new MarkerOptions()
+				.position(new LatLng(incActual.getLatitud(), incActual.getLongitud()))
+				.title(incActual.getTitulo()));
 			}
 
-        }
+		}
 	}
 
-	@Override
+	@SuppressLint("SimpleDateFormat") 
+	@Override 
 	protected void onResume() {
-		CentroIncidentes centroI = CentroIncidentes.darInstancia(this);
+		centroI = CentroIncidentes.darInstancia(this);
 		ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo netInfo = cm.getActiveNetworkInfo();
 		if (netInfo != null && netInfo.isConnectedOrConnecting())
 		{
 			try{
-				BackendRestClient.get("ultimos5incidentes",new JsonHttpResponseHandler()
+				Date actualFecha = centroI.darfechaActualizacion();
+				SimpleDateFormat sdf = new SimpleDateFormat();
+				sdf.applyPattern("yyyy-MM-dd'T'HH:mm:ss.00'Z'");
+				String strFecha = sdf.format(actualFecha);
+//				strFecha.replaceAll("/","T");
+//				strFecha = strFecha+"Z";
+				String url = "ultimosincidentes/"+sharedpreferences.getString(CentroIncidentes.prefNombre, CentroIncidentes.prefNombreDefault)+"/"+strFecha;
+				BackendRestClient.get(url,new JsonHttpResponseHandler()
 				{
 					@Override
 					public void onSuccess(int statusCode, org.apache.http.Header[] headers, org.json.JSONArray response) {
 						CentroIncidentes centroInc = CentroIncidentes.darInstancia(Inicio.this);
 						Log.i("Servicio Backend", "OnSuccess: "+response);
-						Inicio.this.refrescarIncidentesListAdapter(centroInc.darUltimos5IncidentesEnServidor(response));
+						Inicio.this.refrescarIncidentesListAdapter(centroInc.darUltimosIncidentesEnServidor(response));
 					}
 					@Override
 					public void onFailure (int statusCode, org.apache.http.Header[] headers,
@@ -152,15 +183,14 @@ public class Inicio extends Activity implements LocationListener{
 			}
 			catch(Exception e)
 			{
-				Log.i("Servicio Backend", "ultimos");
+				Log.i("Servicio Backend", "ultimos: "+e.getMessage());
 			}
 		}
 		else
 		{
-			ultimosIncidentes = centroI.darUltimos5Incidentes();
 			refrescarIncidentesListAdapter(null);
 		}
-		
+
 		super.onResume();
 	}
 
@@ -232,7 +262,7 @@ public class Inicio extends Activity implements LocationListener{
 		//	    }
 	}
 
-	@Override
+	@SuppressLint("SimpleDateFormat") @Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		if(requestCode==1)
@@ -242,89 +272,97 @@ public class Inicio extends Activity implements LocationListener{
 			editor.putBoolean(CentroIncidentes.prefPrimeraVez, true);
 			editor.putInt(CentroIncidentes.prefEdad, data.getIntExtra("edad", 0));
 			editor.putBoolean(CentroIncidentes.prefBorracho, false);
+			String strFecha = "2014-09-15T11:06:00.000Z";
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.000'Z'");
+			Date fechaActualizacion = new Date();
+			try {
+				fechaActualizacion = formatter.parse(strFecha);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			editor.putLong(CentroIncidentes.prefFechaActualizacion, fechaActualizacion.getTime());
 			editor.commit();
 
-			setContentView(R.layout.activity_inicio);
 		}
 	}
-	
 
-    /**
-     * function to load map. If map is not created it will create it for you
-     * */
-    private void initilizeMap() 
-    {
-    	mContext = getApplicationContext();
-    	try 
-    	{
-            locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);       
-            isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-            isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
-            if (!isGPSEnabled && !isNetworkEnabled) 
-            {
-                // No network provider is enabled
-            } 
-            else 
-            {
-                this.canGetLocation = true;
-                if (isGPSEnabled) 
-                {
-                    if (location == null) 
-                    {
-                        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
-                        Log.d("GPS Enabled", "GPS Enabled");
-                        if (locationManager != null) 
-                        {
-                            location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                        }
-                    }
-                }
-                else if (isNetworkEnabled) 
-                {
-                    locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
-                    Log.d("Network", "Network");
-                    if (locationManager != null)
-                    {
-                        location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-                    }
-                }
-            }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+	/**
+	 * function to load map. If map is not created it will create it for you
+	 * */
+	private void initilizeMap() 
+	{
+		mContext = getApplicationContext();
+		try 
+		{
+			locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);       
+			isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+			isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
-            gMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.mapInicio)).getMap();
-            myLocation = new LatLng(location.getLatitude(),location.getLongitude());
-            gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 11));
-            gMap.setMyLocationEnabled(true);
-            
-    }
-    
-    @Override
-    public void onLocationChanged(Location location) 
-    {
-      myLocation = new LatLng(location.getLatitude(), location.getLongitude());
-      CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(myLocation, 10);
-      gMap.animateCamera(cameraUpdate);
-      locationManager.removeUpdates(this);
-    }
-    
+			if (!isGPSEnabled && !isNetworkEnabled) 
+			{
+				// No network provider is enabled
+			} 
+			else 
+			{
+				this.canGetLocation = true;
+				if (isGPSEnabled) 
+				{
+					if (location == null) 
+					{
+						locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+						Log.d("GPS Enabled", "GPS Enabled");
+						if (locationManager != null) 
+						{
+							location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+						}
+					}
+				}
+				else if (isNetworkEnabled) 
+				{
+					locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
+					Log.d("Network", "Network");
+					if (locationManager != null)
+					{
+						location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+					}
+				}
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		gMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.mapInicio)).getMap();
+		myLocation = new LatLng(location.getLatitude(),location.getLongitude());
+		gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 11));
+		gMap.setMyLocationEnabled(true);
+
+	}
+
+	@Override
+	public void onLocationChanged(Location location) 
+	{
+		myLocation = new LatLng(location.getLatitude(), location.getLongitude());
+		CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(myLocation, 10);
+		gMap.animateCamera(cameraUpdate);
+		locationManager.removeUpdates(this);
+	}
+
 	@Override
 	public void onStatusChanged(String provider, int status, Bundle extras) {		
 	}
 
 	@Override
 	public void onProviderEnabled(String provider) {
-		 Toast.makeText(this, "Enabled new provider " + provider, Toast.LENGTH_SHORT).show();
-		
+		Toast.makeText(this, "Enabled new provider " + provider, Toast.LENGTH_SHORT).show();
+
 	}
 
 	@Override
 	public void onProviderDisabled(String provider) {
-		 Toast.makeText(this, "Disabled provider " + provider, Toast.LENGTH_SHORT).show();
-		
+		Toast.makeText(this, "Disabled provider " + provider, Toast.LENGTH_SHORT).show();
+
 	}
 
 	public void crearIncidente (View view)

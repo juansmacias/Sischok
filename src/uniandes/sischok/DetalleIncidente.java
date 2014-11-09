@@ -1,10 +1,13 @@
 package uniandes.sischok;
 
+import com.loopj.android.http.JsonHttpResponseHandler;
+
 import uniandes.sischok.mundo.CentroIncidentes;
 import uniandes.sischok.mundo.Incidente;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -18,10 +21,41 @@ public class DetalleIncidente extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_detalle_incidente);		
-		long id = getIntent().getLongExtra("id",0);
+		setContentView(R.layout.activity_detalle_incidente);
 		CentroIncidentes centroIncidentes = CentroIncidentes.darInstancia(this);
-		incActual = centroIncidentes.darIncidentePorId(id);
+		String id = getIntent().getStringExtra("id");
+		try{
+			long idLong = Long.parseLong(id);
+			incActual = centroIncidentes.darIncidentePorId(idLong);
+		}
+		catch(NumberFormatException e)
+		{
+			try
+			{
+				String urlGet = "incidentes/"+id;
+				BackendRestClient.get(urlGet,new JsonHttpResponseHandler()
+				{
+					@Override
+					public void onSuccess(int statusCode, org.apache.http.Header[] headers, org.json.JSONObject response) {
+						Log.i("Servicio Backend", "OnSuccess: "+response);
+						DetalleIncidente.this.setIncidente(Incidente.toIncidenteDeServidor(response));
+					}
+					@Override
+					public void onFailure (int statusCode, org.apache.http.Header[] headers,
+							String responseString, Throwable throwable) {
+						super.onFailure(statusCode, headers, responseString, throwable);
+						Log.e("Servicio Backend", "onFailure");
+
+					}
+
+				});
+			}
+			catch(Exception e1)
+			{
+				
+			}
+			
+		}
 		setTitle(incActual.getTitulo());		
 		EditText txtdesc = (EditText) findViewById(R.id.txtDetalleIncDescripcion);
 		txtdesc.setText(incActual.getDescripcion());
@@ -47,5 +81,9 @@ public class DetalleIncidente extends Activity {
 		Intent intent = new Intent(this,CompartirIncidente.class);
 		intent.putExtra("incidente", incActual.toString());
 		startActivity(intent);	
+	}
+	public void setIncidente(Incidente inc)
+	{
+		incActual = inc;
 	}
 }
