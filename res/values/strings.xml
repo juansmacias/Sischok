@@ -12,6 +12,7 @@
     <string name="title_activity_crear_incidente_descripcion">Crear Incidente</string>
     <string name="title_activity_crear_incidente_gps">Crear Incidente GPS</string>
     <string name="title_activity_crear_incidente_latlng">Crear Incidente GPS</string>
+    <string name="title_activity_vista_ebrio">Riesgo Potencial</string>
     <string name="lblCrearIncidentesTitulo">Titulo para el incidente:</string>
     <string name="lblCrearIncidenteDescripcion">Ingresa datos adicionales:</string>
     <string name="lblCrearIncidenteIngresodescripcion">Ingresa una descripción para el incidente:</string>
@@ -62,6 +63,7 @@
     <string name="lblbtnConsultaIncidente">Consulta incidente Por Zonas</string>
     <string name="lblbtnIncidentesPorAmigos">Incidentes reportados por amigos</string>
     <string name="lblbtnAjustes">Ajustes</string>
+    <string name="lblbtnSalirEstadoEbrio">No estoy ebrio</string>
     <string name="title_activity_bienvenida">Bienvenido a Sischok</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
@@ -85,4 +87,8 @@
     <string name="lblCompartirSMS">Compartir mediante SMS</string>
     <string name="lblCompartirConDetalleInc">Compartir Incidente</string>
     <string name="title_activity_ver_resultado_incidentes">Resultado Incidentes</string>
+    <string name="lblDejarDeConducir">El estado ebrio ha sido activado en este dispositivo. Usted no debería manejar. 
+Entregue las llaves a alguien que pueda conducir.</string>
+    <string name="deStop">imagen de stop</string>
+
 </resources>
