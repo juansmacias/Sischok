@@ -9,15 +9,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".CrearIncidenteConLatLng" >
     
-
     <LinearLayout
         android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
+        android:layout_width="382dp"
+        android:layout_height="519dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        
         android:layout_marginTop="17dp"
         android:background="@drawable/fondocrearincidente"
         android:orientation="vertical" >
@@ -25,21 +23,23 @@
         <TextView
             android:id="@+id/lblUsuarioComConListview"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:layout_height="60dp"
             android:layout_marginTop="30dp"
             android:text="@string/lblCrearIncidentesTitulo" />
 
         <EditText
             android:id="@+id/txtTitulo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:inputType="text" />
 
         <TextView
             android:id="@+id/lblUsuarioIncListview"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginTop="30dp"
+            android:textSize="23sp"
             android:text="@string/lblCrearIncidenteIngresodescripcion" />
 
         <EditText
@@ -53,24 +53,27 @@
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginTop="30dp"
+            android:textSize="23sp"
             android:text="@string/lblCrearIncidenteGravedad" />
 
         <EditText
             android:id="@+id/txtGravedad"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:ems="10"
             android:inputType="number" />
 
         <Button
             android:id="@+id/btncrearIncidente"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="26dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="33dp"
+            android:textSize="23sp"
             android:background="@color/rosado_botonCrearIncidente"
             android:onClick="crearIncidenteLatLng"
-            android:text="@string/btnCrearIncidenteLatLng"/>
+            android:text="@string/btnCrearIncidenteLatLng" />
+
     </LinearLayout>
 </ScrollView>

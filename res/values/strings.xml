@@ -14,7 +14,7 @@
     <string name="title_activity_crear_incidente_latlng">Crear Incidente GPS</string>
     <string name="lblCrearIncidentesTitulo">Titulo para el incidente:</string>
     <string name="lblCrearIncidenteDescripcion">Ingresa datos adicionales:</string>
-    <string name="lblCrearIncidenteIngresodescripcion">Ingresa una descripcion para el incidente:</string>
+    <string name="lblCrearIncidenteIngresodescripcion">Ingresa una descripción para el incidente:</string>
     <string name="lblCrearIncidenteGravedad">Selecciona el nivel de gravedad (1 al 5):</string>
     <string name="btnCrearIncidente"> Crear Incidente</string>
     <string name="btnCrearIncidenteLatLng">Crear Incidente Localizado</string>
@@ -24,7 +24,7 @@
     <string name="lblLocalidad4">Chapinero</string>
     <string name="lblLocalidad5">Ciudad Bolivar</string>
     <string name="lblLocalidad6">Engativa</string>
-    <string name="lblLocalidad7">Fontibon</string>
+    <string name="lblLocalidad7">Fontibón</string>
     <string name="lblLocalidad8">Kennedy</string>
     <string name="lblLocalidad9">La Candelaria</string>
     <string name="lblLocalidad10">Martires</string>
@@ -56,7 +56,7 @@
     <string name="codLocalidad17">16</string>
     <string name="codLocalidad18">17</string>
     <string name="codLocalidad19">18</string>
-    <string name="lblNuevosIncidentes">Nuevo Incidentes:</string>
+    <string name="lblNuevosIncidentes">Incidentes Recientes:</string>
     <string name="lblbntCrearIncidente">Crear Incidente</string>
     <string name="lblbntCrearIncidenteGPS">Crear Incidente GPS</string>
     <string name="lblbtnConsultaIncidente">Consulta incidente Por Zonas</string>

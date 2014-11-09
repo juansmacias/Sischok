@@ -21,13 +21,16 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class CrearIncidenteConLatLng extends Activity
 {
 
 	//String con el punto LatLng
 	private String value;
-
+	private TextView mTextView;
+	private static final String KEY_TEXT_VALUE = "textValue";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{

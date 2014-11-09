@@ -298,7 +298,6 @@ public class Inicio extends Activity implements LocationListener{
 			locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);       
 			isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
 			isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-
 			if (!isGPSEnabled && !isNetworkEnabled) 
 			{
 				// No network provider is enabled

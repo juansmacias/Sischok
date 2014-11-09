@@ -3,3 +3,5 @@
 
 src/uniandes/.DS_Store
 /AndroidManifest.xml
+/.classpath
+/project.properties
