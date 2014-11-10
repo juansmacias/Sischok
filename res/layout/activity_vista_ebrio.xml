@@ -38,12 +38,12 @@
             android:src="@drawable/stop" />
 
         <Button
-            android:id="@+id/btncrearIncidente"
+            android:id="@+id/btnEstadoEbrio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="26dp"
             android:background="@color/rosado_botonCrearIncidente"
-            android:onClick="crearIncidente"
+            android:onClick="pantallaBloqueada"
             android:text="@string/lblbtnSalirEstadoEbrio" />
     </LinearLayout>
 
