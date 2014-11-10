@@ -588,28 +588,30 @@ containing a value of this type.
     }
     public static final class layout {
         public static final int activity_bienvenida=0x7f030000;
-        public static final int activity_compartir_incidente=0x7f030001;
-        public static final int activity_consultar_incidentes=0x7f030002;
-        public static final int activity_crear_incidente_barrios=0x7f030003;
-        public static final int activity_crear_incidente_descripcion=0x7f030004;
-        public static final int activity_crear_incidente_gps=0x7f030005;
-        public static final int activity_crear_incidente_latlng=0x7f030006;
-        public static final int activity_detalle_incidente=0x7f030007;
-        public static final int activity_inicio=0x7f030008;
-        public static final int activity_ver_resultado_incidentes=0x7f030009;
-        public static final int doblelbllistview=0x7f03000a;
-        public static final int incidentelistview=0x7f03000b;
+        public static final int activity_borracho=0x7f030001;
+        public static final int activity_compartir_incidente=0x7f030002;
+        public static final int activity_consultar_incidentes=0x7f030003;
+        public static final int activity_crear_incidente_barrios=0x7f030004;
+        public static final int activity_crear_incidente_descripcion=0x7f030005;
+        public static final int activity_crear_incidente_gps=0x7f030006;
+        public static final int activity_crear_incidente_latlng=0x7f030007;
+        public static final int activity_detalle_incidente=0x7f030008;
+        public static final int activity_inicio=0x7f030009;
+        public static final int activity_ver_resultado_incidentes=0x7f03000a;
+        public static final int doblelbllistview=0x7f03000b;
+        public static final int incidentelistview=0x7f03000c;
     }
     public static final class menu {
         public static final int bienvenida=0x7f0b0000;
-        public static final int compartir_incidente=0x7f0b0001;
-        public static final int consultar_incidentes=0x7f0b0002;
-        public static final int crear_incidente_barrios=0x7f0b0003;
-        public static final int crear_incidente_descripcion=0x7f0b0004;
-        public static final int crear_incidente_gps=0x7f0b0005;
-        public static final int detalle_incidente=0x7f0b0006;
-        public static final int inicio=0x7f0b0007;
-        public static final int ver_resultado_incidentes=0x7f0b0008;
+        public static final int borracho=0x7f0b0001;
+        public static final int compartir_incidente=0x7f0b0002;
+        public static final int consultar_incidentes=0x7f0b0003;
+        public static final int crear_incidente_barrios=0x7f0b0004;
+        public static final int crear_incidente_descripcion=0x7f0b0005;
+        public static final int crear_incidente_gps=0x7f0b0006;
+        public static final int detalle_incidente=0x7f0b0007;
+        public static final int inicio=0x7f0b0008;
+        public static final int ver_resultado_incidentes=0x7f0b0009;
     }
     public static final class raw {
         public static final int coordenadaslocalidades=0x7f040000;
@@ -796,6 +798,7 @@ containing a value of this type.
         public static final int store_picture_message=0x7f060001;
         public static final int store_picture_title=0x7f060000;
         public static final int title_activity_bienvenida=0x7f060061;
+        public static final int title_activity_borracho=0x7f060078;
         public static final int title_activity_compartir_incidente=0x7f060074;
         public static final int title_activity_consultar_incidentes=0x7f06006e;
         public static final int title_activity_crear_incidente_barrios=0x7f06002a;

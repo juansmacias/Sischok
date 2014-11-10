@@ -26,8 +26,10 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -39,6 +41,7 @@ import android.widget.Toast;
 import uniandes.sischok.R;
 import uniandes.sischok.mundo.CentroEventos;
 import uniandes.sischok.mundo.CentroIncidentes;
+import uniandes.sischok.mundo.DetectarBorrachosService;
 import uniandes.sischok.mundo.Incidente;
 
 
@@ -73,22 +76,31 @@ public class Inicio extends Activity implements LocationListener{
 			Intent intentBienvenida = new Intent(this, Bienvenida.class);
 			startActivityForResult(intentBienvenida,1);
 		}
+		if(sharedpreferences.getBoolean(CentroIncidentes.prefBorracho, false))
+		{
+			Intent intentBorracho = new Intent(this, Borracho.class);
+			startActivity(intentBorracho);
+		}
+		else
+		{
+			
+			IntentFilter intentFilterDetectar = new IntentFilter(DetectarBorrachosService.AVISAR_ACTION);
+			LocalBroadcastManager.getInstance(this).registerReceiver(centroI,intentFilterDetectar);
+			Intent intentDetectar = new Intent(this, DetectarBorrachosService.class);
+			startService(intentDetectar);
+		}
+		
 		centroI.setFechaActualizacion(new Date(sharedpreferences.getLong(CentroIncidentes.prefFechaActualizacion, (new Date()).getTime())));
-		Intent intent = new Intent(this, CentroEventos.class);
-		startService(intent);
-
-		// TODO:crea el intent de las notificaciones		
-		// Start service Centro Eventos using AlarmManager
-
+		
+		Intent intentEventos = new Intent(this, CentroEventos.class);
 		Calendar cal = Calendar.getInstance();
-		cal.add(Calendar.SECOND, 10);
-
-		PendingIntent pintent = PendingIntent.getService(this, 0, intent, 0);
-
+		cal.add(Calendar.SECOND,10);
+		PendingIntent pintent = PendingIntent.getService(this, 0, intentEventos, 0);
 		AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 		//for 30 mint 60*60*1000
 		alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
 				60*60*1000, pintent);
+		
 		try 
 		{
 			initilizeMap();

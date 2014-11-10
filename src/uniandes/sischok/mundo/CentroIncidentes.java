@@ -3,6 +3,7 @@ package uniandes.sischok.mundo;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,16 +15,19 @@ import org.json.JSONObject;
 import de.greenrobot.dao.query.QueryBuilder;
 
 import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.sqlite.SQLiteDatabase;
+import uniandes.sischok.CrearIncidenteBarrios;
 import uniandes.sischok.R;
 import uniandes.sischok.mundo.DaoMaster.DevOpenHelper;
 import uniandes.sischok.mundo.Incidente;
 import uniandes.sischok.mundo.IncidenteDao.Properties;
 
-public class CentroIncidentes {
+public class CentroIncidentes extends BroadcastReceiver{
 
 	//-------------------Atributos-------------------------------
 	
@@ -184,19 +188,10 @@ public class CentroIncidentes {
 		fechaActualizacion = date;
 	}
 	
-//	JSONArray jArryIncs = new JSONArray();
-//	for (int i = 0; i < ultimosIncidentes.size(); i++) {
-//		JSONObject jobjIncA = new JSONObject();
-//
-//		try {
-//			Incidente incA = (Incidente) ultimosIncidentes.get(i);
-//			jobjIncA.put("titulo", incA.getTitulo());
-//			jobjIncA.put("id", incA.getId());
-//		} catch (JSONException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		jArryIncs.put(jobjIncA);
-//		}
-//	return jArryIncs.toString();
+    public void onReceive(Context context, Intent intent) {
+    	SharedPreferences sharedpreferences = contexto.getSharedPreferences(CentroIncidentes.nombrePreferencias, Context.MODE_PRIVATE);
+    	Editor editor = sharedpreferences.edit();
+		editor.putBoolean(CentroIncidentes.prefBorracho, true);
+		editor.commit();
+    }
 }
