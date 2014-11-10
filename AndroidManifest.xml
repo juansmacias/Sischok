@@ -103,7 +103,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="uniandes.sischok.CrearIncidenteConLatLng" />
         </activity>
-
+        <activity
+            android:name=".VistaEbrio"
+            android:label="@string/title_activity_vista_ebrio" >
+        </activity>
+        
         <!-- Goolge Maps API Key -->
         <uses-library android:name="com.google.android.maps" />
 
