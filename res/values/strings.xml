@@ -14,6 +14,7 @@
     <string name="title_activity_crear_incidente_gps">Crear Incidente GPS</string>
     <string name="title_activity_crear_incidente_latlng">Crear Incidente GPS</string>
     <string name="title_activity_vista_ebrio">Riesgo Potencial</string>
+    <string name="title_activity_pantalla_bloqueada">Riesgo Potencial - Pantalla Bloqueada</string>
     <string name="lblCrearIncidentesTitulo">Titulo para el incidente:</string>
     <string name="lblCrearIncidenteDescripcion">Ingresa datos adicionales:</string>
     <string name="lblCrearIncidenteIngresodescripcion">Ingresa una descripción para el incidente:</string>

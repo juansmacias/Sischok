@@ -125,6 +125,10 @@
             android:name=".Borracho"
             android:label="@string/title_activity_borracho" >
         </activity>
+        <activity
+            android:name=".Pantallabloqueada"
+            android:label="@string/title_activity_pantalla_bloqueada" >
+        </activity>
     </application>
 
 </manifest>
