@@ -78,8 +78,8 @@ public class Inicio extends Activity implements LocationListener{
 		}
 		if(sharedpreferences.getBoolean(CentroIncidentes.prefBorracho, false))
 		{
-			Intent intentBorracho = new Intent(this, Borracho.class);
-			startActivity(intentBorracho);
+//			Intent intentBorracho = new Intent(this, Borracho.class);
+//			startActivity(intentBorracho);
 		}
 		else
 		{
@@ -226,7 +226,7 @@ public class Inicio extends Activity implements LocationListener{
 			if (netInfo != null && netInfo.isConnectedOrConnecting())
 			{
 				//esta conectado a internet
-				Intent intentCrearGPS = new Intent(this, CrearIncidenteGPS.class);
+				Intent intentCrearGPS = new Intent(this, VistaEbrio.class);
 				startActivity(intentCrearGPS);
 				return true;
 			}

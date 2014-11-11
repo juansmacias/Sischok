@@ -3,6 +3,7 @@ package uniandes.sischok;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 
 public class VistaEbrio extends Activity
@@ -18,7 +19,7 @@ public class VistaEbrio extends Activity
 //		HomeKeyLocker HomeKeyLoader = new HomeKeyLocker();
 	}
 	
-	public void pantallaBloqueada()
+	public void pantallaBloqueada(View view)
 	{
 		Intent intent = new Intent(VistaEbrio.this,Pantallabloqueada.class);
 		startActivity(intent);	
@@ -26,8 +27,8 @@ public class VistaEbrio extends Activity
 	
 	@Override
 	public void onAttachedToWindow() {
-	    this.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
-	    super.onAttachedToWindow();
+//	    this.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+//	    super.onAttachedToWindow();
 	}
 //	@Override    
 //	public void onWindowFocusChanged(boolean hasFocus) {
