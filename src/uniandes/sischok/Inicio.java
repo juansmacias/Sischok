@@ -76,6 +76,9 @@ public class Inicio extends Activity implements LocationListener{
 			Intent intentBienvenida = new Intent(this, Bienvenida.class);
 			startActivityForResult(intentBienvenida,1);
 		}
+    	Editor editor = sharedpreferences.edit();
+		editor.putBoolean(CentroIncidentes.prefBorracho, false);
+		editor.commit();
 		if(sharedpreferences.getBoolean(CentroIncidentes.prefBorracho, false))
 		{
 			Intent intentBorracho = new Intent(this, Borracho.class);
@@ -83,9 +86,6 @@ public class Inicio extends Activity implements LocationListener{
 		}
 		else
 		{
-			
-			IntentFilter intentFilterDetectar = new IntentFilter(DetectarBorrachosService.AVISAR_ACTION);
-			LocalBroadcastManager.getInstance(this).registerReceiver(centroI,intentFilterDetectar);
 			Intent intentDetectar = new Intent(this, DetectarBorrachosService.class);
 			startService(intentDetectar);
 		}

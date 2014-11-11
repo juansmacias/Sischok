@@ -27,7 +27,7 @@ import uniandes.sischok.mundo.DaoMaster.DevOpenHelper;
 import uniandes.sischok.mundo.Incidente;
 import uniandes.sischok.mundo.IncidenteDao.Properties;
 
-public class CentroIncidentes extends BroadcastReceiver{
+public class CentroIncidentes{
 
 	//-------------------Atributos-------------------------------
 	
@@ -188,10 +188,4 @@ public class CentroIncidentes extends BroadcastReceiver{
 		fechaActualizacion = date;
 	}
 	
-    public void onReceive(Context context, Intent intent) {
-    	SharedPreferences sharedpreferences = contexto.getSharedPreferences(CentroIncidentes.nombrePreferencias, Context.MODE_PRIVATE);
-    	Editor editor = sharedpreferences.edit();
-		editor.putBoolean(CentroIncidentes.prefBorracho, true);
-		editor.commit();
-    }
 }

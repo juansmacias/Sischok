@@ -30,6 +30,9 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <!--      <uses-permission android:name="android.permission.STATUS_BAR_SERVICE" android:protectionLevel="signature" /> -->
+        <uses-feature android:name="android.hardware.sensor.light"/>
+    
+    
     <!-- Required OpenGL ES 2.0. for Maps V2 -->
     <!--
         uses-feature
@@ -103,10 +106,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="uniandes.sischok.CrearIncidenteConLatLng" />
         </activity>
-        <activity
+<!--         <activity
             android:name=".VistaEbrio"
             android:label="@string/title_activity_vista_ebrio" >
-        </activity>
+        </activity> -->
         
         <!-- Goolge Maps API Key -->
         <uses-library android:name="com.google.android.maps" />
