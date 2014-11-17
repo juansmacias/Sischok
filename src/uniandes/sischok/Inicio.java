@@ -226,7 +226,7 @@ public class Inicio extends Activity implements LocationListener{
 			if (netInfo != null && netInfo.isConnectedOrConnecting())
 			{
 				//esta conectado a internet
-				Intent intentCrearGPS = new Intent(this, VistaEbrio.class);
+				Intent intentCrearGPS = new Intent(this, CrearIncidenteGPS.class);
 				startActivity(intentCrearGPS);
 				return true;
 			}
