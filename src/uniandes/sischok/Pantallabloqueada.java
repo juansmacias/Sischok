@@ -21,12 +21,22 @@ import android.widget.Button;
 @SuppressWarnings("deprecation")
 public class Pantallabloqueada extends Activity
 {
-
+	/**
+	 * Dimensiones del layout contenedor de los botones
+	 */
 	public int width;
 	public int height;
+	/**
+	 * Tamano del dispositivo en el que se despliega el activity
+	 */
 	public String tamano;
-	boolean orden;
+	/**
+	 * variable que valida si el countdown timer del metodo onClick ya termino para cada letra
+	 */
 	boolean finish; 
+	/**
+	 * Variebles para saber si ya fueron seleccionadas esas letras
+	 */
 	boolean a,g,i,t,v,x,y;
 	Button buttonA;
 	Button buttonG;
@@ -35,6 +45,9 @@ public class Pantallabloqueada extends Activity
 	Button buttonX;
 	Button buttonY;
 	Button buttonT;
+	/**
+	 * Variable que mira cuanto tiempo lleva la activity sin ninguna actividad y lo devuelve a la anterior activity
+	 */
 	CountDownTimer timerGeneral; 
 
 	public void onCreate(Bundle savedInstanceState)
@@ -75,7 +88,6 @@ public class Pantallabloqueada extends Activity
 		buttonT = (Button)findViewById(R.id.bT);
 		modificarBoton( buttonT);
 
-		orden=false;
 		finish= false;
 		a = false;
 		g = false;
@@ -99,17 +111,13 @@ public class Pantallabloqueada extends Activity
 				{
 					public void onClick(DialogInterface dialog, int id) 
 					{
-						//Agregar el incidente
-						//   		            	lstLatLngs.add(point);
-						//					insertarIncidente(point);
-						//   		            	gMap.addMarker(new MarkerOptions().position(point));
-						//TODO oncreate en este punto para refrescar el activity
+						Intent intent = new Intent(Pantallabloqueada.this, VistaEbrio.class);
+						startActivity(intent);
+						onDestroy();
 					}
 				});
 				AlertDialog alert = builder.create();
 				alert.show();
-				Intent intent = new Intent(Pantallabloqueada.this, VistaEbrio.class);
-				startActivity(intent);
 			}
 			@Override
 			public void onTick(long millisLeft) 
@@ -118,7 +126,11 @@ public class Pantallabloqueada extends Activity
 			}
 		}.start();
 	}
-
+	
+	/**
+	 * Metodo para pintar un boon en cierto espacio del absolutelayout
+	 * @param buttonParam
+	 */
 	private void modificarBoton(Button buttonParam) 
 	{
 		// TODO VALIDAR QUE NO PINTE UN BOTON SOBRE otro
@@ -134,6 +146,12 @@ public class Pantallabloqueada extends Activity
 		buttonParam.setLayoutParams(absParams);
 	}
 
+	/**
+	 * Metodo ayuda para validar posicion de un boton antes de pintar
+	 * TODO
+	 * @param numeroBoton
+	 * @return
+	 */
 	public boolean posicionValida(int numeroBoton)
 	{
 		boolean posicionValida = false;
@@ -147,7 +165,10 @@ public class Pantallabloqueada extends Activity
 		return posicionValida;
 
 	}
-
+	/**
+	 * Metodo que valida la rapidez con la que se oprimen las letras y el orden en que se hace
+	 * @param vie
+	 */
 	public void onClick(View vie)
 	{
 		timerGeneral.cancel();
@@ -166,18 +187,15 @@ public class Pantallabloqueada extends Activity
 				{
 					public void onClick(DialogInterface dialog, int id) 
 					{
-						//Agregar el incidente
-						//   		            	lstLatLngs.add(point);
-						//					insertarIncidente(point);
-						//   		            	gMap.addMarker(new MarkerOptions().position(point));
 						//TODO oncreate en este punto para refrescar el activity
+						Intent intent = new Intent(Pantallabloqueada.this, VistaEbrio.class);
+						startActivity(intent);
+						onDestroy();
 					}
 				});
 				AlertDialog alert = builder.create();
 				alert.show();
-				Intent intent = new Intent(Pantallabloqueada.this, VistaEbrio.class);
-				startActivity(intent);
-				onDestroy();
+//				alert.
 			}
 			@Override
 			public void onTick(long millisLeft) 
