@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/rosado_botonCrearIncidente"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".VistaEbrio" >
+
+    <AbsoluteLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/fondocrearincidente"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/lblIngresaDatos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="15dp"
+            android:text="@string/lblDejarDeConducir"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <Button
+            android:id="@+id/btnEstadoEbrio"
+            android:layout_width="189dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="26dp"
+            android:layout_x="20dp"
+            android:layout_y="101dp"
+            android:background="@color/rosado_botonCrearIncidente"
+            android:onClick="pantallaBloqueada"
+            android:text="@string/lblbtnSalirEstadoEbrio" />
+
+        <ImageView
+            android:id="@+id/imageStop"
+            android:layout_width="367dp"
+            android:layout_height="132dp"
+            android:layout_margin="15dp"
+            android:layout_x="188dp"
+            android:layout_y="70dp"
+            android:contentDescription="@string/deStop"
+            android:src="@drawable/stop" />
+
+    </AbsoluteLayout>
+
+</RelativeLayout>

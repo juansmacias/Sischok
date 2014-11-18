@@ -81,8 +81,8 @@ public class Inicio extends Activity implements LocationListener{
 		editor.commit();
 		if(sharedpreferences.getBoolean(CentroIncidentes.prefBorracho, false))
 		{
-			Intent intentBorracho = new Intent(this, Borracho.class);
-			startActivity(intentBorracho);
+//			Intent intentBorracho = new Intent(this, Borracho.class);
+//			startActivity(intentBorracho);
 		}
 		else
 		{

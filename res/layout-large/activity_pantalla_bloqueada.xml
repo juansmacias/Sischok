@@ -12,14 +12,14 @@
     <AbsoluteLayout
         android:id="@+id/absoluteLayoutPB"
         android:layout_width="fill_parent"
-        android:layout_height="332dp"
+        android:layout_height="575dp"
         android:layout_y="88dp" >
 
         <Button
             android:id="@+id/bA"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="36dp"
             android:layout_marginTop="92dp"
             android:layout_x="0dp"
@@ -30,29 +30,18 @@
         <Button
             android:id="@+id/bG"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_x="172dp"
             android:layout_y="58dp"
             android:onClick="onClick"
             android:text="@string/lblbtnLetraG" />
 
         <Button
-            android:id="@+id/bV"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
-            android:layout_x="24dp"
-            android:layout_y="40dp"
-            android:onClick="onClick"
-            android:text="@string/lblbtnLetraV" />
-
-        <Button
             android:id="@+id/bI"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_x="166dp"
             android:layout_y="152dp"
             android:onClick="onClick"
@@ -61,8 +50,8 @@
         <Button
             android:id="@+id/bX"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_x="90dp"
             android:layout_y="102dp"
             android:onClick="onClick"
@@ -71,8 +60,8 @@
         <Button
             android:id="@+id/bY"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_x="74dp"
             android:layout_y="261dp"
             android:onClick="onClick"
@@ -81,12 +70,23 @@
         <Button
             android:id="@+id/bT"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_x="164dp"
             android:layout_y="244dp"
             android:onClick="onClick"
             android:text="@string/lblbtnLetraT" />
+
+        <Button
+            android:id="@+id/bV"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="15dp"
+            android:layout_x="32dp"
+            android:layout_y="85dp"
+            android:onClick="onClick"
+            android:text="@string/lblbtnLetraV" />
 
     </AbsoluteLayout>
 

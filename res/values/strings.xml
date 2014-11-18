@@ -66,6 +66,15 @@
     <string name="lblbtnIncidentesPorAmigos">Incidentes reportados por amigos</string>
     <string name="lblbtnAjustes">Ajustes</string>
     <string name="lblbtnSalirEstadoEbrio">No estoy ebrio</string>
+    <string name="lblbtnLetraA">A</string>
+    <string name="lblbtnLetraG">G</string>
+    <string name="lblbtnLetraV">V</string>
+    <string name="lblbtnLetraI">I</string>
+    <string name="lblbtnLetraX">X</string>
+    <string name="lblbtnLetraY">Y</string>
+    <string name="lblbtnLetraT">T</string>
+    <string name="lblbtnLetraE">E</string>
+    <string name="lblbtnLetraM">M</string>
     <string name="title_activity_bienvenida">Bienvenido a Sischok</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
@@ -91,5 +100,6 @@
     <string name="title_activity_ver_resultado_incidentes">Resultado Incidentes</string>
     <string name="title_activity_borracho">Entregue las llaves</string>
     <string name="lblDejarDeConducir">El estado ebrio ha sido activado en este dispositivo. Usted no debería manejar. Entregue las llaves a alguien que pueda conducir.</string>
+    <string name="lblPantallaBloqueada">Por favor oprima las letras en orden alfabético</string>
     <string name="deStop">imagen de stop</string>
 </resources>
