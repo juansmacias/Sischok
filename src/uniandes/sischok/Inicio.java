@@ -6,6 +6,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Calendar;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.google.android.gms.internal.mm;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -26,10 +31,8 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -43,6 +46,7 @@ import uniandes.sischok.mundo.CentroEventos;
 import uniandes.sischok.mundo.CentroIncidentes;
 import uniandes.sischok.mundo.DetectarBorrachosService;
 import uniandes.sischok.mundo.Incidente;
+import uniandes.sischok.mundo.ServicioPusher;
 
 
 
@@ -69,6 +73,17 @@ public class Inicio extends Activity implements LocationListener{
 		setContentView(R.layout.activity_inicio);
 		sharedpreferences = getSharedPreferences(CentroIncidentes.nombrePreferencias, Context.MODE_PRIVATE);
 		centroI = CentroIncidentes.darInstancia(this);
+		try 
+		{
+			initilizeMap();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		Intent ServicioPusher = new Intent(this, ServicioPusher.class);
+		startService(ServicioPusher);
+
 		if (!sharedpreferences.contains(CentroIncidentes.prefPrimeraVez))
 		{
 
@@ -76,19 +91,43 @@ public class Inicio extends Activity implements LocationListener{
 			Intent intentBienvenida = new Intent(this, Bienvenida.class);
 			startActivityForResult(intentBienvenida,1);
 		}
-    	Editor editor = sharedpreferences.edit();
-		editor.putBoolean(CentroIncidentes.prefBorracho, false);
-		editor.commit();
-		if(sharedpreferences.getBoolean(CentroIncidentes.prefBorracho, false))
-		{
-//			Intent intentBorracho = new Intent(this, Borracho.class);
-//			startActivity(intentBorracho);
-		}
-		else
-		{
+
+//		if(sharedpreferences.getBoolean(CentroIncidentes.prefBorracho, false))
+//		{
+//			try{
+//				JSONObject nuevoArr = new JSONObject();
+//				nuevoArr.put("nombre",sharedpreferences.getString(CentroIncidentes.prefNombre, CentroIncidentes.prefNombreDefault));
+//				nuevoArr.put("ultimaLatitud", myLocation.latitude);
+//				nuevoArr.put("ultimaLongitud", myLocation.longitude);
+//				BackendRestClient.post("activarBorracho", this,nuevoArr.toString(), new JsonHttpResponseHandler()
+//				{
+//					@Override
+//					public void onSuccess(int statusCode, org.apache.http.Header[] headers, org.json.JSONObject response) {
+//						Log.i("Servicio Backend", "OnSuccess de borracho Activar: "+response);
+//					}
+//					@Override
+//					public void onFailure (int statusCode, org.apache.http.Header[] headers,
+//							String responseString, Throwable throwable) {
+//						super.onFailure(statusCode, headers, responseString, throwable);
+//						Log.e("Servicio Backend", "onFailurede borracho Activar");
+//
+//					}
+//
+//				});
+//			}
+//			catch(Exception e)
+//			{
+//				Log.i("Servicio Backend", "activando borracho catch");
+//			}
+////			Intent intentBorracho = new Intent(this, VistaEbrio.class);
+////			startActivity(intentBorracho);
+//		}
+//		else
+//		{
 			Intent intentDetectar = new Intent(this, DetectarBorrachosService.class);
+			intentDetectar.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			startService(intentDetectar);
-		}
+//		}
 		
 		centroI.setFechaActualizacion(new Date(sharedpreferences.getLong(CentroIncidentes.prefFechaActualizacion, (new Date()).getTime())));
 		
@@ -101,13 +140,7 @@ public class Inicio extends Activity implements LocationListener{
 		alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
 				60*60*1000, pintent);
 		
-		try 
-		{
-			initilizeMap();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		darBorrachosServidor();
 	}
 
 	public void refrescarIncidentesListAdapter(List<Incidente> lstIncidentes)
@@ -241,6 +274,9 @@ public class Inicio extends Activity implements LocationListener{
 			Intent intetConsultar = new Intent(this, ConsultarIncidentes.class);
 			startActivity(intetConsultar);
 			return true;
+		case R.id.notificar:
+			notificarUsuarios();
+			return true;
 		}
 		return  false ; 
 	}
@@ -274,6 +310,25 @@ public class Inicio extends Activity implements LocationListener{
 		//	    }
 	}
 
+	private void notificarUsuarios()
+	{
+		BackendRestClient.get("notificar",new JsonHttpResponseHandler()
+		{
+			@Override
+			public void onSuccess(int statusCode, org.apache.http.Header[] headers, String response) {
+				Log.i("Servicio Backend", "OnSuccess en notificar: "+response);
+			}
+			@Override
+			public void onFailure (int statusCode, org.apache.http.Header[] headers,
+					String responseString, Throwable throwable) {
+				super.onFailure(statusCode, headers, responseString, throwable);
+				Log.e("Servicio Backend", "onFailure en notificar");
+
+			}
+
+		});
+	}
+	
 	@SuppressLint("SimpleDateFormat") @Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
@@ -374,6 +429,51 @@ public class Inicio extends Activity implements LocationListener{
 	public void onProviderDisabled(String provider) {
 		Toast.makeText(this, "Disabled provider " + provider, Toast.LENGTH_SHORT).show();
 
+	}
+	
+	private void darBorrachosServidor()
+	{
+		BackendRestClient.get("darBorrachos",new JsonHttpResponseHandler()
+		{
+			@Override
+			public void onSuccess(int statusCode, org.apache.http.Header[] headers,  org.json.JSONArray response) {
+				Inicio.this.agregarBorrachosMapa(response);
+				Log.i("Servicio Backend", "OnSuccess dar borracho: "+response);
+			}
+			@Override
+			public void onFailure (int statusCode, org.apache.http.Header[] headers,
+					String responseString, Throwable throwable) {
+				super.onFailure(statusCode, headers, responseString, throwable);
+				Log.e("Servicio Backend", "onFailure en notificar");
+
+			}
+
+		});
+	}
+	
+	private void agregarBorrachosMapa(JSONArray borrachos)
+	{
+		for (int i =0;i<borrachos.length();i++) {
+			try {
+				JSONObject jsonO = (JSONObject) borrachos.get(i);
+				   gMap.addMarker(new MarkerOptions()
+					.position(new LatLng(jsonO.getDouble("ultimaLatitud"), jsonO.getDouble("ultimaLongitud")))
+					.title("Usuario Borracho"));
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	@Override
+	protected void onNewIntent(Intent intent) {
+	   super.onNewIntent(intent);
+	   if(intent.getDoubleExtra("latitud", -100)!=-100){
+		   gMap.addMarker(new MarkerOptions()
+			.position(new LatLng(intent.getDoubleExtra("latitud", 4.591722), intent.getDoubleExtra("longitud", -74.074131)))
+			.title("Usuario Borracho"));
+	   }
 	}
 
 	public void crearIncidente (View view)

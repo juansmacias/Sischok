@@ -172,7 +172,7 @@ public class Pantallabloqueada extends Activity
 	public void onClick(View vie)
 	{
 		timerGeneral.cancel();
-		CountDownTimer timer = new CountDownTimer(4000, 1000) 
+		CountDownTimer timer = new CountDownTimer(6000, 1000) 
 		{
 			@Override
 			public void onFinish() 

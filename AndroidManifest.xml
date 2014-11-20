@@ -32,7 +32,6 @@
 <!--      <uses-permission android:name="android.permission.STATUS_BAR_SERVICE" android:protectionLevel="signature" /> -->
         <uses-feature android:name="android.hardware.sensor.light"/>
     
-    
     <!-- Required OpenGL ES 2.0. for Maps V2 -->
     <!--
         uses-feature
@@ -48,7 +47,8 @@
         <service android:name=".mundo.CentroEventos" />
         <service android:name=".mundo.CentroNotificaciones" />
         <service android:name=".mundo.DetectarBorrachosService" />
-
+        <service android:name=".mundo.ServicioPusher" />
+        
         <activity
             android:name=".Inicio"
             android:label="@string/title_activity_inicio" >
@@ -129,6 +129,7 @@
             android:name=".Pantallabloqueada"
             android:label="@string/title_activity_pantalla_bloqueada" >
         </activity>
+        <activity android:name="VistaEbrio"></activity>
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@
     <string name="action_settings">Ajustes</string>
     <string name="action_crear">Crear Incidente</string>
     <string name="action_ver">Consultar Incidentes</string>
+    <string name="action_notificar">Notificar Usuarios</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_crear_incidente_barrios">Seleccionar Barrio</string>
     <string name="lblSeleccionarBarrio">Selecciona la Localidad del indicente:</string>
