@@ -277,7 +277,15 @@ public class Pantallabloqueada extends Activity
 			finish=false;
 			buttonY.setVisibility(View.GONE);
 			y=true;
+			
 			//LLEGAR ACA IMPLICA QUE EL USUARIO NO ESTA EBRIO
+			SharedPreferences sharedpreferences = getSharedPreferences(CentroIncidentes.nombrePreferencias, Context.MODE_PRIVATE);
+			Editor editor = sharedpreferences.edit();
+			editor.putBoolean(CentroIncidentes.prefBorracho, false);
+			editor.commit();
+			Intent intent = new Intent(Pantallabloqueada.this, Inicio.class);
+			startActivity(intent);
+			onDestroy();
 		}
 		if(vie.getId() == R.id.bY && (!a || !g || !i || !t || !v || !x))
 		{
